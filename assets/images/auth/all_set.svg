@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1">
+<circle id="Ellipse" cx="150" cy="150" r="150" fill="url(#paint0_radial_0_20)"/>
+<circle id="Ellipse_2" cx="150" cy="150" r="78" fill="url(#paint1_radial_0_20)"/>
+<g id="Frame">
+<path id="Vector" d="M167 138L143.625 161L133 150.545" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_20" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 150) scale(150)">
+<stop stop-color="#F4B183" stop-opacity="0"/>
+<stop offset="0.34" stop-color="#EE9A63" stop-opacity="0.85"/>
+<stop offset="0.62" stop-color="#E2854A" stop-opacity="0.42"/>
+<stop offset="1" stop-color="#E2854A" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_0_20" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 150) scale(78)">
+<stop stop-color="#F6BB90"/>
+<stop offset="0.62" stop-color="#EE9557" stop-opacity="0.95"/>
+<stop offset="1" stop-color="#EA8F4E" stop-opacity="0.55"/>
+</radialGradient>
+</defs>
+</svg>
