@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="xMidYMid meet" style="display: block;" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Emblem">
+<rect width="96" height="96" rx="48" fill="white" fill-opacity="0.72"/>
+<rect x="0.5" y="0.5" width="95" height="95" rx="47.5" stroke="white" stroke-opacity="0.9"/>
+<path id="Ring 80" opacity="0.22" d="M87.4 48C87.4 69.76 69.76 87.4 48 87.4C26.24 87.4 8.6 69.76 8.6 48C8.6 26.24 26.24 8.6 48 8.6C69.76 8.6 87.4 26.24 87.4 48Z" stroke-width="1.2" stroke="#6E85A2"/>
+<path id="Ring 64" opacity="0.38" d="M79.4 48C79.4 65.3417 65.3417 79.4 48 79.4C30.6583 79.4 16.6 65.3417 16.6 48C16.6 30.6583 30.6583 16.6 48 16.6C65.3417 16.6 79.4 30.6583 79.4 48Z" stroke-width="1.2" stroke="#6E85A2"/>
+<circle id="Core" cx="48" cy="48" r="23" fill="url(#paint0_radial_0_82)"/>
+<g id="Check">
+<path id="Vector" d="M42.4 48.4L46.1 52.1L53.6 44.3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#FAF8F5"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_82" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 48) scale(23)">
+<stop stop-color="#DBE3EC"/>
+<stop offset="1" stop-color="#A2B4C8"/>
+</radialGradient>
+</defs>
+</svg>

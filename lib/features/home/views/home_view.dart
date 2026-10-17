@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
@@ -10,32 +11,37 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
-
     return Scaffold(
-      backgroundColor: AppColors.surface,
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFD89A72), Color(0x00F1EDE7)],
-            stops: [0, 0.28],
-          ),
-        ),
-        child: SafeArea(
+      backgroundColor: const Color(0xFFF1EDE7),
+      body: AppBackground(
+        child: Positioned.fill(
+            child: SafeArea(
+          bottom: false,
           child: Column(
             children: [
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                   children: [
-                    const AppText('Hello,', variant: AppTextVariant.fieldLabel),
-                    const AppText(
-                      'Natasha',
-                      variant: AppTextVariant.headline,
-                      color: AppColors.ink,
-                      style: TextStyle(fontSize: 32, height: 34 / 32, letterSpacing: -0.4),
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AppText('Hello,', variant: AppTextVariant.fieldLabel),
+                              AppText(
+                                'Natasha',
+                                variant: AppTextVariant.headline,
+                                color: AppColors.ink,
+                                style: TextStyle(fontSize: 32, height: 34 / 32, letterSpacing: -0.4),
+                              ),
+                            ],
+                          ),
+                        ),
+                        _NotificationButton(),
+                      ],
                     ),
                     const SizedBox(height: 20),
                     const AppText(
@@ -61,7 +67,8 @@ class HomeView extends StatelessWidget {
                     const AppText(
                       'How are you feeling?',
                       variant: AppTextVariant.link,
-                      color: AppColors.muted,
+                      color: Color(0xFF6E675F),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
                     ),
                     const SizedBox(height: 10),
                     const _FeelingRow(),
@@ -76,13 +83,11 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: bottomInset),
-                child: const AppNavBar(current: '/home'),
-              ),
+              const AppNavBar(current: '/home'),
             ],
           ),
-        ),
+            ),
+          ),
       ),
     );
   }
@@ -100,9 +105,9 @@ class _StreakCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppColors.stroke),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -112,7 +117,12 @@ class _StreakCard extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.local_fire_department, color: Color(0xFFE07A3D)),
+          SvgPicture.asset(
+            'assets/images/home/streak_fire.svg',
+            width: 16,
+            height: 24,
+            fit: BoxFit.contain,
+          ),
         ],
       ),
     );
@@ -203,6 +213,52 @@ class _PlayButton extends StatelessWidget {
   }
 }
 
+class _NotificationButton extends StatelessWidget {
+  const _NotificationButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => context.push('/notifications'),
+      child: SizedBox(
+        width: 40,
+        height: 40,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: Color(0xFF33302C),
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: SvgPicture.asset(
+                'assets/images/home/notification_bell.svg',
+                width: 22,
+                height: 22,
+                fit: BoxFit.contain,
+              ),
+            ),
+            const Positioned(
+              top: 1,
+              right: 1,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Color(0xFFD93F3F),
+                  shape: BoxShape.circle,
+                ),
+                child: SizedBox(width: 8, height: 8),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _FeelingRow extends StatelessWidget {
   const _FeelingRow();
 
@@ -211,42 +267,77 @@ class _FeelingRow extends StatelessWidget {
     return const SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _FeelingChip(label: 'Calm down', id: 'calm', color: Color(0xFFDCE9E4)),
+          _FeelingTopic(
+            label: 'Calm down',
+            id: 'calm',
+            icon: 'assets/images/home/feeling_calm.svg',
+          ),
           SizedBox(width: 8),
-          _FeelingChip(label: 'Overthinking', id: 'overthinking', color: Color(0xFFF6E2D6)),
+          _FeelingTopic(
+            label: 'Overthinking',
+            id: 'overthinking',
+            icon: 'assets/images/home/feeling_overthinking.svg',
+          ),
           SizedBox(width: 8),
-          _FeelingChip(label: 'For sleep', id: 'sleep', color: Color(0xFFEBE8E3)),
+          _FeelingTopic(
+            label: 'For sleep',
+            id: 'sleep',
+            icon: 'assets/images/home/feeling_sleep.svg',
+          ),
           SizedBox(width: 8),
-          _FeelingChip(label: 'For mornings', id: 'mornings', color: Color(0xFFF7E9C8)),
+          _FeelingTopic(
+            label: 'For mornings',
+            id: 'mornings',
+            icon: 'assets/images/home/feeling_mornings.svg',
+          ),
         ],
       ),
     );
   }
 }
 
-class _FeelingChip extends StatelessWidget {
-  const _FeelingChip({
+class _FeelingTopic extends StatelessWidget {
+  const _FeelingTopic({
     required this.label,
     required this.id,
-    required this.color,
+    required this.icon,
   });
 
   final String label;
   final String id;
-  final Color color;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.push('/category/$id'),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(999),
+      child: SizedBox(
+        width: 96,
+        child: Column(
+          children: [
+            Container(
+              width: 72,
+              height: 72,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: Color(0xFFFAF8F5),
+                shape: BoxShape.circle,
+              ),
+              child: SvgPicture.asset(icon, width: 30, height: 30, fit: BoxFit.contain),
+            ),
+            const SizedBox(height: 8),
+            AppText(
+              label,
+              variant: AppTextVariant.caption,
+              color: const Color(0xFF6E675F),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
         ),
-        child: AppText(label, variant: AppTextVariant.caption, color: AppColors.ink),
       ),
     );
   }

@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
-import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/features/breathing/engine/breathing_clock.dart';
 import 'package:romu/features/breathing/models/breathing_pattern.dart';
 import 'package:romu/features/breathing/models/breathing_phase.dart';
@@ -43,13 +45,15 @@ class _BreathSessionViewState extends State<BreathSessionView>
   var _elapsed = Duration.zero;
   var _running = true;
   var _finished = false;
+  var _sound = true;
+  var _haptics = true;
   Timer? _ticker;
 
   @override
   void initState() {
     super.initState();
     _enter.forward();
-    _ticker = Timer.periodic(const Duration(milliseconds: 50), (_) {
+    _ticker = Timer.periodic(const Duration(milliseconds: 2), (_) {
       if (!_running || !mounted || _finished) {
         return;
       }
@@ -94,75 +98,199 @@ class _BreathSessionViewState extends State<BreathSessionView>
       BreathingPhaseType.exhale => 'Let the breath leave',
     };
 
+    final clock = _clock(remaining.isNegative ? Duration.zero : remaining);
+
     return Scaffold(
-      backgroundColor: const Color(0xFF7E9486),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () => context.pop(),
-                    icon: const Icon(Icons.close, color: Colors.white),
-                  ),
-                  const Spacer(),
-                  AppText(_clock(remaining.isNegative ? Duration.zero : remaining), variant: AppTextVariant.field, color: Colors.white),
-                ],
-              ),
-              const Spacer(),
-              ScaleTransition(
-                scale: CurvedAnimation(parent: _enter, curve: Curves.easeOutCubic),
-                child: Transform.scale(
-                  scale: frame.scale,
-                  child: Container(
-                    width: 240,
-                    height: 240,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: RadialGradient(
-                        colors: [Color(0xFFFFE7CC), Color(0x66FFD7B0), Color(0x00FFD7B0)],
+      backgroundColor: const Color(0xFFF1EDE7),
+      body: AppBackground(
+        wash: AppWash.breathSession,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Material(
+                      color: AppColors.ink,
+                      shape: const CircleBorder(),
+                      child: InkWell(
+                        onTap: () => context.pop(),
+                        customBorder: const CircleBorder(),
+                        child: const SizedBox(
+                          width: 44,
+                          height: 44,
+                          child: Icon(
+                            Icons.chevron_left,
+                            color: Color(0xFFFAF8F5),
+                            size: 26,
+                          ),
+                        ),
                       ),
                     ),
-                    child: AppText(
-                      '${phase.secondsLeft}',
-                      variant: AppTextVariant.display,
-                      color: AppColors.ink,
-                      style: const TextStyle(fontSize: 64),
+                    const Spacer(),
+                    Container(
+                      width: 46,
+                      height: 46,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: const Color(0xFF33302C)),
+                      ),
+                      child: Text(
+                        clock,
+                        style: const TextStyle(
+                          fontFamily: 'Jost',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.ink,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                ScaleTransition(
+                  scale: CurvedAnimation(
+                    parent: _enter,
+                    curve: Curves.easeOutCubic,
+                  ),
+                  child: Transform.scale(
+                    scale: frame.scale,
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: 312,
+                      height: 312,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          const _Ring(size: 312, color: Color(0x2E7E97B4)),
+                          const _Ring(size: 256, color: Color(0x4789A1BB)),
+                          const _Ring(size: 200, color: Color(0x669AB1C8)),
+                          const _Ring(size: 148, color: Color(0x8CB6C7D8)),
+                          const _Ring(size: 120, color: Color(0xFFF7EFE3)),
+                          Text(
+                            '${phase.secondsLeft}',
+                            style: const TextStyle(
+                              fontFamily: 'Cormorant Garamond',
+                              fontSize: 34,
+                              fontWeight: FontWeight.w300,
+                              height: 1,
+                              color: AppColors.ink,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 28),
-              AppText(label, variant: AppTextVariant.headline, color: Colors.white),
-              const SizedBox(height: 6),
-              AppText(guide, variant: AppTextVariant.field, color: Colors.white, textAlign: TextAlign.center),
-              const SizedBox(height: 18),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                alignment: WrapAlignment.center,
-                children: [
-                  for (final step in _pattern.phases)
-                    _PhaseChip(
-                      label: '${_phaseName(step.type)} ${step.seconds}s',
-                      active: step == phase.phase,
-                    ),
-                ],
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () => setState(() => _running = !_running),
-                icon: Icon(
-                  _running ? Icons.pause_circle : Icons.play_circle,
-                  color: Colors.white,
-                  size: 72,
+                const SizedBox(height: 28),
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontFamily: 'Cormorant Garamond',
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    height: 1,
+                    color: AppColors.ink,
+                  ),
                 ),
-              ),
-              AppText(_running ? 'Pause' : 'Resume', variant: AppTextVariant.caption, color: Colors.white),
-            ],
+                const SizedBox(height: 8),
+                Text(
+                  guide,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: 'Jost',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF6E675F),
+                  ),
+                ),
+                const SizedBox(height: 18),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (
+                        var index = 0;
+                        index < _pattern.phases.length;
+                        index++
+                      ) ...[
+                        if (index > 0) const SizedBox(width: 8),
+                        _PhaseChip(
+                          label:
+                              '${_phaseName(_pattern.phases[index].type)} ${_pattern.phases[index].seconds}s',
+                          active: _pattern.phases[index] == phase.phase,
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _RoundToggle(
+                      asset: 'assets/images/breath/sound.svg',
+                      muted: !_sound,
+                      onTap: () => setState(() => _sound = !_sound),
+                    ),
+                    const SizedBox(width: 20),
+                    _GlassControl(
+                      onTap: () => setState(() => _running = !_running),
+                      width: 152,
+                      height: 56,
+                      radius: 1000,
+                      fill: _running
+                          ? const Color(0x29FAF8F5)
+                          : const Color(0xB8F7F4EF),
+                      border: _running
+                          ? const Color(0xFFFAF8F5)
+                          : const Color(0x17000000),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _running ? 'Pause' : 'Resume',
+                            style: TextStyle(
+                              fontFamily: 'Instrument Sans',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              height: 28 / 18,
+                              color: _running
+                                  ? const Color(0xFFFFFFFF)
+                                  : AppColors.ink,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          _running
+                              ? SvgPicture.asset(
+                                  'assets/images/breath/pause_icon.svg',
+                                  width: 24,
+                                  height: 24,
+                                )
+                              : SvgPicture.asset(
+                                  'assets/images/breath/play.svg',
+                                  width: 15,
+                                  height: 18,
+                                  colorFilter: const ColorFilter.mode(
+                                    AppColors.ink,
+                                    BlendMode.srcIn,
+                                  ),
+                                ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    _RoundToggle(
+                      asset: 'assets/images/breath/haptic.svg',
+                      muted: !_haptics,
+                      onTap: () => setState(() => _haptics = !_haptics),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -170,13 +298,17 @@ class _BreathSessionViewState extends State<BreathSessionView>
   }
 
   _PhaseSnapshot _phaseNow() {
-    final intoCycleMs = _elapsed.inMilliseconds % (_pattern.cycleSeconds * 1000);
+    final intoCycleMs =
+        _elapsed.inMilliseconds % (_pattern.cycleSeconds * 1000);
     var cursor = 0;
     for (final phase in _pattern.phases) {
       final phaseMs = phase.seconds * 1000;
       if (intoCycleMs < cursor + phaseMs || phase == _pattern.phases.last) {
         final into = intoCycleMs - cursor;
-        final left = (phase.seconds - into / 1000).ceil().clamp(1, phase.seconds);
+        final left = (phase.seconds - into / 1000).ceil().clamp(
+          1,
+          phase.seconds,
+        );
         return _PhaseSnapshot(phase, left);
       }
       cursor += phaseMs;
@@ -208,6 +340,125 @@ class _PhaseSnapshot {
   BreathingPhaseType get type => phase.type;
 }
 
+class _Ring extends StatelessWidget {
+  const _Ring({required this.size, required this.color});
+
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    );
+  }
+}
+
+class _RoundToggle extends StatelessWidget {
+  const _RoundToggle({
+    required this.asset,
+    required this.onTap,
+    this.muted = false,
+  });
+
+  final String asset;
+  final VoidCallback onTap;
+  final bool muted;
+
+  @override
+  Widget build(BuildContext context) {
+    return _GlassControl(
+      onTap: onTap,
+      width: 52,
+      height: 52,
+      radius: 26,
+      fill: const Color(0x24FAF8F5),
+      border: const Color(0x99FAF8F5),
+      child: Opacity(
+        opacity: muted ? 0.45 : 1,
+        child: SvgPicture.asset(asset, width: 24, height: 24),
+      ),
+    );
+  }
+}
+
+class _GlassControl extends StatelessWidget {
+  const _GlassControl({
+    required this.onTap,
+    required this.width,
+    required this.height,
+    required this.radius,
+    required this.fill,
+    required this.border,
+    required this.child,
+  });
+
+  final VoidCallback onTap;
+  final double width;
+  final double height;
+  final double radius;
+  final Color fill;
+  final Color border;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final shape = BorderRadius.circular(radius);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: shape,
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x08000000),
+            offset: Offset(0, 1),
+            blurRadius: 1,
+            spreadRadius: -0.5,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: shape,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+          child: Material(
+            color: fill,
+            child: InkWell(
+              onTap: onTap,
+              child: Ink(
+                width: width,
+                height: height,
+                decoration: BoxDecoration(
+                  borderRadius: shape,
+                  border: Border.all(color: border),
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const Positioned.fill(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment(0, -0.15),
+                            colors: [Color(0x1FFFFFFF), Color(0x00FFFFFF)],
+                          ),
+                        ),
+                      ),
+                    ),
+                    child,
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _PhaseChip extends StatelessWidget {
   const _PhaseChip({required this.label, required this.active});
 
@@ -217,15 +468,23 @@ class _PhaseChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      height: active ? 36 : 38,
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: active ? Colors.white : const Color(0x33FFFFFF),
+        color: active ? const Color(0xFF33302C) : const Color(0xB3FAF8F5),
         borderRadius: BorderRadius.circular(999),
+        border: active ? null : Border.all(color: const Color(0xFFDDD6CC)),
       ),
-      child: AppText(
+      child: Text(
         label,
-        variant: AppTextVariant.caption,
-        color: active ? AppColors.ink : Colors.white,
+        style: TextStyle(
+          fontFamily: 'Jost',
+          fontSize: 14,
+          height: 1,
+          fontWeight: FontWeight.w500,
+          color: active ? const Color(0xFFFAF8F5) : const Color(0xFF6E675F),
+        ),
       ),
     );
   }

@@ -33,18 +33,22 @@ class AppButton extends StatelessWidget {
       textAlign: TextAlign.center,
     );
 
+    final lightBackground = backgroundColor.computeLuminance() > 0.6;
+
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1000),
         border: Border.all(color: borderColor),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x08000000),
-            offset: Offset(0, 1),
-            blurRadius: 1,
-            spreadRadius: -0.5,
-          ),
-        ],
+        boxShadow: lightBackground
+            ? const [
+                BoxShadow(
+                  color: Color(0x08000000),
+                  offset: Offset(0, 1),
+                  blurRadius: 1,
+                  spreadRadius: -0.5,
+                ),
+              ]
+            : null,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(1000),
@@ -69,23 +73,24 @@ class AppButton extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned.fill(
-              child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(1000)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.buttonHighlight,
-                        offset: Offset(0, 3),
-                        blurRadius: 3,
-                        blurStyle: BlurStyle.inner,
-                      ),
-                    ],
+            if (lightBackground)
+              const Positioned.fill(
+                child: IgnorePointer(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(1000)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.buttonHighlight,
+                          offset: Offset(0, 3),
+                          blurRadius: 3,
+                          blurStyle: BlurStyle.inner,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),

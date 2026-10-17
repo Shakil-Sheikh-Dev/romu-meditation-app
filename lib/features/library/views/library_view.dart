@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
@@ -9,127 +11,251 @@ class LibraryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
     return Scaffold(
       backgroundColor: AppColors.surface,
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
-              children: [
-                const AppText(
-                  'Library',
-                  variant: AppTextVariant.display,
-                  color: AppColors.ink,
-                  style: TextStyle(fontSize: 40, height: 1.1),
-                ),
-                const SizedBox(height: 20),
-                _category(
-                  context,
-                  'Calm down',
-                  'For anxiety, tension and strong emotions',
-                  const Color(0xFFDCE9E4),
-                  'calm',
-                ),
-                _category(
-                  context,
-                  'Overthinking',
-                  'When your head is loud and focus is hard',
-                  const Color(0xFFF6E2D6),
-                  'overthinking',
-                ),
-                _category(
-                  context,
-                  'For sleep',
-                  'For evenings, winding down and easier rest',
-                  const Color(0xFFEBE8E3),
-                  'sleep',
-                ),
-                _category(
-                  context,
-                  'For mornings',
-                  'A clear start, before the day gets loud',
-                  const Color(0xFFF7E9C8),
-                  'mornings',
-                ),
-                const SizedBox(height: 8),
-                const AppText('Popular Practices', variant: AppTextVariant.link, color: AppColors.ink),
-                const SizedBox(height: 12),
-                _practice(context, "When you can't settle", '7 min', 7),
-                _practice(context, 'Finding peace in chaos', '5 min', 5),
-                _practice(context, 'The art of letting go', '8 min', 8),
-              ],
+      body: AppBackground(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                children: const [
+                  AppText(
+                    'Library',
+                    variant: AppTextVariant.display,
+                    color: AppColors.ink,
+                    style: TextStyle(fontSize: 40, height: 1.1),
+                  ),
+                  SizedBox(height: 20),
+                  _CategoryGrid(),
+                  SizedBox(height: 25),
+                  _PopularHeader(),
+                  SizedBox(height: 12),
+                  _PracticeRow(title: "When you can't settle", minutes: 7),
+                  _PracticeRow(title: 'Finding peace in chaos', minutes: 5),
+                  _PracticeRow(title: 'The art of letting go', minutes: 8),
+                  _PracticeRow(title: 'Embracing uncertainty', minutes: 6),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: bottomInset),
-            child: const AppNavBar(current: '/library'),
-          ),
-        ],
+            const AppNavBar(current: '/library'),
+          ],
+        ),
       ),
     );
   }
+}
 
-  Widget _category(
-    BuildContext context,
-    String title,
-    String body,
-    Color tint,
-    String id,
-  ) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+class _CategoryGrid extends StatelessWidget {
+  const _CategoryGrid();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: _CategoryCard(
+                title: 'Calm down',
+                body: 'For anxiety, tension and strong emotions',
+                tint: Color(0xFFDCE9E4),
+                icon: 'assets/images/library/calm.svg',
+                id: 'calm',
+              ),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: _CategoryCard(
+                title: 'Overthinking',
+                body: 'When your head is loud and focus is hard',
+                tint: Color(0xFFF6E2D6),
+                icon: 'assets/images/library/overthinking.svg',
+                id: 'overthinking',
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(
+              child: _CategoryCard(
+                title: 'For sleep',
+                body: 'For evenings, winding down and easier rest',
+                tint: Color(0xFFEBE8E3),
+                icon: 'assets/images/library/sleep.svg',
+                id: 'sleep',
+              ),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: _CategoryCard(
+                title: 'For mornings',
+                body: 'For evenings, winding down and easier rest',
+                tint: Color(0xFFF7E9C8),
+                icon: 'assets/images/library/mornings.svg',
+                id: 'mornings',
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _CategoryCard extends StatelessWidget {
+  const _CategoryCard({
+    required this.title,
+    required this.body,
+    required this.tint,
+    required this.icon,
+    required this.id,
+  });
+
+  final String title;
+  final String body;
+  final Color tint;
+  final String icon;
+  final String id;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xFFFDFCFA),
+      borderRadius: BorderRadius.circular(22),
       child: InkWell(
         onTap: () => context.push('/category/$id'),
         borderRadius: BorderRadius.circular(22),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: const Color(0xFFFDFCFA),
-            borderRadius: BorderRadius.circular(22),
-            border: Border.all(color: AppColors.stroke),
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(color: tint, borderRadius: BorderRadius.circular(25)),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(title, variant: AppTextVariant.fieldLabel),
-                    AppText(body, variant: AppTextVariant.caption),
-                  ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 158),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(color: tint, shape: BoxShape.circle),
+                  child: SvgPicture.asset(icon, width: 22, height: 22, fit: BoxFit.contain),
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                AppText(
+                  title,
+                  variant: AppTextVariant.fieldLabel,
+                  color: const Color(0xFF1C1B1A),
+                ),
+                const SizedBox(height: 4),
+                AppText(
+                  body,
+                  variant: AppTextVariant.caption,
+                  color: const Color(0xFF7A7671),
+                  maxLines: 3,
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
 
-  Widget _practice(BuildContext context, String title, String length, int minutes) {
+class _PopularHeader extends StatelessWidget {
+  const _PopularHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Expanded(
+          child: AppText(
+            'Popular Practices',
+            variant: AppTextVariant.link,
+            color: AppColors.ink,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+        ),
+        AppText('See all', variant: AppTextVariant.caption, color: Color(0xFF7A7671)),
+        SizedBox(width: 4),
+        Icon(Icons.chevron_right, size: 16, color: Color(0xFF7A7671)),
+      ],
+    );
+  }
+}
+
+class _PracticeRow extends StatelessWidget {
+  const _PracticeRow({required this.title, required this.minutes});
+
+  final String title;
+  final int minutes;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: ListTile(
-        onTap: () => context.push(
-          '/player?title=${Uri.encodeComponent(title)}&minutes=$minutes',
-        ),
-        tileColor: const Color(0xFFFDFCFA),
-        shape: RoundedRectangleBorder(
+      child: Material(
+        color: const Color(0xFFFDFCFA),
+        borderRadius: BorderRadius.circular(18),
+        child: InkWell(
+          onTap: () => context.push(
+            '/meditation?title=${Uri.encodeComponent(title)}&minutes=$minutes',
+          ),
           borderRadius: BorderRadius.circular(18),
-          side: const BorderSide(color: AppColors.stroke),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                Container(
+                  width: 54,
+                  height: 54,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xFFC9CFD6), Color(0xFF8A96A0)],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(title, variant: AppTextVariant.fieldLabel),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          const Icon(Icons.schedule, size: 13, color: Color(0xFF7A7671)),
+                          const SizedBox(width: 4),
+                          AppText(
+                            '$minutes min',
+                            variant: AppTextVariant.caption,
+                            color: const Color(0xFF7A7671),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 42,
+                  height: 42,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFEFEBE5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.play_arrow_rounded, color: Color(0xFF1C1B1A), size: 22),
+                ),
+              ],
+            ),
+          ),
         ),
-        title: AppText(title, variant: AppTextVariant.fieldLabel),
-        subtitle: AppText(length, variant: AppTextVariant.caption),
-        trailing: const Icon(Icons.play_circle_outline, color: AppColors.ink),
       ),
     );
   }

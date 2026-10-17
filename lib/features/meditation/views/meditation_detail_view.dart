@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_button.dart';
@@ -79,8 +80,14 @@ class MeditationDetailView extends StatelessWidget {
                       spacing: 8,
                       children: [
                         _Chip(label: topic, filled: true),
-                        _Chip(label: '$minutes min'),
-                        const _Chip(label: 'Guided'),
+                        _Chip(
+                          label: '$minutes min',
+                          icon: 'assets/images/meditation/chip_time.svg',
+                        ),
+                        const _Chip(
+                          label: 'Guided',
+                          icon: 'assets/images/meditation/chip_guided.svg',
+                        ),
                       ],
                     ),
                     const SizedBox(height: 20),
@@ -102,16 +109,31 @@ class MeditationDetailView extends StatelessWidget {
                           ),
                           SizedBox(height: 10),
                           AppText(
-                            'Let the day slowly loosen its hold. This gentle meditation helps you release lingering thoughts, worries, and emotions from the day.\n\nThrough slow breathing and soothing guidance, you’ll quiet the mind, relax the body, and create space for stillness.',
+                            'Let the day slowly loosen its hold. This gentle meditation helps you release lingering thoughts, worries, and emotions from the day.\nThrough slow breathing and soothing guidance, you’ll quiet the mind, relax the body, and create space for stillness. Let go of what can wait until tomorrow and ease naturally into a peaceful, restful sleep.',
                             variant: AppTextVariant.field,
                           ),
                         ],
                       ),
                     ),
                     const SizedBox(height: 12),
-                    const AppText(
-                      'Best with headphones, somewhere quiet.',
-                      variant: AppTextVariant.caption,
+                    const Row(
+                      children: [
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFD89A72),
+                            shape: BoxShape.circle,
+                          ),
+                          child: SizedBox(width: 6, height: 6),
+                        ),
+                        SizedBox(width: 6),
+                        Flexible(
+                          child: AppText(
+                            'Best with headphones, somewhere quiet.',
+                            variant: AppTextVariant.caption,
+                            color: AppColors.muted,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -142,26 +164,34 @@ class MeditationDetailView extends StatelessWidget {
 }
 
 class _Chip extends StatelessWidget {
-  const _Chip({required this.label, this.filled = false});
+  const _Chip({required this.label, this.filled = false, this.icon});
 
   final String label;
   final bool filled;
+  final String? icon;
 
   @override
   Widget build(BuildContext context) {
+    final color = filled ? AppColors.onImage : AppColors.muted;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      height: 34,
+      padding: const EdgeInsets.symmetric(horizontal: 14),
       decoration: BoxDecoration(
         color: filled ? const Color(0xFFD89A72) : AppColors.card,
         borderRadius: BorderRadius.circular(999),
         border: Border.all(
-          color: filled ? const Color(0x80D89A72) : AppColors.stroke,
+          color: filled ? const Color(0xFFD89A72) : AppColors.stroke,
         ),
       ),
-      child: AppText(
-        label,
-        variant: AppTextVariant.caption,
-        color: filled ? AppColors.onImage : AppColors.muted,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            SvgPicture.asset(icon!, width: 14, height: 14, fit: BoxFit.contain),
+            const SizedBox(width: 6),
+          ],
+          AppText(label, variant: AppTextVariant.caption, color: color),
+        ],
       ),
     );
   }

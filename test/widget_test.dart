@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,9 +12,16 @@ import 'package:romu/features/breathing/models/breathing_pattern.dart';
 import 'package:romu/features/breathing/models/breathing_phase.dart';
 import 'package:romu/features/breathing/models/breathing_session_plan.dart';
 
+Future<void> openWelcome(WidgetTester tester) async {
+  await tester.pumpWidget(const ProviderScope(child: App()));
+  await tester.pump();
+  GoRouter.of(tester.element(find.byType(Scaffold))).go('/');
+  await tester.pumpAndSettle();
+}
+
 void main() {
   testWidgets('welcome screen shows the start actions', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: App()));
+    await openWelcome(tester);
 
     expect(find.text('Get Started'), findsOneWidget);
     expect(find.text('Sign In'), findsOneWidget);
@@ -23,7 +31,7 @@ void main() {
     expect(find.text('Your day demands a lot from you'), findsOneWidget);
 
     await tester.pumpWidget(const SizedBox.shrink());
-    await tester.pumpWidget(const ProviderScope(child: App()));
+    await openWelcome(tester);
     await tester.tap(find.text('Sign In'));
     await tester.pumpAndSettle();
     expect(find.text('Create your account'), findsOneWidget);
@@ -101,7 +109,7 @@ void main() {
       tester.binding.setSurfaceSize(null);
     });
 
-    await tester.pumpWidget(const ProviderScope(child: App()));
+    await openWelcome(tester);
     expect(tester.takeException(), isNull);
 
     await tester.tap(find.text('Get Started'));

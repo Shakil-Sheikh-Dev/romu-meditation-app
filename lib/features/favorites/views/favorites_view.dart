@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
 import 'package:romu/features/favorites/viewmodels/favorites_view_model.dart';
@@ -27,11 +28,11 @@ class _FavoritesViewState extends ConsumerState<FavoritesView> {
       }
       return true;
     }).toList();
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
 
     return Scaffold(
       backgroundColor: AppColors.surface,
-      body: Column(
+      body: AppBackground(
+        child: Column(
         children: [
           Expanded(
             child: ListView(
@@ -110,11 +111,9 @@ class _FavoritesViewState extends ConsumerState<FavoritesView> {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: bottomInset),
-            child: const AppNavBar(current: '/favorites'),
-          ),
+          const AppNavBar(current: '/favorites'),
         ],
+      ),
       ),
     );
   }

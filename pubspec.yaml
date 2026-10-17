@@ -73,6 +73,9 @@ flutter:
     - assets/images/intent/
     - assets/images/auth/
     - assets/images/home/
+    - assets/images/nav/
+    - assets/images/library/
+    - assets/images/breath/
     - assets/images/subscription/
     - assets/images/meditation/
     - assets/images/categories/

@@ -3,11 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_text.dart';
 import 'package:romu/features/favorites/viewmodels/favorites_view_model.dart';
 
@@ -165,20 +167,10 @@ class _PlayerViewState extends ConsumerState<PlayerView>
         : _position.inMilliseconds / _total.inMilliseconds;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFD9D3CC),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          const DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFFF3EFEA), Color(0xFFB7B1AA), Color(0xFF8E8882)],
-              ),
-            ),
-          ),
-          SafeArea(
+      backgroundColor: const Color(0xFFF1EDE7),
+      body: AppBackground(
+        wash: AppWash.player,
+        child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 28),
               child: Column(
@@ -257,7 +249,7 @@ class _PlayerViewState extends ConsumerState<PlayerView>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _SeekButton(label: '10S', icon: Icons.replay_10, onPressed: () => _seek(-10)),
+                      _SeekButton(onPressed: () => _seek(-10)),
                       const SizedBox(width: 32),
                       GestureDetector(
                         onTap: () => _setPlaying(!_playing),
@@ -276,14 +268,13 @@ class _PlayerViewState extends ConsumerState<PlayerView>
                         ),
                       ),
                       const SizedBox(width: 32),
-                      _SeekButton(label: '10S', icon: Icons.forward_10, onPressed: () => _seek(10)),
+                      _SeekButton(forward: true, onPressed: () => _seek(10)),
                     ],
                   ),
                 ],
               ),
             ),
           ),
-        ],
       ),
     );
   }
@@ -326,24 +317,31 @@ class _PlayingGlow extends StatelessWidget {
 }
 
 class _SeekButton extends StatelessWidget {
-  const _SeekButton({
-    required this.label,
-    required this.icon,
-    required this.onPressed,
-  });
+  const _SeekButton({required this.onPressed, this.forward = false});
 
-  final String label;
-  final IconData icon;
   final VoidCallback onPressed;
+  final bool forward;
 
   @override
   Widget build(BuildContext context) {
+    final icon = SvgPicture.asset(
+      'assets/images/meditation/seek_back.svg',
+      width: 24,
+      height: 24,
+      fit: BoxFit.contain,
+    );
     return GestureDetector(
       onTap: onPressed,
       child: Column(
         children: [
-          Icon(icon, color: Colors.white, size: 24),
-          AppText(label, variant: AppTextVariant.caption, color: Colors.white),
+          forward ? Transform.flip(flipX: true, child: icon) : icon,
+          const SizedBox(height: 2),
+          const AppText(
+            '10S',
+            variant: AppTextVariant.caption,
+            color: Colors.white,
+            style: TextStyle(fontSize: 12, height: 1),
+          ),
         ],
       ),
     );

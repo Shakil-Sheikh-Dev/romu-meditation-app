@@ -1,108 +1,117 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
-
-class BreathPractice {
-  const BreathPractice({
-    required this.title,
-    required this.subtitle,
-    required this.pattern,
-    required this.patternId,
-  });
-
-  final String title;
-  final String subtitle;
-  final String pattern;
-  final String patternId;
-}
+import 'package:romu/features/breathwork/views/breath_setup_view.dart';
 
 class BreathworkListView extends StatelessWidget {
   const BreathworkListView({super.key});
 
-  static const practices = <BreathPractice>[
-    BreathPractice(
-      title: 'Calm down',
-      subtitle: 'Settle your nervous system',
-      pattern: '4 · 2 · 6',
-      patternId: '4-6',
-    ),
-    BreathPractice(
-      title: 'Focus',
-      subtitle: 'Sharpen and steady the mind',
-      pattern: '4 · 4 · 4 · 4',
-      patternId: '4-4-4-4',
-    ),
-    BreathPractice(
-      title: 'Sleep',
-      subtitle: 'Wind down towards rest',
-      pattern: '4 · 7 · 8',
-      patternId: '4-7-8',
-    ),
-    BreathPractice(
-      title: 'Box Breathing',
-      subtitle: 'Settle your nervous system',
-      pattern: '4 · 4 · 4 · 4',
-      patternId: '4-4-4-4',
-    ),
-  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.surface,
+      body: AppBackground(
+        wash: AppWash.sage,
+        child: Column(
+          children: [
+            Expanded(
+              child: SafeArea(
+                bottom: false,
+                child: ListView(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                  children: [
+                    const AppText(
+                      'Breathwork',
+                      variant: AppTextVariant.display,
+                      color: AppColors.ink,
+                      style: TextStyle(fontSize: 40, height: 1.1),
+                    ),
+                    const SizedBox(height: 16),
+                    const AppText(
+                      'Practice',
+                      variant: AppTextVariant.link,
+                      color: AppColors.ink,
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    ),
+                    const SizedBox(height: 12),
+                    for (final practice in BreathPractice.all)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: _PracticeRow(practice: practice),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            const AppNavBar(current: '/breathwork'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PracticeRow extends StatelessWidget {
+  const _PracticeRow({required this.practice});
+
+  final BreathPractice practice;
 
   @override
   Widget build(BuildContext context) {
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
-    return Scaffold(
-      backgroundColor: AppColors.surface,
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
-              children: [
-                const AppText(
-                  'Breathwork',
-                  variant: AppTextVariant.display,
-                  color: AppColors.ink,
-                  style: TextStyle(fontSize: 40, height: 1.1),
-                ),
-                const SizedBox(height: 8),
-                const AppText('Practice', variant: AppTextVariant.link, color: AppColors.ink),
-                const SizedBox(height: 12),
-                for (final practice in practices)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Material(
-                      color: const Color(0xFFFDFCFA),
-                      borderRadius: BorderRadius.circular(20),
-                      child: ListTile(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: const BorderSide(color: AppColors.stroke),
-                        ),
-                        title: AppText(practice.title, variant: AppTextVariant.button, color: AppColors.ink),
-                        subtitle: AppText(practice.subtitle, variant: AppTextVariant.caption),
-                        trailing: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFE7EFE8),
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          child: AppText(practice.pattern, variant: AppTextVariant.caption),
-                        ),
-                        onTap: () => context.push(
-                          '/breath-setup?title=${Uri.encodeComponent(practice.title)}&pattern=${practice.patternId}',
-                        ),
-                      ),
-                    ),
+    return Material(
+      color: const Color(0xFFFDFCFA),
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        onTap: () => showBreathSetup(context, practice),
+        borderRadius: BorderRadius.circular(20),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            children: [
+              Container(
+                width: 54,
+                height: 54,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFFD5D8DE), Color(0xFFAEB4BC)],
                   ),
-              ],
-            ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppText(practice.title, variant: AppTextVariant.fieldLabel),
+                    const SizedBox(height: 2),
+                    AppText(
+                      practice.subtitle,
+                      variant: AppTextVariant.caption,
+                      color: const Color(0xFF7A7671),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEFEBE5),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: AppText(
+                  practice.pattern,
+                  variant: AppTextVariant.caption,
+                  color: AppColors.ink,
+                ),
+              ),
+            ],
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: bottomInset),
-            child: const AppNavBar(current: '/breathwork'),
-          ),
-        ],
+        ),
       ),
     );
   }

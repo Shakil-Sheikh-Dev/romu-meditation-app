@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_button.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
@@ -21,16 +23,9 @@ class SessionCompleteView extends StatelessWidget {
     final detail = subtitle.isEmpty ? title : '$title · $subtitle';
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F0EB),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFE7E2DC), Color(0xFFF6F3EF), Color(0xFFF6F3EF)],
-            stops: [0, 0.42, 1],
-          ),
-        ),
+      backgroundColor: const Color(0xFFF1EDE7),
+      body: AppBackground(
+        wash: AppWash.session,
         child: SafeArea(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -116,11 +111,17 @@ class _CheckMark extends StatelessWidget {
     return Container(
       width: 84,
       height: 84,
+      alignment: Alignment.center,
       decoration: const BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
       ),
-      child: const Icon(Icons.check, color: Color(0xFFC4784A), size: 34),
+      child: SvgPicture.asset(
+        'assets/images/meditation/session_check.svg',
+        width: 28,
+        height: 20,
+        fit: BoxFit.contain,
+      ),
     );
   }
 }
@@ -131,28 +132,44 @@ class _StreakCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    final today = DateTime.now().weekday - 1;
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 18),
+      padding: const EdgeInsets.fromLTRB(16, 15, 16, 16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
+        color: const Color(0xFFFDFCFA),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
           const Row(
             children: [
               Expanded(
-                child: AppText('8 day streak', variant: AppTextVariant.fieldLabel),
+                child: AppText(
+                  '8 day streak',
+                  variant: AppTextVariant.fieldLabel,
+                  style: TextStyle(fontSize: 17),
+                ),
               ),
-              AppText('Best 12 days', variant: AppTextVariant.caption),
+              AppText(
+                'Best 12 days',
+                variant: AppTextVariant.caption,
+                color: Color(0xFF7A7671),
+              ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 13),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               for (var index = 0; index < days.length; index++)
-                _DayDot(label: days[index], filled: index < 6),
+                _DayDot(
+                  label: days[index],
+                  state: index < today
+                      ? _DayState.done
+                      : index == today
+                      ? _DayState.today
+                      : _DayState.upcoming,
+                ),
             ],
           ),
         ],
@@ -161,29 +178,41 @@ class _StreakCard extends StatelessWidget {
   }
 }
 
+enum _DayState { done, today, upcoming }
+
 class _DayDot extends StatelessWidget {
-  const _DayDot({required this.label, required this.filled});
+  const _DayDot({required this.label, required this.state});
 
   final String label;
-  final bool filled;
+  final _DayState state;
 
   @override
   Widget build(BuildContext context) {
+    final color = switch (state) {
+      _DayState.done => AppColors.ink,
+      _DayState.today => const Color(0xFFD89A72),
+      _DayState.upcoming => const Color(0xFFF1EDE7),
+    };
     return Column(
       children: [
         Container(
           width: 28,
           height: 28,
-          decoration: BoxDecoration(
-            color: filled ? AppColors.ink : const Color(0xFFE7E1DA),
-            shape: BoxShape.circle,
-          ),
-          child: filled
-              ? const Icon(Icons.check, color: Colors.white, size: 14)
-              : null,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          child: state == _DayState.upcoming
+              ? null
+              : const Icon(Icons.check, color: Colors.white, size: 14),
         ),
-        const SizedBox(height: 6),
-        AppText(label, variant: AppTextVariant.caption),
+        const SizedBox(height: 7),
+        AppText(
+          label,
+          variant: AppTextVariant.caption,
+          color: state == _DayState.upcoming
+              ? const Color(0xFF9A938A)
+              : const Color(0xFF7A7671),
+          style: const TextStyle(fontSize: 11),
+        ),
       ],
     );
   }
@@ -220,13 +249,18 @@ class _Stat extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xFFFDFCFA),
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           children: [
             AppText(value, variant: AppTextVariant.title, textAlign: TextAlign.center),
-            AppText(label, variant: AppTextVariant.caption, textAlign: TextAlign.center),
+            AppText(
+              label,
+              variant: AppTextVariant.caption,
+              color: const Color(0xFF7A7671),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
@@ -240,9 +274,9 @@ class _UpNextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.fromLTRB(12, 12, 14, 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color(0xFFFDFCFA),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -251,8 +285,12 @@ class _UpNextCard extends StatelessWidget {
             width: 52,
             height: 52,
             decoration: BoxDecoration(
-              color: const Color(0xFFD9D3E4),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(13),
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFFD8CFE0), Color(0xFFA394B0)],
+              ),
             ),
           ),
           const SizedBox(width: 12),
@@ -260,15 +298,24 @@ class _UpNextCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText('UP NEXT', variant: AppTextVariant.caption),
+                AppText(
+                  'UP NEXT',
+                  variant: AppTextVariant.caption,
+                  color: Color(0xFF9A938A),
+                  style: TextStyle(fontSize: 10, letterSpacing: 0.4),
+                ),
                 AppText('Evening body scan', variant: AppTextVariant.fieldLabel),
-                AppText('18 min · For sleep', variant: AppTextVariant.caption),
+                AppText(
+                  '18 min · For sleep',
+                  variant: AppTextVariant.caption,
+                  color: Color(0xFF7A7671),
+                ),
               ],
             ),
           ),
           _RoundButton(
             icon: Icons.play_arrow,
-            filled: true,
+            play: true,
             onPressed: () => context.push(
               '/player?title=${Uri.encodeComponent('Evening body scan')}&minutes=18&subtitle=${Uri.encodeComponent('For sleep')}',
             ),
@@ -293,19 +340,19 @@ class _SoftButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFFF8EFE8),
-      borderRadius: BorderRadius.circular(999),
+      color: const Color(0xFFFDFCFA),
+      borderRadius: BorderRadius.circular(28),
       child: InkWell(
         onTap: onPressed,
-        borderRadius: BorderRadius.circular(999),
+        borderRadius: BorderRadius.circular(28),
         child: SizedBox(
           height: 52,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: const Color(0xFFC4784A), size: 18),
-              const SizedBox(width: 8),
-              AppText(label, variant: AppTextVariant.button, color: const Color(0xFFC4784A)),
+              Icon(icon, color: const Color(0xFFD89A72), size: 16),
+              const SizedBox(width: 9),
+              AppText(label, variant: AppTextVariant.button, color: AppColors.ink),
             ],
           ),
         ),
@@ -318,29 +365,25 @@ class _RoundButton extends StatelessWidget {
   const _RoundButton({
     required this.icon,
     required this.onPressed,
-    this.filled = false,
+    this.play = false,
   });
 
   final IconData icon;
   final VoidCallback onPressed;
-  final bool filled;
+  final bool play;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: filled ? AppColors.ink : Colors.white,
+      color: play ? const Color(0xFFF1EDE7) : Colors.white,
       shape: const CircleBorder(),
       child: InkWell(
         onTap: onPressed,
         customBorder: const CircleBorder(),
         child: SizedBox(
-          width: filled ? 40 : 44,
-          height: filled ? 40 : 44,
-          child: Icon(
-            icon,
-            color: filled ? Colors.white : AppColors.ink,
-            size: filled ? 22 : 20,
-          ),
+          width: play ? 40 : 44,
+          height: play ? 40 : 44,
+          child: Icon(icon, color: AppColors.ink, size: play ? 20 : 20),
         ),
       ),
     );

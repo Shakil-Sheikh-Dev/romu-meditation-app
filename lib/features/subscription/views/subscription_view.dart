@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_button.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
@@ -21,15 +22,7 @@ class _SubscriptionViewState extends State<SubscriptionView> {
 
     return Scaffold(
       backgroundColor: AppColors.surface,
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFD89A72), Color(0x00F1EDE7)],
-            stops: [0, 0.32],
-          ),
-        ),
+      body: AppBackground(
         child: SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(16, 36, 16, 24 + bottomInset),

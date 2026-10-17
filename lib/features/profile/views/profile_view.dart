@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:romu/app/locale_controller.dart';
 import 'package:romu/features/profile/viewmodels/account_view_model.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
@@ -14,10 +15,10 @@ class ProfileView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final account = ref.watch(accountProvider);
     final language = ref.watch(localeProvider).languageCode == 'lt' ? 'Lietuvių' : 'English';
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
     return Scaffold(
       backgroundColor: AppColors.surface,
-      body: Column(
+      body: AppBackground(
+        child: Column(
         children: [
           Expanded(
             child: ListView(
@@ -126,11 +127,9 @@ class ProfileView extends ConsumerWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: bottomInset),
-            child: const AppNavBar(current: '/profile'),
-          ),
+          const AppNavBar(current: '/profile'),
         ],
+      ),
       ),
     );
   }
