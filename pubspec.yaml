@@ -43,6 +43,8 @@ dependencies:
   just_audio: ^0.10.6
   just_audio_windows: ^0.2.3
   path_provider: ^2.1.5
+  image_picker: ^1.2.4
+  app_settings: ^9.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,6 +76,7 @@ flutter:
     - assets/images/auth/
     - assets/images/home/
     - assets/images/nav/
+    - assets/images/favorites/
     - assets/images/library/
     - assets/images/breath/
     - assets/images/subscription/

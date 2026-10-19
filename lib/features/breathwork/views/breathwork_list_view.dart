@@ -3,6 +3,7 @@ import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 import 'package:romu/features/breathwork/views/breath_setup_view.dart';
 
 class BreathworkListView extends StatelessWidget {
@@ -22,8 +23,8 @@ class BreathworkListView extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                   children: [
-                    const AppText(
-                      'Breathwork',
+                    AppText(
+                      AppLocalizations.of(context).breathworkTitle,
                       variant: AppTextVariant.display,
                       color: AppColors.ink,
                       style: TextStyle(fontSize: 40, height: 1.1),

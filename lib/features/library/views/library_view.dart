@@ -5,12 +5,14 @@ import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class LibraryView extends StatelessWidget {
   const LibraryView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: AppColors.surface,
       body: AppBackground(
@@ -19,22 +21,22 @@ class LibraryView extends StatelessWidget {
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-                children: const [
+                children: [
                   AppText(
-                    'Library',
+                    l10n.libraryTitle,
                     variant: AppTextVariant.display,
                     color: AppColors.ink,
                     style: TextStyle(fontSize: 40, height: 1.1),
                   ),
-                  SizedBox(height: 20),
-                  _CategoryGrid(),
-                  SizedBox(height: 25),
-                  _PopularHeader(),
-                  SizedBox(height: 12),
-                  _PracticeRow(title: "When you can't settle", minutes: 7),
-                  _PracticeRow(title: 'Finding peace in chaos', minutes: 5),
-                  _PracticeRow(title: 'The art of letting go', minutes: 8),
-                  _PracticeRow(title: 'Embracing uncertainty', minutes: 6),
+                  const SizedBox(height: 20),
+                  const _CategoryGrid(),
+                  const SizedBox(height: 25),
+                  const _PopularHeader(),
+                  const SizedBox(height: 12),
+                  const _PracticeRow(title: "When you can't settle", minutes: 7),
+                  const _PracticeRow(title: 'Finding peace in chaos', minutes: 5),
+                  const _PracticeRow(title: 'The art of letting go', minutes: 8),
+                  const _PracticeRow(title: 'Embracing uncertainty', minutes: 6),
                 ],
               ),
             ),
@@ -169,19 +171,20 @@ class _PopularHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    final l10n = AppLocalizations.of(context);
+    return Row(
       children: [
         Expanded(
           child: AppText(
-            'Popular Practices',
+            l10n.libraryPopular,
             variant: AppTextVariant.link,
             color: AppColors.ink,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
         ),
-        AppText('See all', variant: AppTextVariant.caption, color: Color(0xFF7A7671)),
-        SizedBox(width: 4),
-        Icon(Icons.chevron_right, size: 16, color: Color(0xFF7A7671)),
+        AppText(l10n.librarySeeAll, variant: AppTextVariant.caption, color: const Color(0xFF7A7671)),
+        const SizedBox(width: 4),
+        const Icon(Icons.chevron_right, size: 16, color: Color(0xFF7A7671)),
       ],
     );
   }

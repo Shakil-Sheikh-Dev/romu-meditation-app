@@ -254,4 +254,190 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exploreAlone => 'Explore on my own';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navLibrary => 'Library';
+
+  @override
+  String get navBreathwork => 'Breathwork';
+
+  @override
+  String get navFavorites => 'Favorites';
+
+  @override
+  String get navProfile => 'Profile';
+
+  @override
+  String get homeHello => 'Hello,';
+
+  @override
+  String get homeDaySoFar => 'Your day so far';
+
+  @override
+  String get homeStreakTitle => '5 days in a row';
+
+  @override
+  String get homeStreakCaption => 'Gently does it.';
+
+  @override
+  String get homeTodaysPick => 'Today\'s pick';
+
+  @override
+  String get homeFeaturedTitle => 'Coming back to yourself';
+
+  @override
+  String get homeFeaturedMeta => 'Meditation · 14 min';
+
+  @override
+  String get homeFeeling => 'How are you feeling?';
+
+  @override
+  String get feelingCalm => 'Calm down';
+
+  @override
+  String get feelingOverthinking => 'Overthinking';
+
+  @override
+  String get feelingSleep => 'For sleep';
+
+  @override
+  String get feelingMornings => 'For mornings';
+
+  @override
+  String get homeRecommended => 'Recommended for you';
+
+  @override
+  String get recSteady => 'Steady Mind';
+
+  @override
+  String get recSteadyDetail => 'Stress · 10 min';
+
+  @override
+  String get recMorning => 'Morning Clam';
+
+  @override
+  String get recMorningDetail => 'Anxiety · 10 min';
+
+  @override
+  String get recSleep => 'Deep Sleep';
+
+  @override
+  String get recSleepDetail => 'Sleep';
+
+  @override
+  String get profileTitle => 'Profile';
+
+  @override
+  String get profileMemberSince => 'Member since March 2026';
+
+  @override
+  String get profileEdit => 'Edit';
+
+  @override
+  String get profileDayStreak => 'Day streak';
+
+  @override
+  String get profileMinutes => 'Minutes';
+
+  @override
+  String get profileSessions => 'Sessions';
+
+  @override
+  String get profileActive => 'Active';
+
+  @override
+  String get profileRenews => 'Renews 12 Oct 2026 · €9.99 / month';
+
+  @override
+  String get profileManage => 'Manage';
+
+  @override
+  String get profileEditProfile => 'Edit profile';
+
+  @override
+  String get profileNotifications => 'Notifications';
+
+  @override
+  String get profileOn => 'On';
+
+  @override
+  String get profileLanguage => 'Language';
+
+  @override
+  String get profileHelp => 'Help & support';
+
+  @override
+  String get profilePrivacy => 'Privacy & terms';
+
+  @override
+  String get profileLogOut => 'Log out';
+
+  @override
+  String get profileDelete => 'Delete account';
+
+  @override
+  String get languageTitle => 'Language';
+
+  @override
+  String get languageSubtitle =>
+      'The app switches straight away — no restart needed.';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageEnglishCurrent => 'English — current';
+
+  @override
+  String get languageLithuanian => 'Lietuvių';
+
+  @override
+  String get languageLithuanianPlain => 'Lithuanian';
+
+  @override
+  String get languageLithuanianCurrent => 'Lithuanian — current';
+
+  @override
+  String get libraryTitle => 'Library';
+
+  @override
+  String get libraryPopular => 'Popular Practices';
+
+  @override
+  String get librarySeeAll => 'See all';
+
+  @override
+  String get favoritesTitle => 'Favorites';
+
+  @override
+  String get favoritesAll => 'All';
+
+  @override
+  String get favoritesMeditations => 'Meditations';
+
+  @override
+  String get favoritesBreathing => 'Breathing';
+
+  @override
+  String favoritesSaved(Object count) {
+    return '$count saved';
+  }
+
+  @override
+  String get favoritesEmptyFilter => 'Nothing saved in this filter';
+
+  @override
+  String get favoritesEmptyHint => 'Sessions you save will live here';
+
+  @override
+  String get favoritesEmptyTitle => 'Nothing saved yet';
+
+  @override
+  String get favoritesBrowse => 'Browse the library';
+
+  @override
+  String get breathworkTitle => 'Breathwork';
 }

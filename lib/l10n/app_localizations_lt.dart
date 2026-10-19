@@ -251,4 +251,190 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get exploreAlone => 'Naršysiu pats';
+
+  @override
+  String get navHome => 'Pradžia';
+
+  @override
+  String get navLibrary => 'Biblioteka';
+
+  @override
+  String get navBreathwork => 'Kvėpavimas';
+
+  @override
+  String get navFavorites => 'Mėgstamiausi';
+
+  @override
+  String get navProfile => 'Profilis';
+
+  @override
+  String get homeHello => 'Sveiki,';
+
+  @override
+  String get homeDaySoFar => 'Tavo diena iki šiol';
+
+  @override
+  String get homeStreakTitle => '5 dienos iš eilės';
+
+  @override
+  String get homeStreakCaption => 'Švelniai.';
+
+  @override
+  String get homeTodaysPick => 'Šiandienos pasirinkimas';
+
+  @override
+  String get homeFeaturedTitle => 'Grįžimas prie savęs';
+
+  @override
+  String get homeFeaturedMeta => 'Meditacija · 14 min';
+
+  @override
+  String get homeFeeling => 'Kaip jautiesi?';
+
+  @override
+  String get feelingCalm => 'Nusiramink';
+
+  @override
+  String get feelingOverthinking => 'Mintys';
+
+  @override
+  String get feelingSleep => 'Miegui';
+
+  @override
+  String get feelingMornings => 'Rytams';
+
+  @override
+  String get homeRecommended => 'Rekomenduojama tau';
+
+  @override
+  String get recSteady => 'Ramus protas';
+
+  @override
+  String get recSteadyDetail => 'Stresas · 10 min';
+
+  @override
+  String get recMorning => 'Ryto ramybė';
+
+  @override
+  String get recMorningDetail => 'Nerimas · 10 min';
+
+  @override
+  String get recSleep => 'Gilus miegas';
+
+  @override
+  String get recSleepDetail => 'Miegas';
+
+  @override
+  String get profileTitle => 'Profilis';
+
+  @override
+  String get profileMemberSince => 'Narys nuo 2026 m. kovo';
+
+  @override
+  String get profileEdit => 'Redaguoti';
+
+  @override
+  String get profileDayStreak => 'Dienų serija';
+
+  @override
+  String get profileMinutes => 'Minutės';
+
+  @override
+  String get profileSessions => 'Seansai';
+
+  @override
+  String get profileActive => 'Aktyvi';
+
+  @override
+  String get profileRenews => 'Atnaujinama 2026-10-12 · 9,99 € / mėn.';
+
+  @override
+  String get profileManage => 'Tvarkyti';
+
+  @override
+  String get profileEditProfile => 'Redaguoti profilį';
+
+  @override
+  String get profileNotifications => 'Pranešimai';
+
+  @override
+  String get profileOn => 'Įjungta';
+
+  @override
+  String get profileLanguage => 'Kalba';
+
+  @override
+  String get profileHelp => 'Pagalba';
+
+  @override
+  String get profilePrivacy => 'Privatumas';
+
+  @override
+  String get profileLogOut => 'Atsijungti';
+
+  @override
+  String get profileDelete => 'Ištrinti paskyrą';
+
+  @override
+  String get languageTitle => 'Kalba';
+
+  @override
+  String get languageSubtitle =>
+      'Programa persijungia iš karto — paleisti iš naujo nereikia.';
+
+  @override
+  String get languageEnglish => 'Anglų';
+
+  @override
+  String get languageEnglishCurrent => 'Anglų — dabartinė';
+
+  @override
+  String get languageLithuanian => 'Lietuvių';
+
+  @override
+  String get languageLithuanianPlain => 'Lietuvių kalba';
+
+  @override
+  String get languageLithuanianCurrent => 'Lietuvių — dabartinė';
+
+  @override
+  String get libraryTitle => 'Biblioteka';
+
+  @override
+  String get libraryPopular => 'Populiarios praktikos';
+
+  @override
+  String get librarySeeAll => 'Žiūrėti visas';
+
+  @override
+  String get favoritesTitle => 'Mėgstamiausi';
+
+  @override
+  String get favoritesAll => 'Visi';
+
+  @override
+  String get favoritesMeditations => 'Meditacijos';
+
+  @override
+  String get favoritesBreathing => 'Kvėpavimas';
+
+  @override
+  String favoritesSaved(Object count) {
+    return 'Išsaugota: $count';
+  }
+
+  @override
+  String get favoritesEmptyFilter => 'Šiame filtre nieko nėra';
+
+  @override
+  String get favoritesEmptyHint => 'Išsaugoti seansai bus čia';
+
+  @override
+  String get favoritesEmptyTitle => 'Dar nieko neišsaugota';
+
+  @override
+  String get favoritesBrowse => 'Naršyti biblioteką';
+
+  @override
+  String get breathworkTitle => 'Kvėpavimas';
 }

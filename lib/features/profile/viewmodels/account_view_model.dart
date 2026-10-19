@@ -4,15 +4,18 @@ class AccountProfile {
   const AccountProfile({
     required this.name,
     required this.email,
+    this.photoPath,
   });
 
   final String name;
   final String email;
+  final String? photoPath;
 
-  AccountProfile copyWith({String? name, String? email}) {
+  AccountProfile copyWith({String? name, String? email, String? photoPath}) {
     return AccountProfile(
       name: name ?? this.name,
       email: email ?? this.email,
+      photoPath: photoPath ?? this.photoPath,
     );
   }
 }
@@ -32,5 +35,9 @@ class AccountViewModel extends Notifier<AccountProfile> {
 
   void update({required String name, required String email}) {
     state = state.copyWith(name: name, email: email);
+  }
+
+  void setPhoto(String path) {
+    state = state.copyWith(photoPath: path);
   }
 }

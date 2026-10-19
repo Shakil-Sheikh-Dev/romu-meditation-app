@@ -5,12 +5,14 @@ import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_nav_bar.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: AppBackground(
@@ -23,14 +25,14 @@ class HomeView extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                   children: [
-                    const Row(
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              AppText('Hello,', variant: AppTextVariant.fieldLabel),
+                              AppText(l10n.homeHello, variant: AppTextVariant.fieldLabel),
                               AppText(
                                 'Natasha',
                                 variant: AppTextVariant.headline,
@@ -44,16 +46,16 @@ class HomeView extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    const AppText(
-                      'Your day so far',
+                    AppText(
+                      l10n.homeDaySoFar,
                       variant: AppTextVariant.link,
                       color: AppColors.muted,
                     ),
                     const SizedBox(height: 10),
                     const _StreakCard(),
                     const SizedBox(height: 24),
-                    const AppText(
-                      "Today's pick",
+                    AppText(
+                      l10n.homeTodaysPick,
                       variant: AppTextVariant.link,
                       color: AppColors.muted,
                     ),
@@ -64,8 +66,8 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    const AppText(
-                      'How are you feeling?',
+                    AppText(
+                      l10n.homeFeeling,
                       variant: AppTextVariant.link,
                       color: Color(0xFF6E675F),
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
@@ -73,8 +75,8 @@ class HomeView extends StatelessWidget {
                     const SizedBox(height: 10),
                     const _FeelingRow(),
                     const SizedBox(height: 24),
-                    const AppText(
-                      'Recommended for you',
+                    AppText(
+                      l10n.homeRecommended,
                       variant: AppTextVariant.link,
                       color: AppColors.muted,
                     ),
@@ -98,6 +100,7 @@ class _StreakCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
       decoration: BoxDecoration(
@@ -107,13 +110,13 @@ class _StreakCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText('5 days in a row', variant: AppTextVariant.fieldLabel),
-                SizedBox(height: 2),
-                AppText('Gently does it.', variant: AppTextVariant.caption),
+                AppText(l10n.homeStreakTitle, variant: AppTextVariant.fieldLabel),
+                const SizedBox(height: 2),
+                AppText(l10n.homeStreakCaption, variant: AppTextVariant.caption),
               ],
             ),
           ),
@@ -158,18 +161,18 @@ class _FeaturedCard extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AppText(
-                                'Coming back to yourself',
+                                AppLocalizations.of(context).homeFeaturedTitle,
                                 variant: AppTextVariant.headline,
-                                style: TextStyle(fontSize: 30, height: 28 / 30),
+                                style: const TextStyle(fontSize: 30, height: 28 / 30),
                               ),
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
                               AppText(
-                                'Meditation · 14 min',
+                                AppLocalizations.of(context).homeFeaturedMeta,
                                 variant: AppTextVariant.caption,
                                 color: AppColors.onImage,
                               ),
@@ -264,31 +267,32 @@ class _FeelingRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    final l10n = AppLocalizations.of(context);
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _FeelingTopic(
-            label: 'Calm down',
+            label: l10n.feelingCalm,
             id: 'calm',
             icon: 'assets/images/home/feeling_calm.svg',
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           _FeelingTopic(
-            label: 'Overthinking',
+            label: l10n.feelingOverthinking,
             id: 'overthinking',
             icon: 'assets/images/home/feeling_overthinking.svg',
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           _FeelingTopic(
-            label: 'For sleep',
+            label: l10n.feelingSleep,
             id: 'sleep',
             icon: 'assets/images/home/feeling_sleep.svg',
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           _FeelingTopic(
-            label: 'For mornings',
+            label: l10n.feelingMornings,
             id: 'mornings',
             icon: 'assets/images/home/feeling_mornings.svg',
           ),
@@ -348,28 +352,29 @@ class _Recommendations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    final l10n = AppLocalizations.of(context);
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
           _SessionCard(
             image: 'assets/images/home/steady.png',
-            title: 'Steady Mind',
-            detail: 'Stress · 10 min',
+            title: l10n.recSteady,
+            detail: l10n.recSteadyDetail,
             minutes: 10,
           ),
-          SizedBox(width: 6),
+          const SizedBox(width: 6),
           _SessionCard(
             image: 'assets/images/home/morning.png',
-            title: 'Morning Clam',
-            detail: 'Anxiety · 10 min',
+            title: l10n.recMorning,
+            detail: l10n.recMorningDetail,
             minutes: 10,
           ),
-          SizedBox(width: 6),
+          const SizedBox(width: 6),
           _SessionCard(
             image: 'assets/images/home/sleep.png',
-            title: 'Deep Sleep',
-            detail: 'Sleep',
+            title: l10n.recSleep,
+            detail: l10n.recSleepDetail,
             minutes: 12,
           ),
         ],

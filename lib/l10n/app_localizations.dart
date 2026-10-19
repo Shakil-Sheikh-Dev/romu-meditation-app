@@ -565,6 +565,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Explore on my own'**
   String get exploreAlone;
+
+  /// No description provided for @navHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// No description provided for @navLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get navLibrary;
+
+  /// No description provided for @navBreathwork.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathwork'**
+  String get navBreathwork;
+
+  /// No description provided for @navFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get navFavorites;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get navProfile;
+
+  /// No description provided for @homeHello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello,'**
+  String get homeHello;
+
+  /// No description provided for @homeDaySoFar.
+  ///
+  /// In en, this message translates to:
+  /// **'Your day so far'**
+  String get homeDaySoFar;
+
+  /// No description provided for @homeStreakTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'5 days in a row'**
+  String get homeStreakTitle;
+
+  /// No description provided for @homeStreakCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Gently does it.'**
+  String get homeStreakCaption;
+
+  /// No description provided for @homeTodaysPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s pick'**
+  String get homeTodaysPick;
+
+  /// No description provided for @homeFeaturedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming back to yourself'**
+  String get homeFeaturedTitle;
+
+  /// No description provided for @homeFeaturedMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'Meditation · 14 min'**
+  String get homeFeaturedMeta;
+
+  /// No description provided for @homeFeeling.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling?'**
+  String get homeFeeling;
+
+  /// No description provided for @feelingCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm down'**
+  String get feelingCalm;
+
+  /// No description provided for @feelingOverthinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Overthinking'**
+  String get feelingOverthinking;
+
+  /// No description provided for @feelingSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'For sleep'**
+  String get feelingSleep;
+
+  /// No description provided for @feelingMornings.
+  ///
+  /// In en, this message translates to:
+  /// **'For mornings'**
+  String get feelingMornings;
+
+  /// No description provided for @homeRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for you'**
+  String get homeRecommended;
+
+  /// No description provided for @recSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady Mind'**
+  String get recSteady;
+
+  /// No description provided for @recSteadyDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Stress · 10 min'**
+  String get recSteadyDetail;
+
+  /// No description provided for @recMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning Clam'**
+  String get recMorning;
+
+  /// No description provided for @recMorningDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Anxiety · 10 min'**
+  String get recMorningDetail;
+
+  /// No description provided for @recSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep Sleep'**
+  String get recSleep;
+
+  /// No description provided for @recSleepDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get recSleepDetail;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTitle;
+
+  /// No description provided for @profileMemberSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Member since March 2026'**
+  String get profileMemberSince;
+
+  /// No description provided for @profileEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get profileEdit;
+
+  /// No description provided for @profileDayStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Day streak'**
+  String get profileDayStreak;
+
+  /// No description provided for @profileMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get profileMinutes;
+
+  /// No description provided for @profileSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions'**
+  String get profileSessions;
+
+  /// No description provided for @profileActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get profileActive;
+
+  /// No description provided for @profileRenews.
+  ///
+  /// In en, this message translates to:
+  /// **'Renews 12 Oct 2026 · €9.99 / month'**
+  String get profileRenews;
+
+  /// No description provided for @profileManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage'**
+  String get profileManage;
+
+  /// No description provided for @profileEditProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get profileEditProfile;
+
+  /// No description provided for @profileNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get profileNotifications;
+
+  /// No description provided for @profileOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On'**
+  String get profileOn;
+
+  /// No description provided for @profileLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get profileLanguage;
+
+  /// No description provided for @profileHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & support'**
+  String get profileHelp;
+
+  /// No description provided for @profilePrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & terms'**
+  String get profilePrivacy;
+
+  /// No description provided for @profileLogOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get profileLogOut;
+
+  /// No description provided for @profileDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get profileDelete;
+
+  /// No description provided for @languageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get languageTitle;
+
+  /// No description provided for @languageSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The app switches straight away — no restart needed.'**
+  String get languageSubtitle;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageEnglishCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'English — current'**
+  String get languageEnglishCurrent;
+
+  /// No description provided for @languageLithuanian.
+  ///
+  /// In en, this message translates to:
+  /// **'Lietuvių'**
+  String get languageLithuanian;
+
+  /// No description provided for @languageLithuanianPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'Lithuanian'**
+  String get languageLithuanianPlain;
+
+  /// No description provided for @languageLithuanianCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Lithuanian — current'**
+  String get languageLithuanianCurrent;
+
+  /// No description provided for @libraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get libraryTitle;
+
+  /// No description provided for @libraryPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular Practices'**
+  String get libraryPopular;
+
+  /// No description provided for @librarySeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get librarySeeAll;
+
+  /// No description provided for @favoritesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favoritesTitle;
+
+  /// No description provided for @favoritesAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get favoritesAll;
+
+  /// No description provided for @favoritesMeditations.
+  ///
+  /// In en, this message translates to:
+  /// **'Meditations'**
+  String get favoritesMeditations;
+
+  /// No description provided for @favoritesBreathing.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathing'**
+  String get favoritesBreathing;
+
+  /// No description provided for @favoritesSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} saved'**
+  String favoritesSaved(Object count);
+
+  /// No description provided for @favoritesEmptyFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing saved in this filter'**
+  String get favoritesEmptyFilter;
+
+  /// No description provided for @favoritesEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions you save will live here'**
+  String get favoritesEmptyHint;
+
+  /// No description provided for @favoritesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing saved yet'**
+  String get favoritesEmptyTitle;
+
+  /// No description provided for @favoritesBrowse.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse the library'**
+  String get favoritesBrowse;
+
+  /// No description provided for @breathworkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathwork'**
+  String get breathworkTitle;
 }
 
 class _AppLocalizationsDelegate
