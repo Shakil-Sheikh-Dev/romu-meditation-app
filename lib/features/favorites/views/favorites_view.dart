@@ -437,10 +437,10 @@ class _EmptyFavorites extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const SizedBox(
+                SizedBox(
                   width: 300,
                   child: Text(
-                    'Tap the heart on any meditation or breathing exercise and it will be waiting for you here.',
+                    AppLocalizations.of(context).favoritesEmptyBody,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Jost',

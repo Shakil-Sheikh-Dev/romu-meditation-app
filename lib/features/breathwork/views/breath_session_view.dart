@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
+import 'package:romu/l10n/app_localizations.dart';
 import 'package:romu/features/breathing/engine/breathing_clock.dart';
 import 'package:romu/features/breathing/models/breathing_pattern.dart';
 import 'package:romu/features/breathing/models/breathing_phase.dart';
@@ -87,15 +88,16 @@ class _BreathSessionViewState extends State<BreathSessionView>
     final frame = BreathingClock.at(plan: _plan, elapsed: _elapsed);
     final phase = _phaseNow();
     final remaining = Duration(seconds: _plan.totalSeconds) - _elapsed;
+    final l10n = AppLocalizations.of(context);
     final label = switch (phase.type) {
-      BreathingPhaseType.inhale => 'Inhale',
-      BreathingPhaseType.hold => 'Hold',
-      BreathingPhaseType.exhale => 'Exhale',
+      BreathingPhaseType.inhale => l10n.phaseInhale,
+      BreathingPhaseType.hold => l10n.phaseHold,
+      BreathingPhaseType.exhale => l10n.phaseExhale,
     };
     final guide = switch (phase.type) {
-      BreathingPhaseType.inhale => 'Breathe in slowly through your nose',
-      BreathingPhaseType.hold => 'Stay with the breath',
-      BreathingPhaseType.exhale => 'Let the breath leave',
+      BreathingPhaseType.inhale => l10n.breathGuideIn,
+      BreathingPhaseType.hold => l10n.breathGuideHold,
+      BreathingPhaseType.exhale => l10n.breathGuideOut,
     };
 
     final clock = _clock(remaining.isNegative ? Duration.zero : remaining);
@@ -218,8 +220,7 @@ class _BreathSessionViewState extends State<BreathSessionView>
                       ) ...[
                         if (index > 0) const SizedBox(width: 8),
                         _PhaseChip(
-                          label:
-                              '${_phaseName(_pattern.phases[index].type)} ${_pattern.phases[index].seconds}s',
+                          label: _phaseLabel(l10n, _pattern.phases[index]),
                           active: _pattern.phases[index] == phase.phase,
                         ),
                       ],
@@ -251,7 +252,7 @@ class _BreathSessionViewState extends State<BreathSessionView>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            _running ? 'Pause' : 'Resume',
+                            _running ? l10n.breathPause : l10n.breathResume,
                             style: TextStyle(
                               fontFamily: 'Instrument Sans',
                               fontSize: 18,
@@ -316,11 +317,11 @@ class _BreathSessionViewState extends State<BreathSessionView>
     return _PhaseSnapshot(_pattern.phases.first, _pattern.phases.first.seconds);
   }
 
-  String _phaseName(BreathingPhaseType type) {
-    return switch (type) {
-      BreathingPhaseType.inhale => 'Inhale',
-      BreathingPhaseType.hold => 'Hold',
-      BreathingPhaseType.exhale => 'Exhale',
+  String _phaseLabel(AppLocalizations l10n, BreathingPhase phase) {
+    return switch (phase.type) {
+      BreathingPhaseType.inhale => l10n.phaseInhaleCount(phase.seconds),
+      BreathingPhaseType.hold => l10n.phaseHoldCount(phase.seconds),
+      BreathingPhaseType.exhale => l10n.phaseExhaleCount(phase.seconds),
     };
   }
 

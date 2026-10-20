@@ -1,8 +1,9 @@
-import 'package:app_settings/app_settings.dart';
+﻿import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class NotificationsView extends StatefulWidget {
   const NotificationsView({super.key});
@@ -37,6 +38,7 @@ class _NotificationsViewState extends State<NotificationsView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: SafeArea(
@@ -51,7 +53,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                 child: InkWell(
                   onTap: () => context.pop(),
                   customBorder: const CircleBorder(),
-                  child: const SizedBox(
+                  child: SizedBox(
                     width: 44,
                     height: 44,
                     child: Icon(Icons.chevron_left, color: Color(0xFFFAF8F5), size: 26),
@@ -59,9 +61,9 @@ class _NotificationsViewState extends State<NotificationsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 22),
-            const Text(
-              'Notifications',
+            SizedBox(height: 22),
+            Text(
+              l10n.notifTitle,
               style: TextStyle(
                 fontFamily: 'Instrument Serif',
                 fontSize: 44,
@@ -70,9 +72,9 @@ class _NotificationsViewState extends State<NotificationsView> {
                 color: AppColors.ink,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Choose what Romù can nudge you about',
+            SizedBox(height: 8),
+            Text(
+              l10n.notifSubtitle,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 16,
@@ -81,25 +83,25 @@ class _NotificationsViewState extends State<NotificationsView> {
                 color: Color(0xFF6E675F),
               ),
             ),
-            const SizedBox(height: 22),
+            SizedBox(height: 22),
             _Card(
               children: [
                 _ToggleRow(
-                  title: 'Daily reminder',
-                  subtitle: 'A gentle nudge at the same time each day',
+                  title: l10n.notifDaily,
+                  subtitle: l10n.notifDailyBody,
                   value: _enabled['Daily reminder']!,
                   onChanged: (value) => setState(() => _enabled['Daily reminder'] = value),
                 ),
-                const _Divider(),
+                _Divider(),
                 InkWell(
                   onTap: _pickTime,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     child: Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Text(
-                            'Time',
+                            l10n.notifTime,
                             style: TextStyle(
                               fontFamily: 'Jost',
                               fontSize: 16,
@@ -152,53 +154,53 @@ class _NotificationsViewState extends State<NotificationsView> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            const _SectionLabel('PRACTICE'),
-            const SizedBox(height: 8),
+            SizedBox(height: 20),
+            _SectionLabel(l10n.notifPractice),
+            SizedBox(height: 8),
             _Card(
               children: [
                 _ToggleRow(
-                  title: 'Streak reminders',
+                  title: l10n.notifStreak,
                   value: _enabled['Streak reminders']!,
                   onChanged: (value) => setState(() => _enabled['Streak reminders'] = value),
                 ),
-                const _Divider(),
+                _Divider(),
                 _ToggleRow(
-                  title: 'New sessions added',
+                  title: l10n.notifNew,
                   value: _enabled['New sessions added']!,
                   onChanged: (value) => setState(() => _enabled['New sessions added'] = value),
                 ),
-                const _Divider(),
+                _Divider(),
                 _ToggleRow(
-                  title: 'Weekly progress recap',
+                  title: l10n.notifWeekly,
                   value: _enabled['Weekly progress recap']!,
                   onChanged: (value) => setState(() => _enabled['Weekly progress recap'] = value),
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            const _SectionLabel('ACCOUNT'),
-            const SizedBox(height: 8),
+            SizedBox(height: 20),
+            _SectionLabel(l10n.notifAccount),
+            SizedBox(height: 8),
             _Card(
               children: [
                 _ToggleRow(
-                  title: 'Subscription & billing',
+                  title: l10n.notifBilling,
                   value: _enabled['Subscription & billing']!,
                   onChanged: (value) => setState(() => _enabled['Subscription & billing'] = value),
                 ),
-                const _Divider(),
+                _Divider(),
                 _ToggleRow(
-                  title: 'Product news',
+                  title: l10n.notifNews,
                   value: _enabled['Product news']!,
                   onChanged: (value) => setState(() => _enabled['Product news'] = value),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            const Padding(
+            SizedBox(height: 16),
+            Padding(
               padding: EdgeInsets.only(left: 4),
               child: Text(
-                'Romù can only send these if notifications are allowed for the app on your phone.',
+                l10n.notifNote,
                 style: TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 12,
@@ -208,17 +210,17 @@ class _NotificationsViewState extends State<NotificationsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
                 onTap: () {
                   AppSettings.openAppSettings(type: AppSettingsType.notification);
                 },
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 4),
                   child: Text(
-                    'Open system settings',
+                    l10n.notifSettings,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 14,

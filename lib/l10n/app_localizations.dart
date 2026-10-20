@@ -329,7 +329,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicy.
   ///
   /// In en, this message translates to:
-  /// **'Privacy Policy'**
+  /// **'Privacy policy'**
   String get privacyPolicy;
 
   /// No description provided for @legalBody.
@@ -931,6 +931,1122 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Breathwork'**
   String get breathworkTitle;
+
+  /// No description provided for @favoritesEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the heart on any meditation or breathing exercise and it will be waiting for you here.'**
+  String get favoritesEmptyBody;
+
+  /// No description provided for @libraryCalmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'For anxiety, tension and strong emotions'**
+  String get libraryCalmBody;
+
+  /// No description provided for @libraryOverBody.
+  ///
+  /// In en, this message translates to:
+  /// **'When your head is loud and focus is hard'**
+  String get libraryOverBody;
+
+  /// No description provided for @librarySleepBody.
+  ///
+  /// In en, this message translates to:
+  /// **'For evenings, winding down and easier rest'**
+  String get librarySleepBody;
+
+  /// No description provided for @libraryMorningBody.
+  ///
+  /// In en, this message translates to:
+  /// **'For evenings, winding down and easier rest'**
+  String get libraryMorningBody;
+
+  /// No description provided for @categoryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All  ·  {count}'**
+  String categoryAll(Object count);
+
+  /// No description provided for @categoryUnder.
+  ///
+  /// In en, this message translates to:
+  /// **'Under 10 min'**
+  String get categoryUnder;
+
+  /// No description provided for @categoryOver.
+  ///
+  /// In en, this message translates to:
+  /// **'10 min +'**
+  String get categoryOver;
+
+  /// No description provided for @minutesShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String minutesShort(Object count);
+
+  /// No description provided for @minute.
+  ///
+  /// In en, this message translates to:
+  /// **'minute'**
+  String get minute;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'minutes'**
+  String get minutes;
+
+  /// No description provided for @breathPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice'**
+  String get breathPractice;
+
+  /// No description provided for @breathHowLong.
+  ///
+  /// In en, this message translates to:
+  /// **'How long ?'**
+  String get breathHowLong;
+
+  /// No description provided for @breathBegin.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin breathing'**
+  String get breathBegin;
+
+  /// No description provided for @breathStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get breathStart;
+
+  /// No description provided for @phaseInhale.
+  ///
+  /// In en, this message translates to:
+  /// **'Inhale'**
+  String get phaseInhale;
+
+  /// No description provided for @phaseHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold'**
+  String get phaseHold;
+
+  /// No description provided for @phaseExhale.
+  ///
+  /// In en, this message translates to:
+  /// **'Exhale'**
+  String get phaseExhale;
+
+  /// No description provided for @phaseInhaleCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Inhale {seconds}'**
+  String phaseInhaleCount(Object seconds);
+
+  /// No description provided for @phaseHoldCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold {seconds}'**
+  String phaseHoldCount(Object seconds);
+
+  /// No description provided for @phaseExhaleCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Exhale {seconds}'**
+  String phaseExhaleCount(Object seconds);
+
+  /// No description provided for @breathGuideIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe in slowly through your nose'**
+  String get breathGuideIn;
+
+  /// No description provided for @breathGuideHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay with the breath'**
+  String get breathGuideHold;
+
+  /// No description provided for @breathGuideOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Let the breath leave'**
+  String get breathGuideOut;
+
+  /// No description provided for @breathPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get breathPause;
+
+  /// No description provided for @breathResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get breathResume;
+
+  /// No description provided for @breathSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady again'**
+  String get breathSteady;
+
+  /// No description provided for @breathSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} · {pattern} · {minutes} minutes'**
+  String breathSummary(Object minutes, Object pattern, Object title);
+
+  /// No description provided for @breathDoAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Do it again'**
+  String get breathDoAgain;
+
+  /// No description provided for @breathDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get breathDone;
+
+  /// No description provided for @breathBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best 12 days'**
+  String get breathBest;
+
+  /// No description provided for @breathDayStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'day streak'**
+  String get breathDayStreak;
+
+  /// No description provided for @breathPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'PATTERN YOU BREATHED'**
+  String get breathPattern;
+
+  /// No description provided for @breathCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} cycles completed · no pauses'**
+  String breathCycles(Object count);
+
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & support'**
+  String get helpTitle;
+
+  /// No description provided for @helpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers first — a human if you still need one'**
+  String get helpSubtitle;
+
+  /// No description provided for @helpSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search help'**
+  String get helpSearch;
+
+  /// No description provided for @helpQ1.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio stops when I lock my phone'**
+  String get helpQ1;
+
+  /// No description provided for @helpA1.
+  ///
+  /// In en, this message translates to:
+  /// **'Romù keeps playing in the background and on the lock screen. If it cuts out, check that Background App Refresh is on for Romù and that Low Power Mode is off.'**
+  String get helpA1;
+
+  /// No description provided for @helpQ2.
+  ///
+  /// In en, this message translates to:
+  /// **'Why did my streak reset?'**
+  String get helpQ2;
+
+  /// No description provided for @helpA2.
+  ///
+  /// In en, this message translates to:
+  /// **'A streak continues when you finish at least one session in a day. Missing a day starts the count again. Your best streak stays on your profile.'**
+  String get helpA2;
+
+  /// No description provided for @helpQ3.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I change or cancel my plan?'**
+  String get helpQ3;
+
+  /// No description provided for @helpA3.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium is billed by the App Store or Google Play. Open Manage subscription, then change or cancel the plan in the store. Romù cannot change the charge from inside the app.'**
+  String get helpA3;
+
+  /// No description provided for @helpQ4.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I delete my account?'**
+  String get helpQ4;
+
+  /// No description provided for @helpA4.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile, then Delete account. Type DELETE to confirm. Deleting the account does not cancel a store subscription.'**
+  String get helpA4;
+
+  /// No description provided for @helpQ5.
+  ///
+  /// In en, this message translates to:
+  /// **'I’m not getting notifications'**
+  String get helpQ5;
+
+  /// No description provided for @helpA5.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the reminder on in Notifications, and allow notifications for Romù in your phone settings.'**
+  String get helpA5;
+
+  /// No description provided for @helpPremium.
+  ///
+  /// In en, this message translates to:
+  /// **'Already bought Premium?'**
+  String get helpPremium;
+
+  /// No description provided for @helpPremiumBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with the same Apple ID or Google account you bought it with, then restore.'**
+  String get helpPremiumBody;
+
+  /// No description provided for @helpRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get helpRestore;
+
+  /// No description provided for @helpEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email support'**
+  String get helpEmail;
+
+  /// No description provided for @helpEmailDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'hello@romu.app · replies within one working day'**
+  String get helpEmailDetail;
+
+  /// No description provided for @helpWrite.
+  ///
+  /// In en, this message translates to:
+  /// **'Write to hello@romu.app'**
+  String get helpWrite;
+
+  /// No description provided for @privacyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & terms'**
+  String get privacyTitle;
+
+  /// No description provided for @privacyTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use'**
+  String get privacyTerms;
+
+  /// No description provided for @privacyUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated 14 March 2026'**
+  String get privacyUpdated;
+
+  /// No description provided for @privacyCollect.
+  ///
+  /// In en, this message translates to:
+  /// **'What we collect'**
+  String get privacyCollect;
+
+  /// No description provided for @privacyCollectBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name and email when you create an account, and which sessions you play so streaks and history work. That is all — no location, no contacts, no device fingerprinting.'**
+  String get privacyCollectBody;
+
+  /// No description provided for @privacyNever.
+  ///
+  /// In en, this message translates to:
+  /// **'What we never do'**
+  String get privacyNever;
+
+  /// No description provided for @privacyNeverBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We do not sell your data, track you across other apps, or share what you listen to with advertisers. Romù has no third-party ad SDKs.'**
+  String get privacyNeverBody;
+
+  /// No description provided for @privacyStored.
+  ///
+  /// In en, this message translates to:
+  /// **'Where it is stored'**
+  String get privacyStored;
+
+  /// No description provided for @privacyStoredBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Account data sits on servers inside the EU. Audio is streamed from a CDN; your listening history stays with your account and is never attached to an ad profile.'**
+  String get privacyStoredBody;
+
+  /// No description provided for @privacyRights.
+  ///
+  /// In en, this message translates to:
+  /// **'Your rights'**
+  String get privacyRights;
+
+  /// No description provided for @privacyRightsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You can see, export or erase everything from Profile → Delete account. Deletion is immediate and permanent, and we keep only what tax law requires us to keep about payments.'**
+  String get privacyRightsBody;
+
+  /// No description provided for @privacyQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions'**
+  String get privacyQuestions;
+
+  /// No description provided for @privacyQuestionsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Write to privacy@romu.app and a person will answer within one working day.'**
+  String get privacyQuestionsBody;
+
+  /// No description provided for @termsUsing.
+  ///
+  /// In en, this message translates to:
+  /// **'Using Romù'**
+  String get termsUsing;
+
+  /// No description provided for @termsUsingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Romù is a meditation and breathwork practice. Sessions are for personal use. You need an account to keep streaks, favorites, and history.'**
+  String get termsUsingBody;
+
+  /// No description provided for @termsBilling.
+  ///
+  /// In en, this message translates to:
+  /// **'Billing'**
+  String get termsBilling;
+
+  /// No description provided for @termsBillingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.'**
+  String get termsBillingBody;
+
+  /// No description provided for @termsAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account'**
+  String get termsAccount;
+
+  /// No description provided for @termsAccountBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You can erase your account from Profile → Delete account. Deletion is immediate and permanent.'**
+  String get termsAccountBody;
+
+  /// No description provided for @privacyDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download as PDF'**
+  String get privacyDownload;
+
+  /// No description provided for @privacyPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF · 84 KB'**
+  String get privacyPdf;
+
+  /// No description provided for @privacyPdfPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'The PDF is a preview in this build.'**
+  String get privacyPdfPreview;
+
+  /// No description provided for @subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription'**
+  String get subTitle;
+
+  /// No description provided for @subSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan, billing and how to change it'**
+  String get subSubtitle;
+
+  /// No description provided for @subPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'€9.99 / month'**
+  String get subPrice;
+
+  /// No description provided for @subRenews.
+  ///
+  /// In en, this message translates to:
+  /// **'Renews automatically'**
+  String get subRenews;
+
+  /// No description provided for @subRenewsDate.
+  ///
+  /// In en, this message translates to:
+  /// **'12 Oct 2026'**
+  String get subRenewsDate;
+
+  /// No description provided for @subStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Started'**
+  String get subStarted;
+
+  /// No description provided for @subStartedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'12 Mar 2026'**
+  String get subStartedDate;
+
+  /// No description provided for @subBilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Billed through'**
+  String get subBilled;
+
+  /// No description provided for @subStore.
+  ///
+  /// In en, this message translates to:
+  /// **'App Store'**
+  String get subStore;
+
+  /// No description provided for @subPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment method'**
+  String get subPayment;
+
+  /// No description provided for @subApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple ID'**
+  String get subApple;
+
+  /// No description provided for @subIncluded.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s included'**
+  String get subIncluded;
+
+  /// No description provided for @subItem1.
+  ///
+  /// In en, this message translates to:
+  /// **'The full meditation library'**
+  String get subItem1;
+
+  /// No description provided for @subItem2.
+  ///
+  /// In en, this message translates to:
+  /// **'Every breathing exercise'**
+  String get subItem2;
+
+  /// No description provided for @subItem3.
+  ///
+  /// In en, this message translates to:
+  /// **'New sessions added each week'**
+  String get subItem3;
+
+  /// No description provided for @subItem4.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress, streaks and history'**
+  String get subItem4;
+
+  /// No description provided for @subManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage in App Store'**
+  String get subManage;
+
+  /// No description provided for @subManageBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.'**
+  String get subManageBody;
+
+  /// No description provided for @subNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan changes and cancellation are handled by Apple. Romù can’t change your plan from inside the app.'**
+  String get subNote;
+
+  /// No description provided for @subClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get subClose;
+
+  /// No description provided for @notifTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifTitle;
+
+  /// No description provided for @notifSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what Romù can nudge you about'**
+  String get notifSubtitle;
+
+  /// No description provided for @notifDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily reminder'**
+  String get notifDaily;
+
+  /// No description provided for @notifDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A gentle nudge at the same time each day'**
+  String get notifDailyBody;
+
+  /// No description provided for @notifTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get notifTime;
+
+  /// No description provided for @notifPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'PRACTICE'**
+  String get notifPractice;
+
+  /// No description provided for @notifStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak reminders'**
+  String get notifStreak;
+
+  /// No description provided for @notifNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New sessions added'**
+  String get notifNew;
+
+  /// No description provided for @notifWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly progress recap'**
+  String get notifWeekly;
+
+  /// No description provided for @notifAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'ACCOUNT'**
+  String get notifAccount;
+
+  /// No description provided for @notifBilling.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription & billing'**
+  String get notifBilling;
+
+  /// No description provided for @notifNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Product news'**
+  String get notifNews;
+
+  /// No description provided for @notifNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Romù can only send these if notifications are allowed for the app on your phone.'**
+  String get notifNote;
+
+  /// No description provided for @notifSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open system settings'**
+  String get notifSettings;
+
+  /// No description provided for @pwTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Change password'**
+  String get pwTitle;
+
+  /// No description provided for @pwSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You’ll stay signed in on this device. Other devices will ask you to log in again.'**
+  String get pwSubtitle;
+
+  /// No description provided for @pwCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password'**
+  String get pwCurrent;
+
+  /// No description provided for @pwNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get pwNew;
+
+  /// No description provided for @pwConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm new password'**
+  String get pwConfirm;
+
+  /// No description provided for @pwUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update password'**
+  String get pwUpdate;
+
+  /// No description provided for @pwShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show'**
+  String get pwShow;
+
+  /// No description provided for @pwHide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get pwHide;
+
+  /// No description provided for @pwRules.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW PASSWORD MUST HAVE'**
+  String get pwRules;
+
+  /// No description provided for @pwLength.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 8 characters'**
+  String get pwLength;
+
+  /// No description provided for @pwNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'One number'**
+  String get pwNumber;
+
+  /// No description provided for @pwCapital.
+  ///
+  /// In en, this message translates to:
+  /// **'One capital letter'**
+  String get pwCapital;
+
+  /// No description provided for @editTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get editTitle;
+
+  /// No description provided for @editSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Update how your account looks in Romù'**
+  String get editSubtitle;
+
+  /// No description provided for @editPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photo'**
+  String get editPhoto;
+
+  /// No description provided for @editPhotoHint.
+  ///
+  /// In en, this message translates to:
+  /// **'JPG or PNG, square, min 200px'**
+  String get editPhotoHint;
+
+  /// No description provided for @editChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get editChange;
+
+  /// No description provided for @editName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get editName;
+
+  /// No description provided for @editEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get editEmail;
+
+  /// No description provided for @editPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get editPassword;
+
+  /// No description provided for @editSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get editSave;
+
+  /// No description provided for @editTake.
+  ///
+  /// In en, this message translates to:
+  /// **'Take photo'**
+  String get editTake;
+
+  /// No description provided for @editGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get editGallery;
+
+  /// No description provided for @editPhotoError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not use that photo'**
+  String get editPhotoError;
+
+  /// No description provided for @deleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account?'**
+  String get deleteTitle;
+
+  /// No description provided for @deleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This erases your Romù account and everything in it. It cannot be undone.'**
+  String get deleteBody;
+
+  /// No description provided for @deleteItem1.
+  ///
+  /// In en, this message translates to:
+  /// **'Your profile, name and email'**
+  String get deleteItem1;
+
+  /// No description provided for @deleteItem2.
+  ///
+  /// In en, this message translates to:
+  /// **'Streaks, minutes and session history'**
+  String get deleteItem2;
+
+  /// No description provided for @deleteItem3.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything saved in Favorites'**
+  String get deleteItem3;
+
+  /// No description provided for @deleteItem4.
+  ///
+  /// In en, this message translates to:
+  /// **'Any audio downloaded to this phone'**
+  String get deleteItem4;
+
+  /// No description provided for @deleteBilling.
+  ///
+  /// In en, this message translates to:
+  /// **'Your subscription is billed by Apple or Google. Deleting the account does not cancel it — cancel in the App Store or Play Store first.'**
+  String get deleteBilling;
+
+  /// No description provided for @deleteType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type DELETE to confirm'**
+  String get deleteType;
+
+  /// No description provided for @deleteCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get deleteCancel;
+
+  /// No description provided for @medNarrated.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrated by {name}'**
+  String medNarrated(Object name);
+
+  /// No description provided for @medGuided.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided'**
+  String get medGuided;
+
+  /// No description provided for @medAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'ABOUT THIS PRACTICE'**
+  String get medAbout;
+
+  /// No description provided for @medAboutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Let the day slowly loosen its hold. This gentle meditation helps you release lingering thoughts, worries, and emotions from the day.\nThrough slow breathing and soothing guidance, you’ll quiet the mind, relax the body, and create space for stillness. Let go of what can wait until tomorrow and ease naturally into a peaceful, restful sleep.'**
+  String get medAboutBody;
+
+  /// No description provided for @medHeadphones.
+  ///
+  /// In en, this message translates to:
+  /// **'Best with headphones, somewhere quiet.'**
+  String get medHeadphones;
+
+  /// No description provided for @medBegin.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin Session'**
+  String get medBegin;
+
+  /// No description provided for @medFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Meditation'**
+  String get medFallback;
+
+  /// No description provided for @seekLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'10S'**
+  String get seekLabel;
+
+  /// No description provided for @completeSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to favorites'**
+  String get completeSaved;
+
+  /// No description provided for @completeDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get completeDone;
+
+  /// No description provided for @completeBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best 12 days'**
+  String get completeBest;
+
+  /// No description provided for @completeSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'sessions'**
+  String get completeSessions;
+
+  /// No description provided for @completeStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'day streak'**
+  String get completeStreak;
+
+  /// No description provided for @completeUpNext.
+  ///
+  /// In en, this message translates to:
+  /// **'UP NEXT'**
+  String get completeUpNext;
+
+  /// No description provided for @completeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'That\'s {amount} {unit} back'**
+  String completeBack(Object amount, Object unit);
+
+  /// No description provided for @wordOne.
+  ///
+  /// In en, this message translates to:
+  /// **'one'**
+  String get wordOne;
+
+  /// No description provided for @wordTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'two'**
+  String get wordTwo;
+
+  /// No description provided for @wordThree.
+  ///
+  /// In en, this message translates to:
+  /// **'three'**
+  String get wordThree;
+
+  /// No description provided for @wordFour.
+  ///
+  /// In en, this message translates to:
+  /// **'four'**
+  String get wordFour;
+
+  /// No description provided for @wordFive.
+  ///
+  /// In en, this message translates to:
+  /// **'five'**
+  String get wordFive;
+
+  /// No description provided for @wordSix.
+  ///
+  /// In en, this message translates to:
+  /// **'six'**
+  String get wordSix;
+
+  /// No description provided for @wordSeven.
+  ///
+  /// In en, this message translates to:
+  /// **'seven'**
+  String get wordSeven;
+
+  /// No description provided for @wordEight.
+  ///
+  /// In en, this message translates to:
+  /// **'eight'**
+  String get wordEight;
+
+  /// No description provided for @wordNine.
+  ///
+  /// In en, this message translates to:
+  /// **'nine'**
+  String get wordNine;
+
+  /// No description provided for @wordTen.
+  ///
+  /// In en, this message translates to:
+  /// **'ten'**
+  String get wordTen;
+
+  /// No description provided for @wordTwelve.
+  ///
+  /// In en, this message translates to:
+  /// **'twelve'**
+  String get wordTwelve;
+
+  /// No description provided for @wordFourteen.
+  ///
+  /// In en, this message translates to:
+  /// **'fourteen'**
+  String get wordFourteen;
+
+  /// No description provided for @wordEighteen.
+  ///
+  /// In en, this message translates to:
+  /// **'eighteen'**
+  String get wordEighteen;
+
+  /// No description provided for @planTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Romù , in full'**
+  String get planTitle;
+
+  /// No description provided for @planBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every meditation and every breathing practice, whenever you need them'**
+  String get planBody;
+
+  /// No description provided for @planToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get planToday;
+
+  /// No description provided for @planTodayBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything unlocks. Start listening straight away.'**
+  String get planTodayBody;
+
+  /// No description provided for @planDay5.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 5'**
+  String get planDay5;
+
+  /// No description provided for @planDay5Body.
+  ///
+  /// In en, this message translates to:
+  /// **'A gentle reminder , two days before your trial ends.'**
+  String get planDay5Body;
+
+  /// No description provided for @planDay7.
+  ///
+  /// In en, this message translates to:
+  /// **'Day 7'**
+  String get planDay7;
+
+  /// No description provided for @planDay7Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Your subscription starts, Cancel any time before then'**
+  String get planDay7Body;
+
+  /// No description provided for @planYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get planYearly;
+
+  /// No description provided for @planMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get planMonthly;
+
+  /// No description provided for @planYearPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'€59.99 a year'**
+  String get planYearPrice;
+
+  /// No description provided for @planMonthPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'€5.00 a month'**
+  String get planMonthPrice;
+
+  /// No description provided for @planYearNote.
+  ///
+  /// In en, this message translates to:
+  /// **'That works out a €5.00 a month'**
+  String get planYearNote;
+
+  /// No description provided for @planMonthNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Billed every month. Cancel any time.'**
+  String get planMonthNote;
+
+  /// No description provided for @planStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start 7 days free'**
+  String get planStart;
+
+  /// No description provided for @cyclesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'cycles'**
+  String get cyclesLabel;
 }
 
 class _AppLocalizationsDelegate

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class HelpView extends StatefulWidget {
   const HelpView({super.key});
@@ -12,30 +13,7 @@ class HelpView extends StatefulWidget {
 
 class _HelpViewState extends State<HelpView> {
   final _query = TextEditingController();
-  var _open = 'Audio stops when I lock my phone';
-
-  static const _articles = <(String, String)>[
-    (
-      'Audio stops when I lock my phone',
-      'Romù keeps playing in the background and on the lock screen. If it cuts out, check that Background App Refresh is on for Romù and that Low Power Mode is off.',
-    ),
-    (
-      'Why did my streak reset?',
-      'A streak continues when you finish at least one session in a day. Missing a day starts the count again. Your best streak stays on your profile.',
-    ),
-    (
-      'How do I change or cancel my plan?',
-      'Premium is billed by the App Store or Google Play. Open Manage subscription, then change or cancel the plan in the store. Romù cannot change the charge from inside the app.',
-    ),
-    (
-      'How do I delete my account?',
-      'Profile, then Delete account. Type DELETE to confirm. Deleting the account does not cancel a store subscription.',
-    ),
-    (
-      'I’m not getting notifications',
-      'Turn the reminder on in Notifications, and allow notifications for Romù in your phone settings.',
-    ),
-  ];
+  var _open = 0;
 
   @override
   void dispose() {
@@ -45,14 +23,19 @@ class _HelpViewState extends State<HelpView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final query = _query.text.trim().toLowerCase();
     final articles = [
-      for (final article in _articles)
-        if (query.isEmpty ||
-            article.$1.toLowerCase().contains(query) ||
-            article.$2.toLowerCase().contains(query))
-          article,
-    ];
+      (0, l10n.helpQ1, l10n.helpA1),
+      (1, l10n.helpQ2, l10n.helpA2),
+      (2, l10n.helpQ3, l10n.helpA3),
+      (3, l10n.helpQ4, l10n.helpA4),
+      (4, l10n.helpQ5, l10n.helpA5),
+    ].where((article) {
+      return query.isEmpty ||
+          article.$2.toLowerCase().contains(query) ||
+          article.$3.toLowerCase().contains(query);
+    }).toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
@@ -77,8 +60,8 @@ class _HelpViewState extends State<HelpView> {
               ),
             ),
             const SizedBox(height: 22),
-            const Text(
-              'Help & support',
+            Text(
+              l10n.helpTitle,
               style: TextStyle(
                 fontFamily: 'Instrument Serif',
                 fontSize: 44,
@@ -88,8 +71,8 @@ class _HelpViewState extends State<HelpView> {
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Answers first — a human if you still need one',
+            Text(
+              l10n.helpSubtitle,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 16,
@@ -110,7 +93,7 @@ class _HelpViewState extends State<HelpView> {
                 color: AppColors.ink,
               ),
               decoration: InputDecoration(
-                hintText: 'Search help',
+                hintText: l10n.helpSearch,
                 hintStyle: const TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 16,
@@ -150,11 +133,11 @@ class _HelpViewState extends State<HelpView> {
                           child: SizedBox(height: 1, width: double.infinity),
                         ),
                       _Article(
-                        title: articles[index].$1,
-                        body: articles[index].$2,
+                        title: articles[index].$2,
+                        body: articles[index].$3,
                         open: _open == articles[index].$1,
                         onTap: () => setState(() {
-                          _open = _open == articles[index].$1 ? '' : articles[index].$1;
+                          _open = _open == articles[index].$1 ? -1 : articles[index].$1;
                         }),
                       ),
                     ],
@@ -173,8 +156,8 @@ class _HelpViewState extends State<HelpView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Already bought Premium?',
+                  Text(
+                    l10n.helpPremium,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 16,
@@ -184,8 +167,8 @@ class _HelpViewState extends State<HelpView> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    'Sign in with the same Apple ID or Google account you bought it with, then restore.',
+                  Text(
+                    l10n.helpPremiumBody,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 13,
@@ -201,10 +184,10 @@ class _HelpViewState extends State<HelpView> {
                     child: InkWell(
                       onTap: () => context.push('/manage-subscription'),
                       borderRadius: BorderRadius.circular(22),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 11),
+                        child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
                         child: Text(
-                          'Restore purchases',
+                          l10n.helpRestore,
                           style: TextStyle(
                             fontFamily: 'Jost',
                             fontSize: 14,
@@ -229,7 +212,7 @@ class _HelpViewState extends State<HelpView> {
               child: InkWell(
                 onTap: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Write to hello@romu.app')),
+                    SnackBar(content: Text(l10n.helpWrite)),
                   );
                 },
                 borderRadius: BorderRadius.circular(20),
@@ -243,12 +226,12 @@ class _HelpViewState extends State<HelpView> {
                         height: 22,
                       ),
                       const SizedBox(width: 12),
-                      const Expanded(
+                      Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Email support',
+                              l10n.helpEmail,
                               style: TextStyle(
                                 fontFamily: 'Jost',
                                 fontSize: 15.5,
@@ -258,7 +241,7 @@ class _HelpViewState extends State<HelpView> {
                               ),
                             ),
                             Text(
-                              'hello@romu.app · replies within one working day',
+                              l10n.helpEmailDetail,
                               style: TextStyle(
                                 fontFamily: 'Jost',
                                 fontSize: 12,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 class BreathPractice {
   const BreathPractice({
     required this.title,
@@ -131,8 +132,8 @@ class _BreathSetupSheetState extends State<BreathSetupSheet> {
             color: const Color(0xFF7A7671),
           ),
           const SizedBox(height: 22),
-          const AppText(
-            'How long ?',
+          AppText(
+            AppLocalizations.of(context).breathHowLong,
             variant: AppTextVariant.link,
             color: AppColors.ink,
             style: TextStyle(fontFamily: 'Jost', fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
@@ -164,13 +165,13 @@ class _BreathSetupSheetState extends State<BreathSetupSheet> {
                 );
               },
               borderRadius: BorderRadius.circular(1000),
-              child: const SizedBox(
+              child: SizedBox(
                 height: 56,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppText(
-                      'Begin breathing',
+                      AppLocalizations.of(context).breathBegin,
                       variant: AppTextVariant.button,
                       color: Color(0xFFFAF8F5),
                       style: TextStyle(
@@ -236,7 +237,7 @@ class _DurationCard extends StatelessWidget {
                 ),
               ),
               AppText(
-                minutes == 1 ? 'minute' : 'minutes',
+                minutes == 1 ? AppLocalizations.of(context).minute : AppLocalizations.of(context).minutes,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Jost',

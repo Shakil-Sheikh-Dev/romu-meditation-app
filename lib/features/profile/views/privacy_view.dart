@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class PrivacyView extends StatefulWidget {
   const PrivacyView({super.key});
@@ -15,7 +16,20 @@ class _PrivacyViewState extends State<PrivacyView> {
 
   @override
   Widget build(BuildContext context) {
-    final sections = _policy ? _privacy : _terms;
+    final l10n = AppLocalizations.of(context);
+    final sections = _policy
+        ? [
+            (l10n.privacyCollect, l10n.privacyCollectBody),
+            (l10n.privacyNever, l10n.privacyNeverBody),
+            (l10n.privacyStored, l10n.privacyStoredBody),
+            (l10n.privacyRights, l10n.privacyRightsBody),
+            (l10n.privacyQuestions, l10n.privacyQuestionsBody),
+          ]
+        : [
+            (l10n.termsUsing, l10n.termsUsingBody),
+            (l10n.termsBilling, l10n.termsBillingBody),
+            (l10n.termsAccount, l10n.termsAccountBody),
+          ];
 
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
@@ -40,8 +54,8 @@ class _PrivacyViewState extends State<PrivacyView> {
               ),
             ),
             const SizedBox(height: 22),
-            const Text(
-              'Privacy & terms',
+            Text(
+              l10n.privacyTitle,
               style: TextStyle(
                 fontFamily: 'Instrument Serif',
                 fontSize: 44,
@@ -61,12 +75,12 @@ class _PrivacyViewState extends State<PrivacyView> {
               child: Row(
                 children: [
                   _Segment(
-                    label: 'Privacy policy',
+                    label: l10n.privacyPolicy,
                     selected: _policy,
                     onTap: () => setState(() => _policy = true),
                   ),
                   _Segment(
-                    label: 'Terms of use',
+                    label: l10n.privacyTerms,
                     selected: !_policy,
                     onTap: () => setState(() => _policy = false),
                   ),
@@ -74,8 +88,8 @@ class _PrivacyViewState extends State<PrivacyView> {
               ),
             ),
             const SizedBox(height: 12),
-            const Text(
-              'Last updated 14 March 2026',
+            Text(
+              l10n.privacyUpdated,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 12,
@@ -98,7 +112,7 @@ class _PrivacyViewState extends State<PrivacyView> {
               child: InkWell(
                 onTap: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('The PDF is a preview in this build.')),
+                    SnackBar(content: Text(l10n.privacyPdfPreview)),
                   );
                 },
                 borderRadius: BorderRadius.circular(16),
@@ -112,9 +126,9 @@ class _PrivacyViewState extends State<PrivacyView> {
                         height: 18,
                       ),
                       const SizedBox(width: 12),
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'Download as PDF',
+                          l10n.privacyDownload,
                           style: TextStyle(
                             fontFamily: 'Jost',
                             fontSize: 15,
@@ -124,8 +138,8 @@ class _PrivacyViewState extends State<PrivacyView> {
                           ),
                         ),
                       ),
-                      const Text(
-                        'PDF · 84 KB',
+                      Text(
+                        l10n.privacyPdf,
                         style: TextStyle(
                           fontFamily: 'Jost',
                           fontSize: 12,
@@ -145,44 +159,6 @@ class _PrivacyViewState extends State<PrivacyView> {
     );
   }
 }
-
-const _privacy = [
-  (
-    'What we collect',
-    'Your name and email when you create an account, and which sessions you play so streaks and history work. That is all — no location, no contacts, no device fingerprinting.',
-  ),
-  (
-    'What we never do',
-    'We do not sell your data, track you across other apps, or share what you listen to with advertisers. Romù has no third-party ad SDKs.',
-  ),
-  (
-    'Where it is stored',
-    'Account data sits on servers inside the EU. Audio is streamed from a CDN; your listening history stays with your account and is never attached to an ad profile.',
-  ),
-  (
-    'Your rights',
-    'You can see, export or erase everything from Profile → Delete account. Deletion is immediate and permanent, and we keep only what tax law requires us to keep about payments.',
-  ),
-  (
-    'Questions',
-    'Write to privacy@romu.app and a person will answer within one working day.',
-  ),
-];
-
-const _terms = [
-  (
-    'Using Romù',
-    'Romù is a meditation and breathwork practice. Sessions are for personal use. You need an account to keep streaks, favorites, and history.',
-  ),
-  (
-    'Billing',
-    'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.',
-  ),
-  (
-    'Your account',
-    'You can erase your account from Profile → Delete account. Deletion is immediate and permanent.',
-  ),
-];
 
 class _Segment extends StatelessWidget {
   const _Segment({required this.label, required this.selected, required this.onTap});

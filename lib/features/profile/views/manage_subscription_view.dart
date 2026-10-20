@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_button.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class ManageSubscriptionView extends StatelessWidget {
   const ManageSubscriptionView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: SafeArea(
@@ -23,7 +25,7 @@ class ManageSubscriptionView extends StatelessWidget {
                 child: InkWell(
                   onTap: () => context.pop(),
                   customBorder: const CircleBorder(),
-                  child: const SizedBox(
+                  child: SizedBox(
                     width: 44,
                     height: 44,
                     child: Icon(Icons.chevron_left, color: Color(0xFFFAF8F5), size: 26),
@@ -31,9 +33,9 @@ class ManageSubscriptionView extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 22),
-            const Text(
-              'Subscription',
+            SizedBox(height: 22),
+            Text(
+              l10n.subTitle,
               style: TextStyle(
                 fontFamily: 'Instrument Serif',
                 fontSize: 44,
@@ -42,9 +44,9 @@ class ManageSubscriptionView extends StatelessWidget {
                 color: AppColors.ink,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Your plan, billing and how to change it',
+            SizedBox(height: 8),
+            Text(
+              l10n.subSubtitle,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 16,
@@ -62,7 +64,7 @@ class ManageSubscriptionView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: const Color(0xFFECD9C8)),
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -87,7 +89,7 @@ class ManageSubscriptionView extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                           child: Text(
-                            'Active',
+                            l10n.profileActive,
                             style: TextStyle(
                               fontFamily: 'Jost',
                               fontSize: 11,
@@ -101,7 +103,7 @@ class ManageSubscriptionView extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    '€9.99 / month',
+                    l10n.subPrice,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 16,
@@ -120,7 +122,7 @@ class ManageSubscriptionView extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          'Renews automatically',
+                          l10n.subRenews,
                           style: TextStyle(
                             fontFamily: 'Jost',
                             fontSize: 13,
@@ -131,7 +133,7 @@ class ManageSubscriptionView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '12 Oct 2026',
+                        l10n.subRenewsDate,
                         style: TextStyle(
                           fontFamily: 'Jost',
                           fontSize: 14,
@@ -150,17 +152,17 @@ class ManageSubscriptionView extends StatelessWidget {
             const SizedBox(height: 12),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+              padding: EdgeInsets.fromLTRB(16, 14, 16, 14),
               decoration: BoxDecoration(
-                color: const Color(0xFFFDFCFA),
+                color: Color(0xFFFDFCFA),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: const Color(0xFFDDD6CC)),
+                border: Border.all(color: Color(0xFFDDD6CC)),
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "What's included",
+                    l10n.subIncluded,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 16,
@@ -170,19 +172,19 @@ class ManageSubscriptionView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 9),
-                  _Included('The full meditation library'),
+                  _Included(l10n.subItem1),
                   SizedBox(height: 9),
-                  _Included('Every breathing exercise'),
+                  _Included(l10n.subItem2),
                   SizedBox(height: 9),
-                  _Included('New sessions added each week'),
+                  _Included(l10n.subItem3),
                   SizedBox(height: 9),
-                  _Included('Progress, streaks and history'),
+                  _Included(l10n.subItem4),
                 ],
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             AppButton(
-              label: 'Manage in App Store',
+              label: l10n.subManage,
               backgroundColor: AppColors.ink,
               foregroundColor: AppColors.onImage,
               borderColor: Colors.transparent,
@@ -190,19 +192,19 @@ class ManageSubscriptionView extends StatelessWidget {
                 showDialog<void>(
                   context: context,
                   builder: (context) => AlertDialog(
-                    content: const Text(
-                      'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.',
+                    content: Text(
+                      l10n.subManageBody,
                     ),
                     actions: [
-                      TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close')),
+                      TextButton(onPressed: () => Navigator.pop(context), child: Text(l10n.subClose)),
                     ],
                   ),
                 );
               },
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Plan changes and cancellation are handled by Apple. Romù can’t change your plan from inside the app.',
+            SizedBox(height: 8),
+            Text(
+              l10n.subNote,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 12,
@@ -211,18 +213,18 @@ class ManageSubscriptionView extends StatelessWidget {
                 color: Color(0xFF7A7671),
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Center(
               child: GestureDetector(
                 onTap: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Purchases restored')),
+                    SnackBar(content: Text(l10n.helpRestore)),
                   );
                 },
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 6),
                   child: Text(
-                    'Restore purchases',
+                    l10n.helpRestore,
                     style: TextStyle(
                       fontFamily: 'Jost',
                       fontSize: 15,
@@ -246,10 +248,11 @@ class _BillingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const rows = [
-      ('Started', '12 Mar 2026'),
-      ('Billed through', 'App Store'),
-      ('Payment method', 'Apple ID'),
+    final l10n = AppLocalizations.of(context);
+    final rows = [
+      (l10n.subStarted, l10n.subStartedDate),
+      (l10n.subBilled, l10n.subStore),
+      (l10n.subPayment, l10n.subApple),
     ];
     return Container(
       decoration: BoxDecoration(

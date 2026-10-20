@@ -30,8 +30,8 @@ class BreathworkListView extends StatelessWidget {
                       style: TextStyle(fontSize: 40, height: 1.1),
                     ),
                     const SizedBox(height: 16),
-                    const AppText(
-                      'Practice',
+                    AppText(
+                      AppLocalizations.of(context).breathPractice,
                       variant: AppTextVariant.link,
                       color: AppColors.ink,
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),

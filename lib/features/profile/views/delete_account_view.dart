@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 void showDeleteAccountSheet(BuildContext context) {
   showModalBottomSheet<void>(
@@ -51,6 +52,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final media = MediaQuery.of(context);
     final keyboard = media.viewInsets.bottom;
     final systemBar = keyboard > 0 ? 0.0 : media.padding.bottom;
@@ -81,9 +83,9 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                 height: 56,
               ),
             ),
-            const SizedBox(height: 18),
-            const Text(
-              'Delete your account?',
+            SizedBox(height: 18),
+            Text(
+              l10n.deleteTitle,
               style: TextStyle(
                 fontFamily: 'Cormorant Garamond',
                 fontSize: 30,
@@ -92,9 +94,9 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                 color: AppColors.ink,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'This erases your Romù account and everything in it. It cannot be undone.',
+            SizedBox(height: 8),
+            Text(
+              l10n.deleteBody,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 15,
@@ -106,21 +108,21 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
             const SizedBox(height: 20),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+              padding: EdgeInsets.fromLTRB(16, 14, 16, 14),
               decoration: BoxDecoration(
-                color: const Color(0xFFFDFCFA),
+                color: Color(0xFFFDFCFA),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFFDDD6CC)),
+                border: Border.all(color: Color(0xFFDDD6CC)),
               ),
-              child: const Column(
+              child: Column(
                 children: [
-                  _EraseLine('Your profile, name and email'),
+                  _EraseLine(l10n.deleteItem1),
                   SizedBox(height: 10),
-                  _EraseLine('Streaks, minutes and session history'),
+                  _EraseLine(l10n.deleteItem2),
                   SizedBox(height: 10),
-                  _EraseLine('Everything saved in Favorites'),
+                  _EraseLine(l10n.deleteItem3),
                   SizedBox(height: 10),
-                  _EraseLine('Any audio downloaded to this phone'),
+                  _EraseLine(l10n.deleteItem4),
                 ],
               ),
             ),
@@ -140,10 +142,10 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                     width: 18,
                     height: 18,
                   ),
-                  const SizedBox(width: 10),
-                  const Expanded(
+                  SizedBox(width: 10),
+                  Expanded(
                     child: Text(
-                      'Your subscription is billed by Apple or Google. Deleting the account does not cancel it — cancel in the App Store or Play Store first.',
+                      l10n.deleteBilling,
                       style: TextStyle(
                         fontFamily: 'Jost',
                         fontSize: 13,
@@ -156,9 +158,9 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                 ],
               ),
             ),
-            const SizedBox(height: 18),
-            const Text(
-              'Type DELETE to confirm',
+            SizedBox(height: 18),
+            Text(
+              l10n.deleteType,
               style: TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 14,
@@ -202,16 +204,16 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                     color: const Color(0xFFFDFCFA),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
-                      side: const BorderSide(color: Color(0xFFDDD6CC)),
+                      side: BorderSide(color: Color(0xFFDDD6CC)),
                     ),
                     child: InkWell(
                       onTap: () => Navigator.of(context).pop(),
                       borderRadius: BorderRadius.circular(30),
-                      child: const SizedBox(
+                      child: SizedBox(
                         height: 56,
                         child: Center(
                           child: Text(
-                            'Cancel',
+                            l10n.deleteCancel,
                             style: TextStyle(
                               fontFamily: 'Instrument Sans',
                               fontSize: 16,
@@ -227,16 +229,16 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Material(
-                    color: const Color(0xFFC4554B),
+                    color: Color(0xFFC4554B),
                     borderRadius: BorderRadius.circular(30),
                     child: InkWell(
                       onTap: _ready ? () => context.go('/') : null,
                       borderRadius: BorderRadius.circular(30),
-                      child: const SizedBox(
+                      child: SizedBox(
                         height: 56,
                         child: Center(
                           child: Text(
-                            'Delete account',
+                            l10n.profileDelete,
                             style: TextStyle(
                               fontFamily: 'Instrument Sans',
                               fontSize: 16,

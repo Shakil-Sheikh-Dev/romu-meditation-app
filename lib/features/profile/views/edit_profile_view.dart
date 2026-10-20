@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_button.dart';
+import 'package:romu/l10n/app_localizations.dart';
 import 'package:romu/features/profile/viewmodels/account_view_model.dart';
 import 'package:romu/features/profile/widgets/profile_avatar.dart';
 
@@ -47,20 +48,20 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
       builder: (context) {
         return SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 12),
+            padding: EdgeInsets.fromLTRB(8, 8, 8, 12),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
-                  title: const Text(
-                    'Take photo',
+                  title: Text(
+                    AppLocalizations.of(context).editTake,
                     style: TextStyle(fontFamily: 'Jost', fontSize: 16, color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.camera),
                 ),
                 ListTile(
-                  title: const Text(
-                    'Choose from gallery',
+                  title: Text(
+                    AppLocalizations.of(context).editGallery,
                     style: TextStyle(fontFamily: 'Jost', fontSize: 16, color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.gallery),
@@ -96,13 +97,14 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not use that photo')),
+        SnackBar(content: Text(AppLocalizations.of(context).editPhotoError)),
       );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final photoPath = ref.watch(accountProvider.select((account) => account.photoPath));
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
@@ -117,17 +119,17 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                 shape: const CircleBorder(),
                 child: InkWell(
                   onTap: () => context.pop(),
-                  customBorder: const CircleBorder(),
-                  child: const SizedBox(
+                  customBorder: CircleBorder(),
+                  child: SizedBox(
                     width: 44,
                     height: 44,
                     child: Icon(Icons.chevron_left, color: Color(0xFFFAF8F5), size: 26),
                   ),
                 ),
               ),
-              const SizedBox(height: 22),
-              const Text(
-                'Edit profile',
+              SizedBox(height: 22),
+              Text(
+                l10n.editTitle,
                 style: TextStyle(
                   fontFamily: 'Instrument Serif',
                   fontSize: 44,
@@ -136,9 +138,9 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                   color: AppColors.ink,
                 ),
               ),
-              const SizedBox(height: 8),
-              const Text(
-                'Update how your account looks in Romù',
+              SizedBox(height: 8),
+              Text(
+                l10n.editSubtitle,
                 style: TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 16,
@@ -162,13 +164,13 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                       child: Row(
                         children: [
                           ProfileAvatar(path: photoPath),
-                          const SizedBox(width: 14),
-                          const Expanded(
+                          SizedBox(width: 14),
+                          Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Profile photo',
+                                  l10n.editPhoto,
                                   style: TextStyle(
                                     fontFamily: 'Jost',
                                     fontSize: 16,
@@ -179,7 +181,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                                 ),
                                 SizedBox(height: 3),
                                 Text(
-                                  'JPG or PNG, square, min 200px',
+                                  l10n.editPhotoHint,
                                   style: TextStyle(
                                     fontFamily: 'Jost',
                                     fontSize: 12,
@@ -192,15 +194,15 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                             ),
                           ),
                           Material(
-                            color: const Color(0xFFF1EDE7),
+                            color: Color(0xFFF1EDE7),
                             borderRadius: BorderRadius.circular(16),
                             child: InkWell(
                               onTap: _changePhoto,
                               borderRadius: BorderRadius.circular(16),
-                              child: const Padding(
+                              child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                                 child: Text(
-                                  'Change',
+                                  l10n.editChange,
                                   style: TextStyle(
                                     fontFamily: 'Jost',
                                     fontSize: 13,
@@ -214,28 +216,28 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    SizedBox(height: 24),
                     _LabeledField(
-                      label: 'Name',
+                      label: l10n.editName,
                       child: _Input(
                         controller: _name,
                         icon: 'assets/images/profile/field_person.svg',
                         color: AppColors.ink,
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
                     _LabeledField(
-                      label: 'Email',
+                      label: l10n.editEmail,
                       child: _Input(
                         controller: _email,
                         icon: 'assets/images/profile/field_mail.svg',
-                        color: const Color(0xFF9A938A),
+                        color: Color(0xFF9A938A),
                         keyboardType: TextInputType.emailAddress,
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15),
                     _LabeledField(
-                      label: 'Confirm Password',
+                      label: l10n.editPassword,
                       child: Container(
                         height: 56,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -262,7 +264,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                             const SizedBox(width: 14),
                             const Expanded(
                               child: Text(
-                                '••••••••',
+                                'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢',
                                 style: TextStyle(
                                   fontFamily: 'Inter',
                                   fontSize: 16,
@@ -274,8 +276,8 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                             ),
                             GestureDetector(
                               onTap: () => context.push('/change-password'),
-                              child: const Text(
-                                'Change',
+                              child: Text(
+                                l10n.editChange,
                                 style: TextStyle(
                                   fontFamily: 'Jost',
                                   fontSize: 14,
@@ -291,15 +293,15 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               AppButton(
-                label: 'Save changes',
+                label: l10n.editSave,
                 backgroundColor: AppColors.ink,
                 foregroundColor: AppColors.onImage,
                 borderColor: Colors.transparent,
                 onPressed: () {
                   ref.read(accountProvider.notifier).update(
-                    name: _name.text.trim().isEmpty ? 'Natasha Kazlauskaitė' : _name.text.trim(),
+                    name: _name.text.trim().isEmpty ? 'Natasha KazlauskaitÄ—' : _name.text.trim(),
                     email: _email.text.trim().isEmpty ? 'natasha.k@email.com' : _email.text.trim(),
                   );
                   context.pop();

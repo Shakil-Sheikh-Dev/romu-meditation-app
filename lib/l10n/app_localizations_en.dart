@@ -130,7 +130,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get termsOfService => 'Terms of Service';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'Privacy policy';
 
   @override
   String get legalBody =>
@@ -440,4 +440,607 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get breathworkTitle => 'Breathwork';
+
+  @override
+  String get favoritesEmptyBody =>
+      'Tap the heart on any meditation or breathing exercise and it will be waiting for you here.';
+
+  @override
+  String get libraryCalmBody => 'For anxiety, tension and strong emotions';
+
+  @override
+  String get libraryOverBody => 'When your head is loud and focus is hard';
+
+  @override
+  String get librarySleepBody => 'For evenings, winding down and easier rest';
+
+  @override
+  String get libraryMorningBody => 'For evenings, winding down and easier rest';
+
+  @override
+  String categoryAll(Object count) {
+    return 'All  ·  $count';
+  }
+
+  @override
+  String get categoryUnder => 'Under 10 min';
+
+  @override
+  String get categoryOver => '10 min +';
+
+  @override
+  String minutesShort(Object count) {
+    return '$count min';
+  }
+
+  @override
+  String get minute => 'minute';
+
+  @override
+  String get minutes => 'minutes';
+
+  @override
+  String get breathPractice => 'Practice';
+
+  @override
+  String get breathHowLong => 'How long ?';
+
+  @override
+  String get breathBegin => 'Begin breathing';
+
+  @override
+  String get breathStart => 'Start';
+
+  @override
+  String get phaseInhale => 'Inhale';
+
+  @override
+  String get phaseHold => 'Hold';
+
+  @override
+  String get phaseExhale => 'Exhale';
+
+  @override
+  String phaseInhaleCount(Object seconds) {
+    return 'Inhale $seconds';
+  }
+
+  @override
+  String phaseHoldCount(Object seconds) {
+    return 'Hold $seconds';
+  }
+
+  @override
+  String phaseExhaleCount(Object seconds) {
+    return 'Exhale $seconds';
+  }
+
+  @override
+  String get breathGuideIn => 'Breathe in slowly through your nose';
+
+  @override
+  String get breathGuideHold => 'Stay with the breath';
+
+  @override
+  String get breathGuideOut => 'Let the breath leave';
+
+  @override
+  String get breathPause => 'Pause';
+
+  @override
+  String get breathResume => 'Resume';
+
+  @override
+  String get breathSteady => 'Steady again';
+
+  @override
+  String breathSummary(Object minutes, Object pattern, Object title) {
+    return '$title · $pattern · $minutes minutes';
+  }
+
+  @override
+  String get breathDoAgain => 'Do it again';
+
+  @override
+  String get breathDone => 'Done';
+
+  @override
+  String get breathBest => 'Best 12 days';
+
+  @override
+  String get breathDayStreak => 'day streak';
+
+  @override
+  String get breathPattern => 'PATTERN YOU BREATHED';
+
+  @override
+  String breathCycles(Object count) {
+    return '$count cycles completed · no pauses';
+  }
+
+  @override
+  String get helpTitle => 'Help & support';
+
+  @override
+  String get helpSubtitle => 'Answers first — a human if you still need one';
+
+  @override
+  String get helpSearch => 'Search help';
+
+  @override
+  String get helpQ1 => 'Audio stops when I lock my phone';
+
+  @override
+  String get helpA1 =>
+      'Romù keeps playing in the background and on the lock screen. If it cuts out, check that Background App Refresh is on for Romù and that Low Power Mode is off.';
+
+  @override
+  String get helpQ2 => 'Why did my streak reset?';
+
+  @override
+  String get helpA2 =>
+      'A streak continues when you finish at least one session in a day. Missing a day starts the count again. Your best streak stays on your profile.';
+
+  @override
+  String get helpQ3 => 'How do I change or cancel my plan?';
+
+  @override
+  String get helpA3 =>
+      'Premium is billed by the App Store or Google Play. Open Manage subscription, then change or cancel the plan in the store. Romù cannot change the charge from inside the app.';
+
+  @override
+  String get helpQ4 => 'How do I delete my account?';
+
+  @override
+  String get helpA4 =>
+      'Profile, then Delete account. Type DELETE to confirm. Deleting the account does not cancel a store subscription.';
+
+  @override
+  String get helpQ5 => 'I’m not getting notifications';
+
+  @override
+  String get helpA5 =>
+      'Turn the reminder on in Notifications, and allow notifications for Romù in your phone settings.';
+
+  @override
+  String get helpPremium => 'Already bought Premium?';
+
+  @override
+  String get helpPremiumBody =>
+      'Sign in with the same Apple ID or Google account you bought it with, then restore.';
+
+  @override
+  String get helpRestore => 'Restore purchases';
+
+  @override
+  String get helpEmail => 'Email support';
+
+  @override
+  String get helpEmailDetail =>
+      'hello@romu.app · replies within one working day';
+
+  @override
+  String get helpWrite => 'Write to hello@romu.app';
+
+  @override
+  String get privacyTitle => 'Privacy & terms';
+
+  @override
+  String get privacyTerms => 'Terms of use';
+
+  @override
+  String get privacyUpdated => 'Last updated 14 March 2026';
+
+  @override
+  String get privacyCollect => 'What we collect';
+
+  @override
+  String get privacyCollectBody =>
+      'Your name and email when you create an account, and which sessions you play so streaks and history work. That is all — no location, no contacts, no device fingerprinting.';
+
+  @override
+  String get privacyNever => 'What we never do';
+
+  @override
+  String get privacyNeverBody =>
+      'We do not sell your data, track you across other apps, or share what you listen to with advertisers. Romù has no third-party ad SDKs.';
+
+  @override
+  String get privacyStored => 'Where it is stored';
+
+  @override
+  String get privacyStoredBody =>
+      'Account data sits on servers inside the EU. Audio is streamed from a CDN; your listening history stays with your account and is never attached to an ad profile.';
+
+  @override
+  String get privacyRights => 'Your rights';
+
+  @override
+  String get privacyRightsBody =>
+      'You can see, export or erase everything from Profile → Delete account. Deletion is immediate and permanent, and we keep only what tax law requires us to keep about payments.';
+
+  @override
+  String get privacyQuestions => 'Questions';
+
+  @override
+  String get privacyQuestionsBody =>
+      'Write to privacy@romu.app and a person will answer within one working day.';
+
+  @override
+  String get termsUsing => 'Using Romù';
+
+  @override
+  String get termsUsingBody =>
+      'Romù is a meditation and breathwork practice. Sessions are for personal use. You need an account to keep streaks, favorites, and history.';
+
+  @override
+  String get termsBilling => 'Billing';
+
+  @override
+  String get termsBillingBody =>
+      'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.';
+
+  @override
+  String get termsAccount => 'Your account';
+
+  @override
+  String get termsAccountBody =>
+      'You can erase your account from Profile → Delete account. Deletion is immediate and permanent.';
+
+  @override
+  String get privacyDownload => 'Download as PDF';
+
+  @override
+  String get privacyPdf => 'PDF · 84 KB';
+
+  @override
+  String get privacyPdfPreview => 'The PDF is a preview in this build.';
+
+  @override
+  String get subTitle => 'Subscription';
+
+  @override
+  String get subSubtitle => 'Your plan, billing and how to change it';
+
+  @override
+  String get subPrice => '€9.99 / month';
+
+  @override
+  String get subRenews => 'Renews automatically';
+
+  @override
+  String get subRenewsDate => '12 Oct 2026';
+
+  @override
+  String get subStarted => 'Started';
+
+  @override
+  String get subStartedDate => '12 Mar 2026';
+
+  @override
+  String get subBilled => 'Billed through';
+
+  @override
+  String get subStore => 'App Store';
+
+  @override
+  String get subPayment => 'Payment method';
+
+  @override
+  String get subApple => 'Apple ID';
+
+  @override
+  String get subIncluded => 'What\'s included';
+
+  @override
+  String get subItem1 => 'The full meditation library';
+
+  @override
+  String get subItem2 => 'Every breathing exercise';
+
+  @override
+  String get subItem3 => 'New sessions added each week';
+
+  @override
+  String get subItem4 => 'Progress, streaks and history';
+
+  @override
+  String get subManage => 'Manage in App Store';
+
+  @override
+  String get subManageBody =>
+      'Plan changes and cancellation are handled by Apple or Google. Romù can’t change your plan from inside the app.';
+
+  @override
+  String get subNote =>
+      'Plan changes and cancellation are handled by Apple. Romù can’t change your plan from inside the app.';
+
+  @override
+  String get subClose => 'Close';
+
+  @override
+  String get notifTitle => 'Notifications';
+
+  @override
+  String get notifSubtitle => 'Choose what Romù can nudge you about';
+
+  @override
+  String get notifDaily => 'Daily reminder';
+
+  @override
+  String get notifDailyBody => 'A gentle nudge at the same time each day';
+
+  @override
+  String get notifTime => 'Time';
+
+  @override
+  String get notifPractice => 'PRACTICE';
+
+  @override
+  String get notifStreak => 'Streak reminders';
+
+  @override
+  String get notifNew => 'New sessions added';
+
+  @override
+  String get notifWeekly => 'Weekly progress recap';
+
+  @override
+  String get notifAccount => 'ACCOUNT';
+
+  @override
+  String get notifBilling => 'Subscription & billing';
+
+  @override
+  String get notifNews => 'Product news';
+
+  @override
+  String get notifNote =>
+      'Romù can only send these if notifications are allowed for the app on your phone.';
+
+  @override
+  String get notifSettings => 'Open system settings';
+
+  @override
+  String get pwTitle => 'Change password';
+
+  @override
+  String get pwSubtitle =>
+      'You’ll stay signed in on this device. Other devices will ask you to log in again.';
+
+  @override
+  String get pwCurrent => 'Current password';
+
+  @override
+  String get pwNew => 'New password';
+
+  @override
+  String get pwConfirm => 'Confirm new password';
+
+  @override
+  String get pwUpdate => 'Update password';
+
+  @override
+  String get pwShow => 'Show';
+
+  @override
+  String get pwHide => 'Hide';
+
+  @override
+  String get pwRules => 'NEW PASSWORD MUST HAVE';
+
+  @override
+  String get pwLength => 'At least 8 characters';
+
+  @override
+  String get pwNumber => 'One number';
+
+  @override
+  String get pwCapital => 'One capital letter';
+
+  @override
+  String get editTitle => 'Edit profile';
+
+  @override
+  String get editSubtitle => 'Update how your account looks in Romù';
+
+  @override
+  String get editPhoto => 'Profile photo';
+
+  @override
+  String get editPhotoHint => 'JPG or PNG, square, min 200px';
+
+  @override
+  String get editChange => 'Change';
+
+  @override
+  String get editName => 'Name';
+
+  @override
+  String get editEmail => 'Email';
+
+  @override
+  String get editPassword => 'Confirm Password';
+
+  @override
+  String get editSave => 'Save changes';
+
+  @override
+  String get editTake => 'Take photo';
+
+  @override
+  String get editGallery => 'Choose from gallery';
+
+  @override
+  String get editPhotoError => 'Could not use that photo';
+
+  @override
+  String get deleteTitle => 'Delete your account?';
+
+  @override
+  String get deleteBody =>
+      'This erases your Romù account and everything in it. It cannot be undone.';
+
+  @override
+  String get deleteItem1 => 'Your profile, name and email';
+
+  @override
+  String get deleteItem2 => 'Streaks, minutes and session history';
+
+  @override
+  String get deleteItem3 => 'Everything saved in Favorites';
+
+  @override
+  String get deleteItem4 => 'Any audio downloaded to this phone';
+
+  @override
+  String get deleteBilling =>
+      'Your subscription is billed by Apple or Google. Deleting the account does not cancel it — cancel in the App Store or Play Store first.';
+
+  @override
+  String get deleteType => 'Type DELETE to confirm';
+
+  @override
+  String get deleteCancel => 'Cancel';
+
+  @override
+  String medNarrated(Object name) {
+    return 'Narrated by $name';
+  }
+
+  @override
+  String get medGuided => 'Guided';
+
+  @override
+  String get medAbout => 'ABOUT THIS PRACTICE';
+
+  @override
+  String get medAboutBody =>
+      'Let the day slowly loosen its hold. This gentle meditation helps you release lingering thoughts, worries, and emotions from the day.\nThrough slow breathing and soothing guidance, you’ll quiet the mind, relax the body, and create space for stillness. Let go of what can wait until tomorrow and ease naturally into a peaceful, restful sleep.';
+
+  @override
+  String get medHeadphones => 'Best with headphones, somewhere quiet.';
+
+  @override
+  String get medBegin => 'Begin Session';
+
+  @override
+  String get medFallback => 'Meditation';
+
+  @override
+  String get seekLabel => '10S';
+
+  @override
+  String get completeSaved => 'Saved to favorites';
+
+  @override
+  String get completeDone => 'Done';
+
+  @override
+  String get completeBest => 'Best 12 days';
+
+  @override
+  String get completeSessions => 'sessions';
+
+  @override
+  String get completeStreak => 'day streak';
+
+  @override
+  String get completeUpNext => 'UP NEXT';
+
+  @override
+  String completeBack(Object amount, Object unit) {
+    return 'That\'s $amount $unit back';
+  }
+
+  @override
+  String get wordOne => 'one';
+
+  @override
+  String get wordTwo => 'two';
+
+  @override
+  String get wordThree => 'three';
+
+  @override
+  String get wordFour => 'four';
+
+  @override
+  String get wordFive => 'five';
+
+  @override
+  String get wordSix => 'six';
+
+  @override
+  String get wordSeven => 'seven';
+
+  @override
+  String get wordEight => 'eight';
+
+  @override
+  String get wordNine => 'nine';
+
+  @override
+  String get wordTen => 'ten';
+
+  @override
+  String get wordTwelve => 'twelve';
+
+  @override
+  String get wordFourteen => 'fourteen';
+
+  @override
+  String get wordEighteen => 'eighteen';
+
+  @override
+  String get planTitle => 'Romù , in full';
+
+  @override
+  String get planBody =>
+      'Every meditation and every breathing practice, whenever you need them';
+
+  @override
+  String get planToday => 'Today';
+
+  @override
+  String get planTodayBody =>
+      'Everything unlocks. Start listening straight away.';
+
+  @override
+  String get planDay5 => 'Day 5';
+
+  @override
+  String get planDay5Body =>
+      'A gentle reminder , two days before your trial ends.';
+
+  @override
+  String get planDay7 => 'Day 7';
+
+  @override
+  String get planDay7Body =>
+      'Your subscription starts, Cancel any time before then';
+
+  @override
+  String get planYearly => 'Yearly';
+
+  @override
+  String get planMonthly => 'Monthly';
+
+  @override
+  String get planYearPrice => '€59.99 a year';
+
+  @override
+  String get planMonthPrice => '€5.00 a month';
+
+  @override
+  String get planYearNote => 'That works out a €5.00 a month';
+
+  @override
+  String get planMonthNote => 'Billed every month. Cancel any time.';
+
+  @override
+  String get planStart => 'Start 7 days free';
+
+  @override
+  String get cyclesLabel => 'cycles';
 }

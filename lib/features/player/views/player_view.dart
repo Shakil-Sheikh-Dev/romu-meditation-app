@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 import 'package:romu/features/favorites/viewmodels/favorites_view_model.dart';
 
 class PlayerView extends ConsumerStatefulWidget {
@@ -336,8 +337,8 @@ class _SeekButton extends StatelessWidget {
         children: [
           forward ? Transform.flip(flipX: true, child: icon) : icon,
           const SizedBox(height: 2),
-          const AppText(
-            '10S',
+          AppText(
+            AppLocalizations.of(context).seekLabel,
             variant: AppTextVariant.caption,
             color: Colors.white,
             style: TextStyle(fontSize: 12, height: 1),

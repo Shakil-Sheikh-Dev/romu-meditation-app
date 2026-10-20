@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_button.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class SessionCompleteView extends StatelessWidget {
   const SessionCompleteView({
@@ -20,7 +21,7 @@ class SessionCompleteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final detail = subtitle.isEmpty ? title : '$title · $subtitle';
+    final detail = subtitle.isEmpty ? title : '$title Â· $subtitle';
 
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
@@ -41,7 +42,7 @@ class SessionCompleteView extends StatelessWidget {
               const Center(child: _CheckMark()),
               const SizedBox(height: 28),
               AppText(
-                _minutesBack(minutes),
+                _minutesBack(context, minutes),
                 variant: AppTextVariant.display,
                 color: AppColors.ink,
                 textAlign: TextAlign.center,
@@ -54,21 +55,21 @@ class SessionCompleteView extends StatelessWidget {
                 color: AppColors.muted,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 26),
-              const _StreakCard(),
-              const SizedBox(height: 10),
+              SizedBox(height: 26),
+              _StreakCard(),
+              SizedBox(height: 10),
               _StatsRow(minutes: minutes),
-              const SizedBox(height: 12),
-              const _UpNextCard(),
-              const SizedBox(height: 20),
+              SizedBox(height: 12),
+              _UpNextCard(),
+              SizedBox(height: 20),
               _SoftButton(
                 icon: Icons.favorite,
-                label: 'Saved to favorites',
+                label: AppLocalizations.of(context).completeSaved,
                 onPressed: () => context.go('/favorites'),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               AppButton(
-                label: 'Done',
+                label: AppLocalizations.of(context).completeDone,
                 backgroundColor: AppColors.ink,
                 foregroundColor: AppColors.onImage,
                 borderColor: Colors.transparent,
@@ -82,25 +83,26 @@ class SessionCompleteView extends StatelessWidget {
   }
 }
 
-String _minutesBack(int minutes) {
-  const words = <int, String>{
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-    10: 'ten',
-    12: 'twelve',
-    14: 'fourteen',
-    18: 'eighteen',
+String _minutesBack(BuildContext context, int minutes) {
+  final l10n = AppLocalizations.of(context);
+  final words = <int, String>{
+    1: l10n.wordOne,
+    2: l10n.wordTwo,
+    3: l10n.wordThree,
+    4: l10n.wordFour,
+    5: l10n.wordFive,
+    6: l10n.wordSix,
+    7: l10n.wordSeven,
+    8: l10n.wordEight,
+    9: l10n.wordNine,
+    10: l10n.wordTen,
+    12: l10n.wordTwelve,
+    14: l10n.wordFourteen,
+    18: l10n.wordEighteen,
   };
   final amount = words[minutes] ?? '$minutes';
-  final unit = minutes == 1 ? 'minute' : 'minutes';
-  return "That's $amount $unit back";
+  final unit = minutes == 1 ? l10n.minute : l10n.minutes;
+  return l10n.completeBack(amount, unit);
 }
 
 class _CheckMark extends StatelessWidget {
@@ -141,17 +143,17 @@ class _StreakCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Expanded(
                 child: AppText(
-                  '8 day streak',
+                  '8 ${AppLocalizations.of(context).completeStreak}',
                   variant: AppTextVariant.fieldLabel,
                   style: TextStyle(fontSize: 17),
                 ),
               ),
               AppText(
-                'Best 12 days',
+                AppLocalizations.of(context).completeBest,
                 variant: AppTextVariant.caption,
                 color: Color(0xFF7A7671),
               ),
@@ -227,11 +229,11 @@ class _StatsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _Stat(value: '$minutes', label: minutes == 1 ? 'minute' : 'minutes'),
-        const SizedBox(width: 8),
-        const _Stat(value: '36', label: 'sessions'),
-        const SizedBox(width: 8),
-        const _Stat(value: '8', label: 'day streak'),
+        _Stat(value: '$minutes', label: minutes == 1 ? AppLocalizations.of(context).minute : AppLocalizations.of(context).minutes),
+        SizedBox(width: 8),
+        _Stat(value: '36', label: AppLocalizations.of(context).completeSessions),
+        SizedBox(width: 8),
+        _Stat(value: '8', label: AppLocalizations.of(context).completeStreak),
       ],
     );
   }
@@ -293,20 +295,20 @@ class _UpNextCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 12),
-          const Expanded(
+          SizedBox(width: 12),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppText(
-                  'UP NEXT',
+                  AppLocalizations.of(context).completeUpNext,
                   variant: AppTextVariant.caption,
                   color: Color(0xFF9A938A),
                   style: TextStyle(fontSize: 10, letterSpacing: 0.4),
                 ),
                 AppText('Evening body scan', variant: AppTextVariant.fieldLabel),
                 AppText(
-                  '18 min · For sleep',
+                  '18 min Â· For sleep',
                   variant: AppTextVariant.caption,
                   color: Color(0xFF7A7671),
                 ),

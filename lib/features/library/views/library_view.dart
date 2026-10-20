@@ -53,24 +53,25 @@ class _CategoryGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final l10n = AppLocalizations.of(context);
+    return Column(
       children: [
         Row(
           children: [
             Expanded(
               child: _CategoryCard(
-                title: 'Calm down',
-                body: 'For anxiety, tension and strong emotions',
+                title: l10n.feelingCalm,
+                body: l10n.libraryCalmBody,
                 tint: Color(0xFFDCE9E4),
                 icon: 'assets/images/library/calm.svg',
                 id: 'calm',
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: _CategoryCard(
-                title: 'Overthinking',
-                body: 'When your head is loud and focus is hard',
+                title: l10n.feelingOverthinking,
+                body: l10n.libraryOverBody,
                 tint: Color(0xFFF6E2D6),
                 icon: 'assets/images/library/overthinking.svg',
                 id: 'overthinking',
@@ -78,23 +79,23 @@ class _CategoryGrid extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Row(
           children: [
             Expanded(
               child: _CategoryCard(
-                title: 'For sleep',
-                body: 'For evenings, winding down and easier rest',
+                title: l10n.feelingSleep,
+                body: l10n.librarySleepBody,
                 tint: Color(0xFFEBE8E3),
                 icon: 'assets/images/library/sleep.svg',
                 id: 'sleep',
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: _CategoryCard(
-                title: 'For mornings',
-                body: 'For evenings, winding down and easier rest',
+                title: l10n.feelingMornings,
+                body: l10n.libraryMorningBody,
                 tint: Color(0xFFF7E9C8),
                 icon: 'assets/images/library/mornings.svg',
                 id: 'mornings',

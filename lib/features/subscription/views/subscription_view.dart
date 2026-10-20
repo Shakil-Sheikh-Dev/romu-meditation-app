@@ -5,6 +5,7 @@ import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_button.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class SubscriptionView extends StatefulWidget {
   const SubscriptionView({super.key});
@@ -19,6 +20,7 @@ class _SubscriptionViewState extends State<SubscriptionView> {
   @override
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.paddingOf(context).bottom;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       backgroundColor: AppColors.surface,
@@ -29,34 +31,34 @@ class _SubscriptionViewState extends State<SubscriptionView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const AppText(
-                  'Romù , in full',
+                AppText(
+                  l10n.planTitle,
                   variant: AppTextVariant.headline,
                   color: AppColors.ink,
                 ),
                 const SizedBox(height: 6),
-                const AppText(
-                  'Every meditation and every breathing practice, whenever you need them',
+                AppText(
+                  l10n.planBody,
                   variant: AppTextVariant.link,
                   color: AppColors.muted,
                 ),
                 const SizedBox(height: 36),
-                const _Step(
+                _Step(
                   icon: 'assets/images/subscription/check.svg',
-                  title: 'Today',
-                  body: 'Everything unlocks. Start listening straight away.',
+                  title: l10n.planToday,
+                  body: l10n.planTodayBody,
                 ),
                 const SizedBox(height: 28),
-                const _Step(
+                _Step(
                   icon: 'assets/images/subscription/reminder.svg',
-                  title: 'Day 5',
-                  body: 'A gentle reminder , two days before your trial ends.',
+                  title: l10n.planDay5,
+                  body: l10n.planDay5Body,
                 ),
                 const SizedBox(height: 28),
-                const _Step(
+                _Step(
                   icon: 'assets/images/subscription/star.svg',
-                  title: 'Day 7',
-                  body: 'Your subscription starts, Cancel any time before then',
+                  title: l10n.planDay7,
+                  body: l10n.planDay7Body,
                 ),
                 const SizedBox(height: 28),
                 _PlanToggle(
@@ -66,7 +68,7 @@ class _SubscriptionViewState extends State<SubscriptionView> {
                 const SizedBox(height: 28),
                 Center(
                   child: AppText(
-                    _yearly ? '€59.99 a year' : '€5.00 a month',
+                    _yearly ? l10n.planYearPrice : l10n.planMonthPrice,
                     variant: AppTextVariant.cardTitle,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 36, height: 1),
@@ -75,9 +77,7 @@ class _SubscriptionViewState extends State<SubscriptionView> {
                 const SizedBox(height: 4),
                 Center(
                   child: AppText(
-                    _yearly
-                        ? 'That works out a €5.00 a month'
-                        : 'Billed every month. Cancel any time.',
+                    _yearly ? l10n.planYearNote : l10n.planMonthNote,
                     variant: AppTextVariant.caption,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 14, height: 1.3),
@@ -85,7 +85,7 @@ class _SubscriptionViewState extends State<SubscriptionView> {
                 ),
                 const SizedBox(height: 36),
                 AppButton(
-                  label: 'Start 7 days free',
+                  label: l10n.planStart,
                   backgroundColor: AppColors.ink,
                   foregroundColor: AppColors.onImage,
                   borderColor: Colors.transparent,
@@ -117,8 +117,8 @@ class _PlanToggle extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _option('Yearly', yearly, () => onChanged(true)),
-          _option('Monthly', !yearly, () => onChanged(false)),
+          _option(AppLocalizations.of(context).planYearly, yearly, () => onChanged(true)),
+          _option(AppLocalizations.of(context).planMonthly, !yearly, () => onChanged(false)),
         ],
       ),
     );

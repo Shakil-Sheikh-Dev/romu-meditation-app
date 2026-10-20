@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
 import 'package:romu/core/widgets/app_button.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class BreathCompleteView extends StatelessWidget {
   const BreathCompleteView({
@@ -25,27 +26,28 @@ class BreathCompleteView extends StatelessWidget {
     _ => '4-4-4-4',
   };
 
-  List<_PatternChip> get _chips => switch (patternId) {
-    '4-7-8' => const [
-      _PatternChip('Inhale 4', accent: true),
-      _PatternChip('Hold 7'),
-      _PatternChip('Exhale 8', accent: true),
+  List<_PatternChip> _chips(AppLocalizations l10n) => switch (patternId) {
+    '4-7-8' => [
+      _PatternChip(l10n.phaseInhaleCount(4), accent: true),
+      _PatternChip(l10n.phaseHoldCount(7)),
+      _PatternChip(l10n.phaseExhaleCount(8), accent: true),
     ],
-    '4-6' => const [
-      _PatternChip('Inhale 4', accent: true),
-      _PatternChip('Hold 2'),
-      _PatternChip('Exhale 6', accent: true),
+    '4-6' => [
+      _PatternChip(l10n.phaseInhaleCount(4), accent: true),
+      _PatternChip(l10n.phaseHoldCount(2)),
+      _PatternChip(l10n.phaseExhaleCount(6), accent: true),
     ],
-    _ => const [
-      _PatternChip('Inhale 4', accent: true),
-      _PatternChip('Hold 4'),
-      _PatternChip('Exhale 4', accent: true),
-      _PatternChip('Hold 4'),
+    _ => [
+      _PatternChip(l10n.phaseInhaleCount(4), accent: true),
+      _PatternChip(l10n.phaseHoldCount(4)),
+      _PatternChip(l10n.phaseExhaleCount(4), accent: true),
+      _PatternChip(l10n.phaseHoldCount(4)),
     ],
   };
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: AppBackground(
@@ -79,8 +81,8 @@ class BreathCompleteView extends StatelessWidget {
               const SizedBox(height: 66),
               const Center(child: _AnimatedEmblem()),
               const SizedBox(height: 24),
-              const Text(
-                'Steady again',
+              Text(
+                l10n.breathSteady,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Instrument Serif',
@@ -92,7 +94,7 @@ class BreathCompleteView extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                '$title · $_patternLabel · $minutes minutes',
+                l10n.breathSummary(minutes, _patternLabel, title),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: 'Jost',
@@ -107,7 +109,7 @@ class BreathCompleteView extends StatelessWidget {
               const SizedBox(height: 10),
               _StatsRow(minutes: minutes, cycles: cycles),
               const SizedBox(height: 12),
-              _PatternCard(chips: _chips, cycles: cycles),
+              _PatternCard(chips: _chips(l10n), cycles: cycles),
               const SizedBox(height: 20),
               Material(
                 color: const Color(0xFFFDFCFA),
@@ -131,8 +133,8 @@ class BreathCompleteView extends StatelessWidget {
                           height: 16,
                         ),
                         const SizedBox(width: 9),
-                        const Text(
-                          'Do it again',
+                        Text(
+                          l10n.breathDoAgain,
                           style: TextStyle(
                             fontFamily: 'Jost',
                             fontSize: 15,
@@ -148,7 +150,7 @@ class BreathCompleteView extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               AppButton(
-                label: 'Done',
+                label: l10n.breathDone,
                 backgroundColor: AppColors.ink,
                 foregroundColor: AppColors.onImage,
                 borderColor: Colors.transparent,
@@ -308,11 +310,11 @@ class _StreakCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Expanded(
                 child: Text(
-                  '8 day streak',
+                  '8 ${AppLocalizations.of(context).breathDayStreak}',
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 17,
@@ -323,7 +325,7 @@ class _StreakCard extends StatelessWidget {
                 ),
               ),
               Text(
-                'Best 12 days',
+                AppLocalizations.of(context).breathBest,
                 style: TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 12,
@@ -419,11 +421,14 @@ class _StatsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _Stat(value: '$minutes', label: minutes == 1 ? 'minute' : 'minutes'),
+        _Stat(
+          value: '$minutes',
+          label: minutes == 1 ? AppLocalizations.of(context).minute : AppLocalizations.of(context).minutes,
+        ),
         const SizedBox(width: 9),
-        _Stat(value: '$cycles', label: 'cycles'),
+        _Stat(value: '$cycles', label: AppLocalizations.of(context).cyclesLabel),
         const SizedBox(width: 9),
-        const _Stat(value: '8', label: 'day streak'),
+        _Stat(value: '8', label: AppLocalizations.of(context).breathDayStreak),
       ],
     );
   }
@@ -493,8 +498,8 @@ class _PatternCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'PATTERN YOU BREATHED',
+          Text(
+            AppLocalizations.of(context).breathPattern,
             style: TextStyle(
               fontFamily: 'Jost',
               fontSize: 10,
@@ -532,7 +537,7 @@ class _PatternCard extends StatelessWidget {
           ),
           const SizedBox(height: 11),
           Text(
-            '$cycles cycles completed · no pauses',
+            AppLocalizations.of(context).breathCycles(cycles),
             style: const TextStyle(
               fontFamily: 'Jost',
               fontSize: 12.5,

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_background.dart';
+import 'package:romu/l10n/app_localizations.dart';
 import 'package:romu/core/widgets/app_text.dart';
 
 class BreathStartView extends StatefulWidget {
@@ -114,14 +115,14 @@ class _BreathStartViewState extends State<BreathStartView>
                       );
                     },
                     borderRadius: BorderRadius.circular(28),
-                    child: const SizedBox(
+                    child: SizedBox(
                       width: 152,
                       height: 56,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Start',
+                            AppLocalizations.of(context).breathStart,
                             style: TextStyle(
                               fontFamily: 'Instrument Sans',
                               fontSize: 18,

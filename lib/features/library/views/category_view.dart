@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_text.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class PracticeCategory {
   const PracticeCategory({
@@ -138,7 +139,12 @@ class _CategoryViewState extends State<CategoryView> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 18, 20, 14),
                   child: AppText(
-                    widget.category.title,
+                    switch (widget.category.id) {
+                      'calm' => AppLocalizations.of(context).feelingCalm,
+                      'overthinking' => AppLocalizations.of(context).feelingOverthinking,
+                      'sleep' => AppLocalizations.of(context).feelingSleep,
+                      _ => AppLocalizations.of(context).feelingMornings,
+                    },
                     variant: AppTextVariant.display,
                     color: Colors.white,
                     style: const TextStyle(fontSize: 40, height: 1.05),
@@ -151,17 +157,17 @@ class _CategoryViewState extends State<CategoryView> {
                     runSpacing: 8,
                     children: [
                       _FilterChip(
-                        label: 'All  ·  ${widget.category.practices.length}',
+                        label: AppLocalizations.of(context).categoryAll(widget.category.practices.length),
                         selected: _filter == 'all',
                         onTap: () => setState(() => _filter = 'all'),
                       ),
                       _FilterChip(
-                        label: 'Under 10 min',
+                        label: AppLocalizations.of(context).categoryUnder,
                         selected: _filter == 'under',
                         onTap: () => setState(() => _filter = 'under'),
                       ),
                       _FilterChip(
-                        label: '10 min +',
+                        label: AppLocalizations.of(context).categoryOver,
                         selected: _filter == 'over',
                         onTap: () => setState(() => _filter = 'over'),
                       ),
@@ -279,7 +285,7 @@ class _PracticeRow extends StatelessWidget {
                         const Icon(Icons.schedule, size: 13, color: Color(0xFF7A7671)),
                         const SizedBox(width: 4),
                         AppText(
-                          '$minutes min',
+                          AppLocalizations.of(context).minutesShort(minutes),
                           variant: AppTextVariant.caption,
                           color: const Color(0xFF7A7671),
                         ),

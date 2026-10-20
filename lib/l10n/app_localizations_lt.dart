@@ -437,4 +437,609 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get breathworkTitle => 'Kvėpavimas';
+
+  @override
+  String get favoritesEmptyBody =>
+      'Palieskite širdelę prie meditacijos ar kvėpavimo ir ji lauks čia.';
+
+  @override
+  String get libraryCalmBody => 'Nerimui, įtampai ir stiprioms emocijoms';
+
+  @override
+  String get libraryOverBody => 'Kai galvoje triukšminga ir sunku susikaupti';
+
+  @override
+  String get librarySleepBody => 'Vakarams, nurimimui ir lengvesniam poilsiui';
+
+  @override
+  String get libraryMorningBody =>
+      'Vakarams, nurimimui ir lengvesniam poilsiui';
+
+  @override
+  String categoryAll(Object count) {
+    return 'Visi  ·  $count';
+  }
+
+  @override
+  String get categoryUnder => 'Iki 10 min';
+
+  @override
+  String get categoryOver => '10 min +';
+
+  @override
+  String minutesShort(Object count) {
+    return '$count min';
+  }
+
+  @override
+  String get minute => 'minutė';
+
+  @override
+  String get minutes => 'minutės';
+
+  @override
+  String get breathPractice => 'Praktika';
+
+  @override
+  String get breathHowLong => 'Kiek laiko ?';
+
+  @override
+  String get breathBegin => 'Pradėti kvėpuoti';
+
+  @override
+  String get breathStart => 'Pradėti';
+
+  @override
+  String get phaseInhale => 'Įkvėpk';
+
+  @override
+  String get phaseHold => 'Sulaikyk';
+
+  @override
+  String get phaseExhale => 'Iškvėpk';
+
+  @override
+  String phaseInhaleCount(Object seconds) {
+    return 'Įkvėpk $seconds';
+  }
+
+  @override
+  String phaseHoldCount(Object seconds) {
+    return 'Sulaikyk $seconds';
+  }
+
+  @override
+  String phaseExhaleCount(Object seconds) {
+    return 'Iškvėpk $seconds';
+  }
+
+  @override
+  String get breathGuideIn => 'Lėtai įkvėpk per nosį';
+
+  @override
+  String get breathGuideHold => 'Pabūk su kvėpavimu';
+
+  @override
+  String get breathGuideOut => 'Leisk kvėpavimui išeiti';
+
+  @override
+  String get breathPause => 'Pristabdyti';
+
+  @override
+  String get breathResume => 'Tęsti';
+
+  @override
+  String get breathSteady => 'Vėl ramu';
+
+  @override
+  String breathSummary(Object minutes, Object pattern, Object title) {
+    return '$title · $pattern · $minutes min.';
+  }
+
+  @override
+  String get breathDoAgain => 'Pakartoti';
+
+  @override
+  String get breathDone => 'Baigta';
+
+  @override
+  String get breathBest => 'Geriausia 12 dienų';
+
+  @override
+  String get breathDayStreak => 'dienų serija';
+
+  @override
+  String get breathPattern => 'KVĖPAVAI TAIP';
+
+  @override
+  String breathCycles(Object count) {
+    return 'Baigta ciklų: $count · be pauzių';
+  }
+
+  @override
+  String get helpTitle => 'Pagalba';
+
+  @override
+  String get helpSubtitle => 'Pirma atsakymai — žmogus, jei vis tiek reikia';
+
+  @override
+  String get helpSearch => 'Ieškoti pagalbos';
+
+  @override
+  String get helpQ1 => 'Garsas nutrūksta, kai užrakinu telefoną';
+
+  @override
+  String get helpA1 =>
+      'Romù groja fone ir užrakinimo ekrane. Jei nutrūksta, patikrinkite, ar Romù leidžiamas foninis atnaujinimas ir ar išjungtas energijos taupymas.';
+
+  @override
+  String get helpQ2 => 'Kodėl nutrūko serija?';
+
+  @override
+  String get helpA2 =>
+      'Serija tęsiasi, kai per dieną baigiate bent vieną seansą. Praleidus dieną skaičius prasideda iš naujo. Geriausia serija lieka profilyje.';
+
+  @override
+  String get helpQ3 => 'Kaip pakeisti ar atšaukti planą?';
+
+  @override
+  String get helpA3 =>
+      'Premium apmokestinama per App Store arba Google Play. Atidarykite prenumeratos tvarkymą ir keiskite planą parduotuvėje. Romù mokesčio iš programos pakeisti negali.';
+
+  @override
+  String get helpQ4 => 'Kaip ištrinti paskyrą?';
+
+  @override
+  String get helpA4 =>
+      'Profilis, tada Ištrinti paskyrą. Patvirtinimui įrašykite DELETE. Paskyros ištrynimas neatšaukia parduotuvės prenumeratos.';
+
+  @override
+  String get helpQ5 => 'Negaunu pranešimų';
+
+  @override
+  String get helpA5 =>
+      'Įjunkite priminimą skiltyje Pranešimai ir leiskite Romù pranešimus telefono nustatymuose.';
+
+  @override
+  String get helpPremium => 'Jau nusipirkote Premium?';
+
+  @override
+  String get helpPremiumBody =>
+      'Prisijunkite ta pačia Apple ID arba Google paskyra, kuria pirkote, tada atkurkite.';
+
+  @override
+  String get helpRestore => 'Atkurti pirkinius';
+
+  @override
+  String get helpEmail => 'Rašyti pagalbai';
+
+  @override
+  String get helpEmailDetail =>
+      'hello@romu.app · atsakome per vieną darbo dieną';
+
+  @override
+  String get helpWrite => 'Rašykite hello@romu.app';
+
+  @override
+  String get privacyTitle => 'Privatumas ir sąlygos';
+
+  @override
+  String get privacyTerms => 'Naudojimo sąlygos';
+
+  @override
+  String get privacyUpdated => 'Atnaujinta 2026 m. kovo 14 d.';
+
+  @override
+  String get privacyCollect => 'Ką renkame';
+
+  @override
+  String get privacyCollectBody =>
+      'Jūsų vardą ir el. paštą kuriant paskyrą, ir kuriuos seansus grojate, kad veiktų serijos ir istorija. Tai viskas — jokios vietos, kontaktų ar įrenginio sekimo.';
+
+  @override
+  String get privacyNever => 'Ko niekada nedarome';
+
+  @override
+  String get privacyNeverBody =>
+      'Neparduodame jūsų duomenų, nesekame kitose programose ir nedalinamės klausymu su reklamuotojais. Romù neturi trečiųjų šalių reklamos.';
+
+  @override
+  String get privacyStored => 'Kur saugoma';
+
+  @override
+  String get privacyStoredBody =>
+      'Paskyros duomenys yra ES serveriuose. Garsas transliuojamas iš CDN; klausymo istorija lieka su paskyra ir niekada nesusiejama su reklamos profiliu.';
+
+  @override
+  String get privacyRights => 'Jūsų teisės';
+
+  @override
+  String get privacyRightsBody =>
+      'Viską galite peržiūrėti, eksportuoti ar ištrinti per Profilis → Ištrinti paskyrą. Ištrynimas yra neatšaukiamas, paliekame tik tai, ko reikalauja mokesčių teisė.';
+
+  @override
+  String get privacyQuestions => 'Klausimai';
+
+  @override
+  String get privacyQuestionsBody =>
+      'Rašykite privacy@romu.app ir žmogus atsakys per vieną darbo dieną.';
+
+  @override
+  String get termsUsing => 'Romù naudojimas';
+
+  @override
+  String get termsUsingBody =>
+      'Romù yra meditacijos ir kvėpavimo praktika. Seansai skirti asmeniniam naudojimui. Paskyra reikalinga serijoms, mėgstamiausiems ir istorijai.';
+
+  @override
+  String get termsBilling => 'Atsiskaitymas';
+
+  @override
+  String get termsBillingBody =>
+      'Plano keitimą ir atšaukimą tvarko Apple arba Google. Romù plano iš programos pakeisti negali.';
+
+  @override
+  String get termsAccount => 'Jūsų paskyra';
+
+  @override
+  String get termsAccountBody =>
+      'Paskyrą galite ištrinti per Profilis → Ištrinti paskyrą. Ištrynimas yra neatšaukiamas.';
+
+  @override
+  String get privacyDownload => 'Atsisiųsti PDF';
+
+  @override
+  String get privacyPdf => 'PDF · 84 KB';
+
+  @override
+  String get privacyPdfPreview => 'Šiame variante PDF yra peržiūra.';
+
+  @override
+  String get subTitle => 'Prenumerata';
+
+  @override
+  String get subSubtitle => 'Jūsų planas, atsiskaitymas ir kaip jį keisti';
+
+  @override
+  String get subPrice => '9,99 € / mėn.';
+
+  @override
+  String get subRenews => 'Atnaujinama automatiškai';
+
+  @override
+  String get subRenewsDate => '2026-10-12';
+
+  @override
+  String get subStarted => 'Pradėta';
+
+  @override
+  String get subStartedDate => '2026-03-12';
+
+  @override
+  String get subBilled => 'Atsiskaitoma per';
+
+  @override
+  String get subStore => 'App Store';
+
+  @override
+  String get subPayment => 'Mokėjimo būdas';
+
+  @override
+  String get subApple => 'Apple ID';
+
+  @override
+  String get subIncluded => 'Kas įtraukta';
+
+  @override
+  String get subItem1 => 'Visa meditacijų biblioteka';
+
+  @override
+  String get subItem2 => 'Visi kvėpavimo pratimai';
+
+  @override
+  String get subItem3 => 'Nauji seansai kiekvieną savaitę';
+
+  @override
+  String get subItem4 => 'Pažanga, serijos ir istorija';
+
+  @override
+  String get subManage => 'Tvarkyti App Store';
+
+  @override
+  String get subManageBody =>
+      'Plano keitimą ir atšaukimą tvarko Apple arba Google. Romù plano iš programos pakeisti negali.';
+
+  @override
+  String get subNote =>
+      'Plano keitimą ir atšaukimą tvarko Apple. Romù plano iš programos pakeisti negali.';
+
+  @override
+  String get subClose => 'Uždaryti';
+
+  @override
+  String get notifTitle => 'Pranešimai';
+
+  @override
+  String get notifSubtitle => 'Pasirinkite, apie ką Romù gali priminti';
+
+  @override
+  String get notifDaily => 'Kasdienis priminimas';
+
+  @override
+  String get notifDailyBody =>
+      'Švelnus priminimas tuo pačiu metu kiekvieną dieną';
+
+  @override
+  String get notifTime => 'Laikas';
+
+  @override
+  String get notifPractice => 'PRAKTIKA';
+
+  @override
+  String get notifStreak => 'Serijos priminimai';
+
+  @override
+  String get notifNew => 'Nauji seansai';
+
+  @override
+  String get notifWeekly => 'Savaitės apžvalga';
+
+  @override
+  String get notifAccount => 'PASKYRA';
+
+  @override
+  String get notifBilling => 'Prenumerata ir mokėjimai';
+
+  @override
+  String get notifNews => 'Produkto naujienos';
+
+  @override
+  String get notifNote =>
+      'Romù gali siųsti pranešimus tik jei jie leidžiami telefono nustatymuose.';
+
+  @override
+  String get notifSettings => 'Atidaryti sistemos nustatymus';
+
+  @override
+  String get pwTitle => 'Keisti slaptažodį';
+
+  @override
+  String get pwSubtitle =>
+      'Šiame įrenginyje liksite prisijungę. Kituose įrenginiuose reikės prisijungti iš naujo.';
+
+  @override
+  String get pwCurrent => 'Dabartinis slaptažodis';
+
+  @override
+  String get pwNew => 'Naujas slaptažodis';
+
+  @override
+  String get pwConfirm => 'Pakartokite naują slaptažodį';
+
+  @override
+  String get pwUpdate => 'Atnaujinti slaptažodį';
+
+  @override
+  String get pwShow => 'Rodyti';
+
+  @override
+  String get pwHide => 'Slėpti';
+
+  @override
+  String get pwRules => 'NAUJAS SLAPTAŽODIS TURI TURĖTI';
+
+  @override
+  String get pwLength => 'Bent 8 simbolius';
+
+  @override
+  String get pwNumber => 'Vieną skaičių';
+
+  @override
+  String get pwCapital => 'Vieną didžiąją raidę';
+
+  @override
+  String get editTitle => 'Redaguoti profilį';
+
+  @override
+  String get editSubtitle => 'Atnaujinkite, kaip paskyra atrodo Romù';
+
+  @override
+  String get editPhoto => 'Profilio nuotrauka';
+
+  @override
+  String get editPhotoHint => 'JPG arba PNG, kvadratas, min. 200 px';
+
+  @override
+  String get editChange => 'Keisti';
+
+  @override
+  String get editName => 'Vardas';
+
+  @override
+  String get editEmail => 'El. paštas';
+
+  @override
+  String get editPassword => 'Patvirtinti slaptažodį';
+
+  @override
+  String get editSave => 'Išsaugoti';
+
+  @override
+  String get editTake => 'Fotografuoti';
+
+  @override
+  String get editGallery => 'Pasirinkti iš galerijos';
+
+  @override
+  String get editPhotoError => 'Nepavyko naudoti šios nuotraukos';
+
+  @override
+  String get deleteTitle => 'Ištrinti paskyrą?';
+
+  @override
+  String get deleteBody =>
+      'Tai ištrina Romù paskyrą ir viską joje. Atšaukti nebegalima.';
+
+  @override
+  String get deleteItem1 => 'Jūsų profilis, vardas ir el. paštas';
+
+  @override
+  String get deleteItem2 => 'Serijos, minutės ir seansų istorija';
+
+  @override
+  String get deleteItem3 => 'Viskas, kas išsaugota mėgstamiausiuose';
+
+  @override
+  String get deleteItem4 => 'Į telefoną atsisiųstas garsas';
+
+  @override
+  String get deleteBilling =>
+      'Prenumeratą apmokestina Apple arba Google. Paskyros ištrynimas jos neatšaukia — pirmiausia atšaukite App Store arba Play Store.';
+
+  @override
+  String get deleteType => 'Patvirtinimui įrašykite DELETE';
+
+  @override
+  String get deleteCancel => 'Atšaukti';
+
+  @override
+  String medNarrated(Object name) {
+    return 'Pasakoja $name';
+  }
+
+  @override
+  String get medGuided => 'Vedama';
+
+  @override
+  String get medAbout => 'APIE ŠIĄ PRAKTIKĄ';
+
+  @override
+  String get medAboutBody =>
+      'Leiskite dienai pamažu atleisti. Ši švelni meditacija padeda paleisti likusias mintis, rūpesčius ir dienos emocijas.\nLėtu kvėpavimu ir ramiu vedimu nutildysite protą, atpalaiduosite kūną ir rasite vietos tylai.';
+
+  @override
+  String get medHeadphones => 'Geriausia su ausinėmis, tyloje.';
+
+  @override
+  String get medBegin => 'Pradėti seansą';
+
+  @override
+  String get medFallback => 'Meditacija';
+
+  @override
+  String get seekLabel => '10S';
+
+  @override
+  String get completeSaved => 'Išsaugota mėgstamiausiuose';
+
+  @override
+  String get completeDone => 'Baigta';
+
+  @override
+  String get completeBest => 'Geriausia 12 dienų';
+
+  @override
+  String get completeSessions => 'seansai';
+
+  @override
+  String get completeStreak => 'dienų serija';
+
+  @override
+  String get completeUpNext => 'TOLIAU';
+
+  @override
+  String completeBack(Object amount, Object unit) {
+    return 'Tai $amount $unit sau';
+  }
+
+  @override
+  String get wordOne => 'viena';
+
+  @override
+  String get wordTwo => 'dvi';
+
+  @override
+  String get wordThree => 'trys';
+
+  @override
+  String get wordFour => 'keturios';
+
+  @override
+  String get wordFive => 'penkios';
+
+  @override
+  String get wordSix => 'šešios';
+
+  @override
+  String get wordSeven => 'septynios';
+
+  @override
+  String get wordEight => 'aštuonios';
+
+  @override
+  String get wordNine => 'devynios';
+
+  @override
+  String get wordTen => 'dešimt';
+
+  @override
+  String get wordTwelve => 'dvylika';
+
+  @override
+  String get wordFourteen => 'keturiolika';
+
+  @override
+  String get wordEighteen => 'aštuoniolika';
+
+  @override
+  String get planTitle => 'Romù , visa';
+
+  @override
+  String get planBody =>
+      'Kiekviena meditacija ir kiekviena kvėpavimo praktika, kai tik reikia';
+
+  @override
+  String get planToday => 'Šiandien';
+
+  @override
+  String get planTodayBody => 'Viskas atrakinta. Pradėkite klausyti iš karto.';
+
+  @override
+  String get planDay5 => '5 diena';
+
+  @override
+  String get planDay5Body =>
+      'Švelnus priminimas likus dviem dienoms iki bandomojo laikotarpio pabaigos.';
+
+  @override
+  String get planDay7 => '7 diena';
+
+  @override
+  String get planDay7Body =>
+      'Prasideda prenumerata. Iki tol galite atšaukti bet kada';
+
+  @override
+  String get planYearly => 'Metams';
+
+  @override
+  String get planMonthly => 'Mėnesiui';
+
+  @override
+  String get planYearPrice => '59,99 € per metus';
+
+  @override
+  String get planMonthPrice => '5,00 € per mėnesį';
+
+  @override
+  String get planYearNote => 'Tai yra 5,00 € per mėnesį';
+
+  @override
+  String get planMonthNote =>
+      'Sąskaita kiekvieną mėnesį. Atšaukti galima bet kada.';
+
+  @override
+  String get planStart => 'Pradėti 7 dienas nemokamai';
+
+  @override
+  String get cyclesLabel => 'ciklai';
 }

@@ -5,6 +5,7 @@ import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_button.dart';
 import 'package:romu/core/widgets/app_text.dart';
 import 'package:romu/features/auth/widgets/auth_back_button.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class MeditationDetailView extends StatelessWidget {
   const MeditationDetailView({
@@ -23,6 +24,7 @@ class MeditationDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.paddingOf(context).bottom;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       backgroundColor: AppColors.surface,
@@ -74,18 +76,18 @@ class MeditationDetailView extends StatelessWidget {
                       style: const TextStyle(fontSize: 40, height: 38 / 40),
                     ),
                     const SizedBox(height: 8),
-                    AppText('Narrated by $narrator', variant: AppTextVariant.field, color: AppColors.muted),
+                    AppText(l10n.medNarrated(narrator), variant: AppTextVariant.field, color: AppColors.muted),
                     const SizedBox(height: 16),
                     Wrap(
                       spacing: 8,
                       children: [
                         _Chip(label: topic, filled: true),
                         _Chip(
-                          label: '$minutes min',
+                          label: l10n.minutesShort(minutes),
                           icon: 'assets/images/meditation/chip_time.svg',
                         ),
-                        const _Chip(
-                          label: 'Guided',
+                        _Chip(
+                          label: l10n.medGuided,
                           icon: 'assets/images/meditation/chip_guided.svg',
                         ),
                       ],
@@ -99,36 +101,36 @@ class MeditationDetailView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: AppColors.stroke),
                       ),
-                      child: const Column(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AppText(
-                            'ABOUT THIS PRACTICE',
+                            l10n.medAbout,
                             variant: AppTextVariant.caption,
-                            style: TextStyle(letterSpacing: 1),
+                            style: const TextStyle(letterSpacing: 1),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           AppText(
-                            'Let the day slowly loosen its hold. This gentle meditation helps you release lingering thoughts, worries, and emotions from the day.\nThrough slow breathing and soothing guidance, you’ll quiet the mind, relax the body, and create space for stillness. Let go of what can wait until tomorrow and ease naturally into a peaceful, restful sleep.',
+                            l10n.medAboutBody,
                             variant: AppTextVariant.field,
                           ),
                         ],
                       ),
                     ),
                     const SizedBox(height: 12),
-                    const Row(
+                    Row(
                       children: [
-                        DecoratedBox(
+                        const DecoratedBox(
                           decoration: BoxDecoration(
                             color: Color(0xFFD89A72),
                             shape: BoxShape.circle,
                           ),
                           child: SizedBox(width: 6, height: 6),
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Flexible(
                           child: AppText(
-                            'Best with headphones, somewhere quiet.',
+                            l10n.medHeadphones,
                             variant: AppTextVariant.caption,
                             color: AppColors.muted,
                           ),
@@ -145,7 +147,7 @@ class MeditationDetailView extends StatelessWidget {
             right: 16,
             bottom: 16 + bottomInset,
             child: AppButton(
-              label: 'Begin Session',
+              label: l10n.medBegin,
               backgroundColor: AppColors.ink,
               foregroundColor: AppColors.onImage,
               borderColor: Colors.transparent,

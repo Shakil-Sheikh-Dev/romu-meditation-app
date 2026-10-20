@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
 import 'package:romu/core/widgets/app_button.dart';
+import 'package:romu/l10n/app_localizations.dart';
 
 class ChangePasswordView extends StatefulWidget {
   const ChangePasswordView({super.key});
@@ -28,6 +29,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: SafeArea(
@@ -41,17 +43,17 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 shape: const CircleBorder(),
                 child: InkWell(
                   onTap: () => context.pop(),
-                  customBorder: const CircleBorder(),
-                  child: const SizedBox(
+                  customBorder: CircleBorder(),
+                  child: SizedBox(
                     width: 44,
                     height: 44,
                     child: Icon(Icons.chevron_left, color: Color(0xFFFAF8F5), size: 26),
                   ),
                 ),
               ),
-              const SizedBox(height: 22),
-              const Text(
-                'Change password',
+              SizedBox(height: 22),
+              Text(
+                l10n.pwTitle,
                 style: TextStyle(
                   fontFamily: 'Instrument Serif',
                   fontSize: 44,
@@ -60,9 +62,9 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                   color: AppColors.ink,
                 ),
               ),
-              const SizedBox(height: 8),
-              const Text(
-                'You’ll stay signed in on this device. Other devices will ask you to log in again.',
+              SizedBox(height: 8),
+              Text(
+                l10n.pwSubtitle,
                 style: TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 15,
@@ -71,27 +73,27 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                   color: Color(0xFF6E675F),
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               Expanded(
                 child: ListView(
                   padding: EdgeInsets.zero,
                   children: [
                     _PasswordField(
-                      label: 'Current password',
+                      label: l10n.pwCurrent,
                       controller: _current,
                       obscure: !_showCurrent,
                       onToggle: () => setState(() => _showCurrent = !_showCurrent),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     _PasswordField(
-                      label: 'New password',
+                      label: l10n.pwNew,
                       controller: _next,
                       obscure: !_showNext,
                       onToggle: () => setState(() => _showNext = !_showNext),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     _PasswordField(
-                      label: 'Confirm new password',
+                      label: l10n.pwConfirm,
                       controller: _confirm,
                       suffix: _LiveMatch(password: _next, confirm: _confirm),
                     ),
@@ -112,7 +114,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                       password.isNotEmpty &&
                       password == _confirm.text;
                   return AppButton(
-                    label: 'Update password',
+                    label: l10n.pwUpdate,
                     backgroundColor: AppColors.ink,
                     foregroundColor: AppColors.onImage,
                     borderColor: Colors.transparent,
@@ -182,14 +184,14 @@ class _PasswordField extends StatelessWidget {
                   height: 20,
                 ),
               ),
-              prefixIconConstraints: const BoxConstraints(minWidth: 50, maxWidth: 50, minHeight: 20),
+              prefixIconConstraints: BoxConstraints(minWidth: 50, maxWidth: 50, minHeight: 20),
               suffixIcon: suffix ??
                   (onToggle == null
                   ? null
                   : TextButton(
                       onPressed: onToggle,
                       child: Text(
-                        obscure ? 'Show' : 'Hide',
+                        obscure ? AppLocalizations.of(context).pwShow : AppLocalizations.of(context).pwHide,
                         style: const TextStyle(
                           fontFamily: 'Jost',
                           fontSize: 14,
@@ -229,17 +231,17 @@ class _Rules extends StatelessWidget {
         final value = password.text;
         return Container(
           width: double.infinity,
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 15),
+          padding: EdgeInsets.fromLTRB(16, 14, 16, 15),
           decoration: BoxDecoration(
-            color: const Color(0xFFFDFCFA),
+            color: Color(0xFFFDFCFA),
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: const Color(0xFFDDD6CC)),
+            border: Border.all(color: Color(0xFFDDD6CC)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'NEW PASSWORD MUST HAVE',
+              Text(
+                AppLocalizations.of(context).pwRules,
                 style: TextStyle(
                   fontFamily: 'Jost',
                   fontSize: 10,
@@ -249,12 +251,12 @@ class _Rules extends StatelessWidget {
                   color: Color(0xFF9A938A),
                 ),
               ),
-              const SizedBox(height: 10),
-              _Rule(started: value.isNotEmpty, met: value.length >= 8, label: 'At least 8 characters'),
-              const SizedBox(height: 10),
-              _Rule(started: value.isNotEmpty, met: value.contains(RegExp(r'\d')), label: 'One number'),
-              const SizedBox(height: 10),
-              _Rule(started: value.isNotEmpty, met: value.contains(RegExp(r'[A-Z]')), label: 'One capital letter'),
+              SizedBox(height: 10),
+              _Rule(started: value.isNotEmpty, met: value.length >= 8, label: AppLocalizations.of(context).pwLength),
+              SizedBox(height: 10),
+              _Rule(started: value.isNotEmpty, met: value.contains(RegExp(r'\d')), label: AppLocalizations.of(context).pwNumber),
+              SizedBox(height: 10),
+              _Rule(started: value.isNotEmpty, met: value.contains(RegExp(r'[A-Z]')), label: AppLocalizations.of(context).pwCapital),
             ],
           ),
         );
