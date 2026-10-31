@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
@@ -37,7 +37,7 @@ class ManageSubscriptionView extends StatelessWidget {
             Text(
               l10n.subTitle,
               style: TextStyle(
-                fontFamily: 'Instrument Serif',
+                fontFamily: 'OpenSauceOne',
                 fontSize: 44,
                 fontWeight: FontWeight.w400,
                 height: 1.05,
@@ -48,7 +48,7 @@ class ManageSubscriptionView extends StatelessWidget {
             Text(
               l10n.subSubtitle,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 height: 24 / 16,
@@ -73,7 +73,7 @@ class ManageSubscriptionView extends StatelessWidget {
                         child: Text(
                           'Romù Premium',
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 21,
                             fontWeight: FontWeight.w600,
                             height: 28 / 21,
@@ -91,7 +91,7 @@ class ManageSubscriptionView extends StatelessWidget {
                           child: Text(
                             l10n.profileActive,
                             style: TextStyle(
-                              fontFamily: 'Jost',
+                              fontFamily: 'OpenSauceTwo',
                               fontSize: 11,
                               fontWeight: FontWeight.w500,
                               color: Color(0xFFFAF8F5),
@@ -105,7 +105,7 @@ class ManageSubscriptionView extends StatelessWidget {
                   Text(
                     l10n.subPrice,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       height: 24 / 16,
@@ -124,7 +124,7 @@ class ManageSubscriptionView extends StatelessWidget {
                         child: Text(
                           l10n.subRenews,
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
                             height: 19 / 13,
@@ -135,7 +135,7 @@ class ManageSubscriptionView extends StatelessWidget {
                       Text(
                         l10n.subRenewsDate,
                         style: TextStyle(
-                          fontFamily: 'Jost',
+                          fontFamily: 'OpenSauceTwo',
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           height: 20 / 14,
@@ -164,7 +164,7 @@ class ManageSubscriptionView extends StatelessWidget {
                   Text(
                     l10n.subIncluded,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       height: 24 / 16,
@@ -206,7 +206,7 @@ class ManageSubscriptionView extends StatelessWidget {
             Text(
               l10n.subNote,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 height: 18 / 12,
@@ -226,7 +226,7 @@ class ManageSubscriptionView extends StatelessWidget {
                   child: Text(
                     l10n.helpRestore,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       height: 22 / 15,
@@ -276,7 +276,7 @@ class _BillingCard extends StatelessWidget {
                     child: Text(
                       rows[index].$1,
                       style: const TextStyle(
-                        fontFamily: 'Jost',
+                        fontFamily: 'OpenSauceTwo',
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                         height: 22 / 15,
@@ -287,7 +287,7 @@ class _BillingCard extends StatelessWidget {
                   Text(
                     rows[index].$2,
                     style: const TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       height: 22 / 15,
@@ -319,7 +319,7 @@ class _Included extends StatelessWidget {
           child: Text(
             label,
             style: const TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 14,
               fontWeight: FontWeight.w400,
               height: 21 / 14,

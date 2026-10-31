@@ -36,7 +36,7 @@ class ProfileView extends ConsumerWidget {
                     Text(
                       l10n.profileTitle,
                       style: TextStyle(
-                        fontFamily: 'Instrument Serif',
+                        fontFamily: 'OpenSauceOne',
                         fontSize: 40,
                         fontWeight: FontWeight.w400,
                         height: 1.15,
@@ -60,7 +60,7 @@ class ProfileView extends ConsumerWidget {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 19,
                                     fontWeight: FontWeight.w600,
                                     height: 26 / 19,
@@ -73,7 +73,7 @@ class ProfileView extends ConsumerWidget {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400,
                                     height: 19 / 13,
@@ -83,7 +83,7 @@ class ProfileView extends ConsumerWidget {
                                 Text(
                                   l10n.profileMemberSince,
                                   style: TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
                                     height: 18 / 12,
@@ -132,7 +132,7 @@ class ProfileView extends ConsumerWidget {
                                     const Text(
                                       'Romù Premium',
                                       style: TextStyle(
-                                        fontFamily: 'Jost',
+                                        fontFamily: 'OpenSauceTwo',
                                         fontSize: 17,
                                         fontWeight: FontWeight.w600,
                                         height: 24 / 17,
@@ -150,7 +150,7 @@ class ProfileView extends ConsumerWidget {
                                         child: Text(
                                           l10n.profileActive,
                                           style: TextStyle(
-                                            fontFamily: 'Jost',
+                                            fontFamily: 'OpenSauceTwo',
                                             fontSize: 11,
                                             fontWeight: FontWeight.w500,
                                             height: 1,
@@ -165,7 +165,7 @@ class ProfileView extends ConsumerWidget {
                                 Text(
                                   l10n.profileRenews,
                                   style: TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400,
                                     height: 19 / 13,
@@ -282,7 +282,7 @@ class _Pill extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 13,
               fontWeight: FontWeight.w500,
               height: 1,
@@ -312,7 +312,7 @@ class _Stat extends StatelessWidget {
             Text(
               value,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 26,
                 fontWeight: FontWeight.w600,
                 height: 32 / 26,
@@ -322,7 +322,7 @@ class _Stat extends StatelessWidget {
             Text(
               label,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 height: 18 / 12,
@@ -382,7 +382,7 @@ class _Menu extends StatelessWidget {
                         child: Text(
                           rows[index].label,
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             height: 24 / 16,
@@ -394,7 +394,7 @@ class _Menu extends StatelessWidget {
                         Text(
                           rows[index].trailing!,
                           style: const TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
                             height: 19 / 13,

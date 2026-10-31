@@ -22,43 +22,60 @@ class SignUpView extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
-        backgroundColor: AppColors.surface,
         body: Stack(
           fit: StackFit.expand,
           children: [
-            const Image(
-              image: AssetImage('assets/images/auth/signup_background.png'),
-              fit: BoxFit.cover,
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFFF6EFE6),
+                    Color(0xFFE8D5C0),
+                    Color(0xFFDFC4A8),
+                  ],
+                  stops: [0.0, 0.55, 1.0],
+                ),
+              ),
             ),
             SafeArea(
               child: SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(14, 24, 14, 24 + bottomInset),
+                padding: EdgeInsets.fromLTRB(24, 20, 24, 24 + bottomInset),
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 120,
+                      height: 72,
                       width: double.infinity,
                       child: Image(
                         image: AssetImage('assets/images/auth/logo_dark.png'),
                         fit: BoxFit.contain,
+                        filterQuality: FilterQuality.high,
+                        semanticLabel: 'Romi Kasdien',
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
                     AppText(
                       l10n.signUpTitle,
-                      variant: AppTextVariant.display,
+                      variant: AppTextVariant.headline,
                       color: AppColors.ink,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 48, height: 1.05, letterSpacing: -1.5),
+                      style: const TextStyle(
+                        fontSize: 34,
+                        height: 1.1,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.6,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     AppText(
                       l10n.signUpBody,
-                      variant: AppTextVariant.prompt,
+                      variant: AppTextVariant.link,
                       color: AppColors.muted,
                       textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 15, height: 1.35),
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 24),
                     AppButton(
                       label: l10n.continueApple,
                       backgroundColor: AppColors.ink,
@@ -67,7 +84,7 @@ class SignUpView extends StatelessWidget {
                       leading: const AuthIcon('assets/images/auth/apple.svg'),
                       onPressed: null,
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 12),
                     AppButton(
                       label: l10n.continueGoogle,
                       backgroundColor: AppColors.onImage,
@@ -76,9 +93,9 @@ class SignUpView extends StatelessWidget {
                       leading: const AuthIcon('assets/images/auth/google.svg'),
                       onPressed: null,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
                     OrDivider(label: l10n.orContinueWith),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
                     AppButton(
                       label: l10n.continueEmail,
                       backgroundColor: AppColors.onImage,
@@ -87,7 +104,7 @@ class SignUpView extends StatelessWidget {
                       leading: const AuthIcon('assets/images/auth/mail.svg'),
                       onPressed: () => context.push('/create-account'),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 20),
                     Wrap(
                       alignment: WrapAlignment.center,
                       crossAxisAlignment: WrapCrossAlignment.center,
@@ -96,14 +113,16 @@ class SignUpView extends StatelessWidget {
                           '${l10n.alreadyHaveAccount} ',
                           variant: AppTextVariant.link,
                           color: AppColors.muted,
+                          style: const TextStyle(fontSize: 15),
                         ),
                         AppText(
                           l10n.logIn,
                           variant: AppTextVariant.button,
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 20),
                     _LegalLine(l10n: l10n),
                   ],
                 ),
@@ -114,7 +133,6 @@ class SignUpView extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class _LegalLine extends StatelessWidget {
@@ -124,8 +142,17 @@ class _LegalLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final muted = AppTypography.field.copyWith(color: AppColors.muted);
-    final link = AppTypography.fieldLabel;
+    final muted = AppTypography.caption.copyWith(
+      color: AppColors.muted,
+      fontSize: 12,
+      height: 1.4,
+    );
+    final link = muted.copyWith(
+      fontWeight: FontWeight.w700,
+      color: AppColors.ink,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.ink,
+    );
 
     return Text.rich(
       TextSpan(
@@ -138,13 +165,14 @@ class _LegalLine extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () => showLegalNotice(context, l10n.termsOfService),
           ),
-          const TextSpan(text: ' & '),
+          TextSpan(text: l10n.agreeAnd),
           TextSpan(
             text: l10n.privacyPolicy,
             style: link,
             recognizer: TapGestureRecognizer()
               ..onTap = () => showLegalNotice(context, l10n.privacyPolicy),
           ),
+          const TextSpan(text: '.'),
         ],
       ),
       textAlign: TextAlign.center,

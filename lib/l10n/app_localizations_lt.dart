@@ -102,7 +102,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get signUpBody =>
-      'Išsaugokite treniruotes, mėgstamiausius ir pažangą visuose įrenginiuose.';
+      'Išsaugokite mėgstamiausius ir pažangą visuose įrenginiuose.';
 
   @override
   String get continueApple => 'Tęsti su Apple';
@@ -114,10 +114,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get continueEmail => 'Tęsti el. paštu';
 
   @override
-  String get orContinueWith => 'arba tęsti su';
+  String get orContinueWith => 'arba';
 
   @override
-  String get alreadyHaveAccount => 'Jau turite paskyrą ?';
+  String get alreadyHaveAccount => 'Jau turite paskyrą?';
 
   @override
   String get logIn => 'Prisijungti';

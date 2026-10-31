@@ -40,7 +40,7 @@ class LanguageView extends ConsumerWidget {
             Text(
               l10n.languageTitle,
               style: TextStyle(
-                fontFamily: 'Instrument Serif',
+                fontFamily: 'OpenSauceOne',
                 fontSize: 44,
                 fontWeight: FontWeight.w400,
                 height: 1.05,
@@ -51,7 +51,7 @@ class LanguageView extends ConsumerWidget {
             Text(
               l10n.languageSubtitle,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
                 height: 23 / 15,
@@ -130,7 +130,7 @@ class _LanguageRow extends StatelessWidget {
               child: Text(
                 code,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                   color: selected ? const Color(0xFFA8734D) : const Color(0xFF7A7671),
@@ -145,7 +145,7 @@ class _LanguageRow extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 16.5,
                       fontWeight: FontWeight.w500,
                       height: 24 / 16.5,
@@ -155,7 +155,7 @@ class _LanguageRow extends StatelessWidget {
                   Text(
                     subtitle,
                     style: const TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 12.5,
                       fontWeight: FontWeight.w400,
                       height: 18 / 12.5,

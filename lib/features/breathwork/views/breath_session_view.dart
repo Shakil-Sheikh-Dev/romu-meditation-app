@@ -142,7 +142,7 @@ class _BreathSessionViewState extends State<BreathSessionView>
                       child: Text(
                         clock,
                         style: const TextStyle(
-                          fontFamily: 'Jost',
+                          fontFamily: 'OpenSauceTwo',
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: AppColors.ink,
@@ -202,7 +202,7 @@ class _BreathSessionViewState extends State<BreathSessionView>
                   guide,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontFamily: 'Jost',
+                    fontFamily: 'OpenSauceTwo',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF6E675F),
@@ -254,7 +254,7 @@ class _BreathSessionViewState extends State<BreathSessionView>
                           Text(
                             _running ? l10n.breathPause : l10n.breathResume,
                             style: TextStyle(
-                              fontFamily: 'Instrument Sans',
+                              fontFamily: 'OpenSauceOne',
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               height: 28 / 18,
@@ -480,7 +480,7 @@ class _PhaseChip extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          fontFamily: 'Jost',
+          fontFamily: 'OpenSauceTwo',
           fontSize: 14,
           height: 1,
           fontWeight: FontWeight.w500,

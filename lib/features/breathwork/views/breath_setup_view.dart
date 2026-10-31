@@ -136,7 +136,7 @@ class _BreathSetupSheetState extends State<BreathSetupSheet> {
             AppLocalizations.of(context).breathHowLong,
             variant: AppTextVariant.link,
             color: AppColors.ink,
-            style: TextStyle(fontFamily: 'Jost', fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
+            style: TextStyle(fontFamily: 'OpenSauceTwo', fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
           ),
           const SizedBox(height: 12),
           Row(
@@ -175,7 +175,7 @@ class _BreathSetupSheetState extends State<BreathSetupSheet> {
                       variant: AppTextVariant.button,
                       color: Color(0xFFFAF8F5),
                       style: TextStyle(
-                        fontFamily: 'Instrument Sans',
+                        fontFamily: 'OpenSauceOne',
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                         height: 28 / 18,
@@ -230,7 +230,7 @@ class _DurationCard extends StatelessWidget {
                 color: selected ? const Color(0xFFFAF8F5) : AppColors.ink,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Instrument Serif',
+                  fontFamily: 'OpenSauceOne',
                   fontSize: 30,
                   fontWeight: FontWeight.w400,
                   height: 34 / 30,
@@ -240,7 +240,7 @@ class _DurationCard extends StatelessWidget {
                 minutes == 1 ? AppLocalizations.of(context).minute : AppLocalizations.of(context).minutes,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   height: 16 / 12,

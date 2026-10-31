@@ -43,15 +43,30 @@ class OnboardingStoryView extends StatelessWidget {
                         child: Column(
                           children: [
                             const SizedBox(height: 46),
-                            AppText(
-                              story.title,
-                              variant: AppTextVariant.display,
-                              textAlign: TextAlign.center,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: AppText(
+                                story.title,
+                                variant: AppTextVariant.display,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.2,
+                                  letterSpacing: -0.4,
+                                ),
+                              ),
                             ),
                             const SizedBox(height: 18),
-                            AppText(
-                              story.body,
-                              textAlign: TextAlign.center,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 36),
+                              child: AppText(
+                                story.body,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  height: 1.4,
+                                ),
+                              ),
                             ),
                           ],
                         ),

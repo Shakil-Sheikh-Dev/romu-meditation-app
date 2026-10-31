@@ -53,22 +53,29 @@ class WelcomeView extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 0, 15, 28 + bottomInset),
+              padding: EdgeInsets.fromLTRB(32, 0, 32, 28 + bottomInset),
               child: Column(
                 children: [
                   const Spacer(flex: 36),
-                  const FractionallySizedBox(
-                    widthFactor: 318 / 410,
+                  const SizedBox(
+                    width: 180,
                     child: Image(
                       image: AssetImage('assets/images/welcome_logo.png'),
                       fit: BoxFit.contain,
+                      filterQuality: FilterQuality.high,
+                      isAntiAlias: true,
                       semanticLabel: 'Romi Kasdien',
                     ),
                   ),
                   const Spacer(flex: 44),
-                  AppButton(
-                    label: l10n.welcomeGetStarted,
-                    onPressed: onGetStarted ?? () {},
+                  Align(
+                    child: SizedBox(
+                      width: 220,
+                      child: AppButton(
+                        label: l10n.welcomeGetStarted,
+                        onPressed: onGetStarted ?? () {},
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 14),
                   _SignInPrompt(

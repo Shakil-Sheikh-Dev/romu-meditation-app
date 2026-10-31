@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,14 +55,14 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                 ListTile(
                   title: Text(
                     AppLocalizations.of(context).editTake,
-                    style: TextStyle(fontFamily: 'Jost', fontSize: 16, color: AppColors.ink),
+                    style: TextStyle(fontFamily: 'OpenSauceTwo', fontSize: 16, color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.camera),
                 ),
                 ListTile(
                   title: Text(
                     AppLocalizations.of(context).editGallery,
-                    style: TextStyle(fontFamily: 'Jost', fontSize: 16, color: AppColors.ink),
+                    style: TextStyle(fontFamily: 'OpenSauceTwo', fontSize: 16, color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.gallery),
                 ),
@@ -131,7 +131,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
               Text(
                 l10n.editTitle,
                 style: TextStyle(
-                  fontFamily: 'Instrument Serif',
+                  fontFamily: 'OpenSauceOne',
                   fontSize: 44,
                   fontWeight: FontWeight.w400,
                   height: 1.05,
@@ -142,7 +142,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
               Text(
                 l10n.editSubtitle,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   height: 24 / 16,
@@ -172,7 +172,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                                 Text(
                                   l10n.editPhoto,
                                   style: TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                     height: 24 / 16,
@@ -183,7 +183,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                                 Text(
                                   l10n.editPhotoHint,
                                   style: TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
                                     height: 18 / 12,
@@ -204,7 +204,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                                 child: Text(
                                   l10n.editChange,
                                   style: TextStyle(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'OpenSauceTwo',
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
                                     color: Color(0xFF6E675F),
@@ -279,7 +279,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                               child: Text(
                                 l10n.editChange,
                                 style: TextStyle(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'OpenSauceTwo',
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xFFD89A72),

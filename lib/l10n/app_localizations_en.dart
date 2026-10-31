@@ -102,8 +102,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signUpTitle => 'Create your account';
 
   @override
-  String get signUpBody =>
-      'Keep your workouts, favorites, and progress perfectly in sync across all your devices.';
+  String get signUpBody => 'Save your favorites and progress across devices.';
 
   @override
   String get continueApple => 'Continue with Apple';
@@ -115,16 +114,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueEmail => 'Continue with email';
 
   @override
-  String get orContinueWith => 'or continue with';
+  String get orContinueWith => 'or';
 
   @override
-  String get alreadyHaveAccount => 'Already have an account ?';
+  String get alreadyHaveAccount => 'Already have an account?';
 
   @override
   String get logIn => 'Log in';
 
   @override
-  String get signUpLegalPrefix => 'By continuing you agree to out ';
+  String get signUpLegalPrefix => 'By continuing, you agree to our ';
 
   @override
   String get termsOfService => 'Terms of Service';

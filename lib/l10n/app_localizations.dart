@@ -275,7 +275,7 @@ abstract class AppLocalizations {
   /// No description provided for @signUpBody.
   ///
   /// In en, this message translates to:
-  /// **'Keep your workouts, favorites, and progress perfectly in sync across all your devices.'**
+  /// **'Save your favorites and progress across devices.'**
   String get signUpBody;
 
   /// No description provided for @continueApple.
@@ -299,13 +299,13 @@ abstract class AppLocalizations {
   /// No description provided for @orContinueWith.
   ///
   /// In en, this message translates to:
-  /// **'or continue with'**
+  /// **'or'**
   String get orContinueWith;
 
   /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Already have an account ?'**
+  /// **'Already have an account?'**
   String get alreadyHaveAccount;
 
   /// No description provided for @logIn.
@@ -317,7 +317,7 @@ abstract class AppLocalizations {
   /// No description provided for @signUpLegalPrefix.
   ///
   /// In en, this message translates to:
-  /// **'By continuing you agree to out '**
+  /// **'By continuing, you agree to our '**
   String get signUpLegalPrefix;
 
   /// No description provided for @termsOfService.

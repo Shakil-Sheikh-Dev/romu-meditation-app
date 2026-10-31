@@ -1,4 +1,4 @@
-﻿import 'package:app_settings/app_settings.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -65,7 +65,7 @@ class _NotificationsViewState extends State<NotificationsView> {
             Text(
               l10n.notifTitle,
               style: TextStyle(
-                fontFamily: 'Instrument Serif',
+                fontFamily: 'OpenSauceOne',
                 fontSize: 44,
                 fontWeight: FontWeight.w400,
                 height: 1.05,
@@ -76,7 +76,7 @@ class _NotificationsViewState extends State<NotificationsView> {
             Text(
               l10n.notifSubtitle,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 height: 24 / 16,
@@ -103,7 +103,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                           child: Text(
                             l10n.notifTime,
                             style: TextStyle(
-                              fontFamily: 'Jost',
+                              fontFamily: 'OpenSauceTwo',
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                               height: 24 / 16,
@@ -114,7 +114,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                         Text(
                           _timeLabel,
                           style: const TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 24 / 16,
@@ -202,7 +202,7 @@ class _NotificationsViewState extends State<NotificationsView> {
               child: Text(
                 l10n.notifNote,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   height: 18 / 12,
@@ -222,7 +222,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                   child: Text(
                     l10n.notifSettings,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       height: 20 / 14,
@@ -283,7 +283,7 @@ class _SectionLabel extends StatelessWidget {
       child: Text(
         label,
         style: const TextStyle(
-          fontFamily: 'Jost',
+          fontFamily: 'OpenSauceTwo',
           fontSize: 12,
           fontWeight: FontWeight.w500,
           height: 16 / 12,
@@ -321,7 +321,7 @@ class _ToggleRow extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontFamily: 'Jost',
+                    fontFamily: 'OpenSauceTwo',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                     height: 24 / 16,
@@ -332,7 +332,7 @@ class _ToggleRow extends StatelessWidget {
                   Text(
                     subtitle!,
                     style: const TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       height: 18 / 12,
@@ -412,7 +412,7 @@ class _DayDot extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            fontFamily: 'Jost',
+            fontFamily: 'OpenSauceTwo',
             fontSize: 14,
             fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
             color: selected ? const Color(0xFFFAF8F5) : const Color(0xFF9A938A),

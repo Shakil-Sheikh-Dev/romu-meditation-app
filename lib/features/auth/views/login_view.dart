@@ -47,11 +47,13 @@ class _LoginViewState extends ConsumerState<LoginView> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 88,
+                  height: 64,
                   width: double.infinity,
                   child: Image(
                     image: AssetImage('assets/images/auth/logo_dark.png'),
                     fit: BoxFit.contain,
+                    filterQuality: FilterQuality.high,
+                    semanticLabel: 'Romi Kasdien',
                   ),
                 ),
                 const SizedBox(height: 16),

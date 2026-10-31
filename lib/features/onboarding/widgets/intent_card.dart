@@ -35,30 +35,38 @@ class IntentCard extends StatelessWidget {
               width: selected ? 1.5 : 1,
             ),
           ),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minHeight: 180),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SvgPicture.asset(iconAsset),
-                  const SizedBox(height: 8),
-                  AppText(
-                    title,
-                    variant: AppTextVariant.cardTitle,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 16, 12, 14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 40,
+                  child: Center(child: SvgPicture.asset(iconAsset)),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 44,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: AppText(
+                      title,
+                      variant: AppTextVariant.cardTitle,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                  const SizedBox(height: 8),
-                  AppText(
-                    subtitle,
-                    variant: AppTextVariant.caption,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 4),
+                AppText(
+                  subtitle,
+                  variant: AppTextVariant.caption,
+                  textAlign: TextAlign.center,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
             ),
           ),
         ),

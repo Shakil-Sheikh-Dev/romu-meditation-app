@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:romu/core/theme/app_colors.dart';
 
 abstract final class AppTypography {
-  static const instrumentSans = 'Instrument Sans';
-  static const instrumentSerif = 'Instrument Serif';
-  static const jost = 'Jost';
+  static const instrumentSans = 'OpenSauceOne';
+  static const instrumentSerif = 'OpenSauceOne';
+  static const jost = 'OpenSauceTwo';
 
   static const cormorantGaramond = 'Cormorant Garamond';
 
   static const display = TextStyle(
     fontFamily: instrumentSerif,
-    fontSize: 50,
-    height: 48 / 50,
-    fontWeight: FontWeight.w400,
+    fontSize: 40,
+    height: 1.15,
+    fontWeight: FontWeight.w700,
     color: Colors.white,
   );
 
   static const headline = TextStyle(
     fontFamily: instrumentSerif,
     fontSize: 44,
-    height: 41 / 44,
-    fontWeight: FontWeight.w400,
+    height: 1.1,
+    fontWeight: FontWeight.w700,
     letterSpacing: 0.4,
     color: Colors.white,
   );
@@ -66,10 +66,10 @@ abstract final class AppTypography {
   );
 
   static const cardTitle = TextStyle(
-    fontFamily: cormorantGaramond,
-    fontSize: 22,
-    height: 24 / 22,
-    fontWeight: FontWeight.w600,
+    fontFamily: instrumentSans,
+    fontSize: 18,
+    height: 22 / 18,
+    fontWeight: FontWeight.w700,
     color: AppColors.ink,
   );
 

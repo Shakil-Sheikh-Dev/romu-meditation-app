@@ -98,7 +98,7 @@ class _BreathStartViewState extends State<BreathStartView>
                   _counts,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontFamily: 'Jost',
+                    fontFamily: 'OpenSauceTwo',
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF6E675F),
@@ -124,7 +124,7 @@ class _BreathStartViewState extends State<BreathStartView>
                           Text(
                             AppLocalizations.of(context).breathStart,
                             style: TextStyle(
-                              fontFamily: 'Instrument Sans',
+                              fontFamily: 'OpenSauceOne',
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               height: 1,

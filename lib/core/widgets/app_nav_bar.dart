@@ -38,7 +38,7 @@ class AppNavBar extends StatelessWidget {
             l10n.navFavorites,
             '/favorites',
             activeIcon: 'assets/images/nav/favorites_selected.svg',
-            activeFontFamily: 'Instrument Sans',
+            activeFontFamily: 'OpenSauceOne',
           ),
           _item(
             context,
@@ -46,7 +46,7 @@ class AppNavBar extends StatelessWidget {
             l10n.navProfile,
             '/profile',
             activeIcon: 'assets/images/nav/profile_selected.svg',
-            activeFontFamily: 'Instrument Sans',
+            activeFontFamily: 'OpenSauceOne',
           ),
         ],
       ),

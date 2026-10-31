@@ -63,7 +63,7 @@ class _HelpViewState extends State<HelpView> {
             Text(
               l10n.helpTitle,
               style: TextStyle(
-                fontFamily: 'Instrument Serif',
+                fontFamily: 'OpenSauceOne',
                 fontSize: 44,
                 fontWeight: FontWeight.w400,
                 height: 1.05,
@@ -74,7 +74,7 @@ class _HelpViewState extends State<HelpView> {
             Text(
               l10n.helpSubtitle,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 height: 24 / 16,
@@ -87,7 +87,7 @@ class _HelpViewState extends State<HelpView> {
               onChanged: (_) => setState(() {}),
               cursorColor: AppColors.ink,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
                 color: AppColors.ink,
@@ -95,7 +95,7 @@ class _HelpViewState extends State<HelpView> {
               decoration: InputDecoration(
                 hintText: l10n.helpSearch,
                 hintStyle: const TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 16,
                   color: Color(0xFF9A938A),
                 ),
@@ -159,7 +159,7 @@ class _HelpViewState extends State<HelpView> {
                   Text(
                     l10n.helpPremium,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       height: 24 / 16,
@@ -170,7 +170,7 @@ class _HelpViewState extends State<HelpView> {
                   Text(
                     l10n.helpPremiumBody,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
                       height: 19 / 13,
@@ -189,7 +189,7 @@ class _HelpViewState extends State<HelpView> {
                         child: Text(
                           l10n.helpRestore,
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             height: 20 / 14,
@@ -233,7 +233,7 @@ class _HelpViewState extends State<HelpView> {
                             Text(
                               l10n.helpEmail,
                               style: TextStyle(
-                                fontFamily: 'Jost',
+                                fontFamily: 'OpenSauceTwo',
                                 fontSize: 15.5,
                                 fontWeight: FontWeight.w500,
                                 height: 23 / 15.5,
@@ -243,7 +243,7 @@ class _HelpViewState extends State<HelpView> {
                             Text(
                               l10n.helpEmailDetail,
                               style: TextStyle(
-                                fontFamily: 'Jost',
+                                fontFamily: 'OpenSauceTwo',
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 height: 18 / 12,
@@ -303,7 +303,7 @@ class _Article extends StatelessWidget {
                   child: Text(
                     title,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 15.5,
                       fontWeight: open ? FontWeight.w500 : FontWeight.w400,
                       height: 23 / 15.5,
@@ -326,7 +326,7 @@ class _Article extends StatelessWidget {
               Text(
                 body,
                 style: const TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 13.5,
                   fontWeight: FontWeight.w400,
                   height: 21 / 13.5,

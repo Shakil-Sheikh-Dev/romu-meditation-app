@@ -76,7 +76,7 @@ class _FavoritesViewState extends ConsumerState<FavoritesView> {
                                 l10n.favoritesEmptyFilter,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'OpenSauceTwo',
                                   fontSize: 15,
                                   color: Color(0xFF6E675F),
                                 ),
@@ -119,7 +119,7 @@ class _Title extends StatelessWidget {
     return Text(
       AppLocalizations.of(context).favoritesTitle,
       style: TextStyle(
-        fontFamily: 'Instrument Serif',
+        fontFamily: 'OpenSauceOne',
         fontSize: 40,
         fontWeight: FontWeight.w400,
         height: 1.15,
@@ -184,7 +184,7 @@ class _FilterChip extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 14,
               fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
               height: 1,
@@ -223,7 +223,7 @@ class _Group extends StatelessWidget {
               child: Text(
                 title,
                 style: const TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                   height: 28 / 18,
@@ -234,7 +234,7 @@ class _Group extends StatelessWidget {
             Text(
               label,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
                 height: 19 / 13,
@@ -316,7 +316,7 @@ class _FavoriteRow extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             height: 24 / 16,
@@ -338,7 +338,7 @@ class _FavoriteRow extends StatelessWidget {
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'OpenSauceTwo',
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                   height: 21 / 14,
@@ -399,7 +399,7 @@ class _EmptyFavorites extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context).favoritesEmptyHint,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Color(0xFF6E675F),
@@ -443,7 +443,7 @@ class _EmptyFavorites extends StatelessWidget {
                     AppLocalizations.of(context).favoritesEmptyBody,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       height: 24 / 15,
@@ -463,7 +463,7 @@ class _EmptyFavorites extends StatelessWidget {
                       child: Text(
                         AppLocalizations.of(context).favoritesBrowse,
                         style: TextStyle(
-                          fontFamily: 'Instrument Sans',
+                          fontFamily: 'OpenSauceOne',
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: Color(0xFFFAF8F5),

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
@@ -55,7 +55,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
               Text(
                 l10n.pwTitle,
                 style: TextStyle(
-                  fontFamily: 'Instrument Serif',
+                  fontFamily: 'OpenSauceOne',
                   fontSize: 44,
                   fontWeight: FontWeight.w400,
                   height: 1.05,
@@ -66,7 +66,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
               Text(
                 l10n.pwSubtitle,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   height: 23 / 15,
@@ -193,7 +193,7 @@ class _PasswordField extends StatelessWidget {
                       child: Text(
                         obscure ? AppLocalizations.of(context).pwShow : AppLocalizations.of(context).pwHide,
                         style: const TextStyle(
-                          fontFamily: 'Jost',
+                          fontFamily: 'OpenSauceTwo',
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFFD89A72),
@@ -243,7 +243,7 @@ class _Rules extends StatelessWidget {
               Text(
                 AppLocalizations.of(context).pwRules,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 10,
                   fontWeight: FontWeight.w500,
                   height: 14 / 10,
@@ -319,7 +319,7 @@ class _Rule extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 13.5,
               fontWeight: FontWeight.w400,
               height: 20 / 13.5,

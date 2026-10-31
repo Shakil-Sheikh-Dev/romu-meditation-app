@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:romu/core/theme/app_colors.dart';
@@ -98,7 +98,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
             Text(
               l10n.deleteBody,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
                 height: 23 / 15,
@@ -147,7 +147,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                     child: Text(
                       l10n.deleteBilling,
                       style: TextStyle(
-                        fontFamily: 'Jost',
+                        fontFamily: 'OpenSauceTwo',
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
                         height: 19 / 13,
@@ -162,7 +162,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
             Text(
               l10n.deleteType,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 height: 20 / 14,
@@ -175,7 +175,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
               onChanged: (_) => setState(() {}),
               cursorColor: AppColors.ink,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
                 color: AppColors.ink,
@@ -183,7 +183,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
               decoration: InputDecoration(
                 hintText: 'DELETE',
                 hintStyle: const TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF9A938A),
@@ -215,7 +215,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                           child: Text(
                             l10n.deleteCancel,
                             style: TextStyle(
-                              fontFamily: 'Instrument Sans',
+                              fontFamily: 'OpenSauceOne',
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               color: AppColors.ink,
@@ -240,7 +240,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
                           child: Text(
                             l10n.profileDelete,
                             style: TextStyle(
-                              fontFamily: 'Instrument Sans',
+                              fontFamily: 'OpenSauceOne',
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               color: Color(0xFFFAF8F5),
@@ -280,7 +280,7 @@ class _EraseLine extends StatelessWidget {
           child: Text(
             label,
             style: const TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 14,
               fontWeight: FontWeight.w400,
               height: 21 / 14,

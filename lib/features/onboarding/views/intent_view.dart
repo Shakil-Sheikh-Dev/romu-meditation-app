@@ -33,20 +33,27 @@ class IntentView extends ConsumerWidget {
             ),
             SafeArea(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(16, 46, 16, 28 + bottomInset),
+                padding: EdgeInsets.fromLTRB(16, 28, 16, 16 + bottomInset),
                 child: Column(
                   children: [
                     AppText(
                       l10n.intentTitle,
                       variant: AppTextVariant.headline,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 36,
+                        height: 1.1,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 20),
                     Expanded(
                       child: SingleChildScrollView(
+                        padding: const EdgeInsets.only(bottom: 8),
                         child: Column(
                           children: [
                             for (var row = 0; row < options.length; row += 2) ...[
-                              if (row > 0) const SizedBox(height: 15),
+                              if (row > 0) const SizedBox(height: 12),
                               IntrinsicHeight(
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,7 +61,7 @@ class IntentView extends ConsumerWidget {
                                     Expanded(
                                       child: _card(ref, options[row], selectedId),
                                     ),
-                                    const SizedBox(width: 16),
+                                    const SizedBox(width: 12),
                                     Expanded(
                                       child: _card(
                                         ref,
@@ -66,15 +73,15 @@ class IntentView extends ConsumerWidget {
                                 ),
                               ),
                             ],
+                            const SizedBox(height: 20),
+                            AppTextButton(
+                              label: l10n.intentBrowse,
+                              variant: AppTextVariant.link,
+                              onPressed: onBrowse ?? () {},
+                            ),
                           ],
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    AppTextButton(
-                      label: l10n.intentBrowse,
-                      variant: AppTextVariant.link,
-                      onPressed: onBrowse ?? () {},
                     ),
                   ],
                 ),

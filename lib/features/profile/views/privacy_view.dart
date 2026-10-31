@@ -57,7 +57,7 @@ class _PrivacyViewState extends State<PrivacyView> {
             Text(
               l10n.privacyTitle,
               style: TextStyle(
-                fontFamily: 'Instrument Serif',
+                fontFamily: 'OpenSauceOne',
                 fontSize: 44,
                 fontWeight: FontWeight.w400,
                 height: 1.05,
@@ -91,7 +91,7 @@ class _PrivacyViewState extends State<PrivacyView> {
             Text(
               l10n.privacyUpdated,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 height: 18 / 12,
@@ -130,7 +130,7 @@ class _PrivacyViewState extends State<PrivacyView> {
                         child: Text(
                           l10n.privacyDownload,
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             height: 22 / 15,
@@ -141,7 +141,7 @@ class _PrivacyViewState extends State<PrivacyView> {
                       Text(
                         l10n.privacyPdf,
                         style: TextStyle(
-                          fontFamily: 'Jost',
+                          fontFamily: 'OpenSauceTwo',
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           height: 18 / 12,
@@ -182,7 +182,7 @@ class _Segment extends StatelessWidget {
               label,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 14.5,
                 fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
                 height: 21 / 14.5,
@@ -210,7 +210,7 @@ class _Block extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            fontFamily: 'Jost',
+            fontFamily: 'OpenSauceTwo',
             fontSize: 16,
             fontWeight: FontWeight.w600,
             height: 24 / 16,
@@ -221,7 +221,7 @@ class _Block extends StatelessWidget {
         Text(
           body,
           style: const TextStyle(
-            fontFamily: 'Jost',
+            fontFamily: 'OpenSauceTwo',
             fontSize: 13.5,
             fontWeight: FontWeight.w400,
             height: 21 / 13.5,

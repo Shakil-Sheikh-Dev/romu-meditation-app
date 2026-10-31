@@ -13,6 +13,7 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       title: 'ROMÙ',
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       locale: ref.watch(localeProvider),
       routerConfig: ref.watch(routerProvider),

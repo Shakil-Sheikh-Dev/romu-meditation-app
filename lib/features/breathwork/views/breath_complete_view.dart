@@ -85,7 +85,7 @@ class BreathCompleteView extends StatelessWidget {
                 l10n.breathSteady,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Instrument Serif',
+                  fontFamily: 'OpenSauceOne',
                   fontSize: 34,
                   fontWeight: FontWeight.w400,
                   height: 40 / 34,
@@ -97,7 +97,7 @@ class BreathCompleteView extends StatelessWidget {
                 l10n.breathSummary(minutes, _patternLabel, title),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
                   height: 22 / 15,
@@ -136,7 +136,7 @@ class BreathCompleteView extends StatelessWidget {
                         Text(
                           l10n.breathDoAgain,
                           style: TextStyle(
-                            fontFamily: 'Jost',
+                            fontFamily: 'OpenSauceTwo',
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             height: 22 / 15,
@@ -316,7 +316,7 @@ class _StreakCard extends StatelessWidget {
                 child: Text(
                   '8 ${AppLocalizations.of(context).breathDayStreak}',
                   style: TextStyle(
-                    fontFamily: 'Jost',
+                    fontFamily: 'OpenSauceTwo',
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
                     height: 24 / 17,
@@ -327,7 +327,7 @@ class _StreakCard extends StatelessWidget {
               Text(
                 AppLocalizations.of(context).breathBest,
                 style: TextStyle(
-                  fontFamily: 'Jost',
+                  fontFamily: 'OpenSauceTwo',
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   height: 18 / 12,
@@ -397,7 +397,7 @@ class _DayDot extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            fontFamily: 'Jost',
+            fontFamily: 'OpenSauceTwo',
             fontSize: 11,
             fontWeight: FontWeight.w400,
             height: 16 / 11,
@@ -455,7 +455,7 @@ class _Stat extends StatelessWidget {
             Text(
               value,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
                 height: 30 / 24,
@@ -465,7 +465,7 @@ class _Stat extends StatelessWidget {
             Text(
               label,
               style: const TextStyle(
-                fontFamily: 'Jost',
+                fontFamily: 'OpenSauceTwo',
                 fontSize: 11.5,
                 fontWeight: FontWeight.w400,
                 height: 17 / 11.5,
@@ -501,7 +501,7 @@ class _PatternCard extends StatelessWidget {
           Text(
             AppLocalizations.of(context).breathPattern,
             style: TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 10,
               fontWeight: FontWeight.w500,
               height: 14 / 10,
@@ -525,7 +525,7 @@ class _PatternCard extends StatelessWidget {
                   child: Text(
                     chip.label,
                     style: TextStyle(
-                      fontFamily: 'Jost',
+                      fontFamily: 'OpenSauceTwo',
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                       height: 19 / 13,
@@ -539,7 +539,7 @@ class _PatternCard extends StatelessWidget {
           Text(
             AppLocalizations.of(context).breathCycles(cycles),
             style: const TextStyle(
-              fontFamily: 'Jost',
+              fontFamily: 'OpenSauceTwo',
               fontSize: 12.5,
               fontWeight: FontWeight.w400,
               height: 18 / 12.5,

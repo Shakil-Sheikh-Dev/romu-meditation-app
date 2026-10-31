@@ -86,22 +86,80 @@ flutter:
     - assets/audio/romu_sample_song.mp3
 
   fonts:
-    - family: Instrument Sans
+    - family: OpenSauceOne
       fonts:
-        - asset: assets/fonts/InstrumentSans-Bold.ttf
-          weight: 700
-    - family: Instrument Serif
-      fonts:
-        - asset: assets/fonts/InstrumentSerif-Regular.ttf
+        - asset: assets/fonts/OpenSauceOne-Light.ttf
+          weight: 300
+        - asset: assets/fonts/OpenSauceOne-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-Regular.ttf
           weight: 400
-    - family: Jost
-      fonts:
-        - asset: assets/fonts/Jost-Regular.ttf
+        - asset: assets/fonts/OpenSauceOne-Italic.ttf
           weight: 400
-        - asset: assets/fonts/Jost-Medium.ttf
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Jost-SemiBold.ttf
+        - asset: assets/fonts/OpenSauceOne-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-SemiBold.ttf
           weight: 600
+        - asset: assets/fonts/OpenSauceOne-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSauceOne-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/OpenSauceOne-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/OpenSauceOne-Black.ttf
+          weight: 900
+        - asset: assets/fonts/OpenSauceOne-BlackItalic.ttf
+          weight: 900
+          style: italic
+    - family: OpenSauceTwo
+      fonts:
+        - asset: assets/fonts/OpenSauceTwo-Light.ttf
+          weight: 300
+        - asset: assets/fonts/OpenSauceTwo-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSauceTwo-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSauceTwo-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSauceTwo-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSauceTwo-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/OpenSauceTwo-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/OpenSauceTwo-Black.ttf
+          weight: 900
+        - asset: assets/fonts/OpenSauceTwo-BlackItalic.ttf
+          weight: 900
+          style: italic
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Medium.ttf

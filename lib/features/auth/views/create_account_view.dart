@@ -58,7 +58,18 @@ class _CreateAccountViewState extends ConsumerState<CreateAccountView> {
                   alignment: Alignment.centerLeft,
                   child: AuthBackButton(onPressed: () => context.pop()),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
+                const SizedBox(
+                  height: 64,
+                  width: double.infinity,
+                  child: Image(
+                    image: AssetImage('assets/images/auth/logo_dark.png'),
+                    fit: BoxFit.contain,
+                    filterQuality: FilterQuality.high,
+                    semanticLabel: 'Romi Kasdien',
+                  ),
+                ),
+                const SizedBox(height: 16),
                 AppText(
                   l10n.createAccountTitle,
                   variant: AppTextVariant.headline,
