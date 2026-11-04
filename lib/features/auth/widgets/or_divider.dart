@@ -10,11 +10,12 @@ class OrDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Expanded(child: Divider(color: AppColors.stroke, thickness: 1)),
         Flexible(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: AppText(
               label,
               variant: AppTextVariant.link,

@@ -36,7 +36,7 @@ class IntentCard extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(12, 16, 12, 14),
+            padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -45,22 +45,27 @@ class IntentCard extends StatelessWidget {
                   child: Center(child: SvgPicture.asset(iconAsset)),
                 ),
                 const SizedBox(height: 10),
-                SizedBox(
-                  height: 44,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: AppText(
-                      title,
-                      variant: AppTextVariant.cardTitle,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: AppText(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
                     ),
+                    variant: AppTextVariant.cardTitle,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 10),
                 AppText(
                   subtitle,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                  ),
                   variant: AppTextVariant.caption,
                   textAlign: TextAlign.center,
                   maxLines: 3,

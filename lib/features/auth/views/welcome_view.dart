@@ -1,11 +1,11 @@
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:romu/core/theme/app_colors.dart';
+import 'package:romu/core/theme/app_typography.dart';
 import 'package:romu/core/widgets/app_button.dart';
-import 'package:romu/core/widgets/app_text.dart';
-import 'package:romu/core/widgets/app_text_button.dart';
 import 'package:romu/l10n/app_localizations.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -70,7 +70,7 @@ class WelcomeView extends StatelessWidget {
                   const Spacer(flex: 44),
                   Align(
                     child: SizedBox(
-                      width: 220,
+                      width: 160,
                       child: AppButton(
                         label: l10n.welcomeGetStarted,
                         onPressed: onGetStarted ?? () {},
@@ -93,7 +93,7 @@ class WelcomeView extends StatelessWidget {
   }
 }
 
-class _SignInPrompt extends StatelessWidget {
+class _SignInPrompt extends StatefulWidget {
   const _SignInPrompt({
     required this.prompt,
     required this.action,
@@ -105,14 +105,44 @@ class _SignInPrompt extends StatelessWidget {
   final VoidCallback onSignIn;
 
   @override
+  State<_SignInPrompt> createState() => _SignInPromptState();
+}
+
+class _SignInPromptState extends State<_SignInPrompt> {
+  late final TapGestureRecognizer _tapRecognizer;
+
+  @override
+  void initState() {
+    super.initState();
+    _tapRecognizer = TapGestureRecognizer()..onTap = () => widget.onSignIn();
+  }
+
+  @override
+  void dispose() {
+    _tapRecognizer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Wrap(
-      alignment: WrapAlignment.center,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        AppText('$prompt ', variant: AppTextVariant.prompt),
-        AppTextButton(label: action, onPressed: onSignIn),
-      ],
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text.rich(
+        TextSpan(
+          text: '${widget.prompt} ',
+          style: AppTypography.prompt.copyWith(fontSize: 16),
+          children: [
+            TextSpan(
+              text: widget.action,
+              style: AppTypography.promptEmphasis.copyWith(fontSize: 16),
+              recognizer: _tapRecognizer,
+            ),
+          ],
+        ),
+        maxLines: 1,
+        softWrap: false,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

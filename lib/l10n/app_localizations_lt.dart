@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -74,7 +73,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get intentRacingTitle => 'Lekiančios mintys';
 
   @override
-  String get intentRacingSubtitle => 'Nuramink protą,\nrask aiškumo';
+  String get intentRacingSubtitle => 'Nuramink protą';
 
   @override
   String get intentAngerTitle => 'Pyktis / įtampa';

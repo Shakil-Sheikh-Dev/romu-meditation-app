@@ -67,7 +67,8 @@ class _AllSetMark extends StatefulWidget {
   State<_AllSetMark> createState() => _AllSetMarkState();
 }
 
-class _AllSetMarkState extends State<_AllSetMark> with TickerProviderStateMixin {
+class _AllSetMarkState extends State<_AllSetMark>
+    with TickerProviderStateMixin {
   late final AnimationController _enter = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 900),
@@ -104,18 +105,19 @@ class _AllSetMarkState extends State<_AllSetMark> with TickerProviderStateMixin 
             : constraints.maxHeight;
         final size = available < 300 ? available : 300.0;
         return AnimatedBuilder(
-      animation: Listenable.merge([_enter, _pulse]),
-      builder: (context, child) {
-        final enter = Curves.easeOutBack.transform(_enter.value);
-        final pulse = 1 + (_pulse.value * 0.06);
-        return Opacity(
-          opacity: _enter.value.clamp(0, 1),
-          child: Transform.scale(
-            scale: (0.72 + (0.28 * enter)) * (_enter.isCompleted ? pulse : 1),
-            child: child,
-          ),
-        );
-      },
+          animation: Listenable.merge([_enter, _pulse]),
+          builder: (context, child) {
+            final enter = Curves.easeOutBack.transform(_enter.value);
+            final pulse = 1 + (_pulse.value * 0.06);
+            return Opacity(
+              opacity: _enter.value.clamp(0, 1),
+              child: Transform.scale(
+                scale:
+                    (0.72 + (0.28 * enter)) * (_enter.isCompleted ? pulse : 1),
+                child: child,
+              ),
+            );
+          },
           child: SizedBox(
             width: size,
             height: size,

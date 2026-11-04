@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -75,7 +74,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get intentRacingTitle => 'Racing thoughts';
 
   @override
-  String get intentRacingSubtitle => 'Quiet the mind,\nfind some clarity';
+  String get intentRacingSubtitle => 'Quiet the mind';
 
   @override
   String get intentAngerTitle => 'Anger / tension';

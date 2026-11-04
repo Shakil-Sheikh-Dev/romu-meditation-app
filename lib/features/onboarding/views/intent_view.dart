@@ -33,7 +33,7 @@ class IntentView extends ConsumerWidget {
             ),
             SafeArea(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(16, 28, 16, 16 + bottomInset),
+                padding: EdgeInsets.fromLTRB(16, 48, 16, 16 + bottomInset),
                 child: Column(
                   children: [
                     AppText(
@@ -41,12 +41,12 @@ class IntentView extends ConsumerWidget {
                       variant: AppTextVariant.headline,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 36,
+                        fontSize: 24,
                         height: 1.1,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Expanded(
                       child: SingleChildScrollView(
                         padding: const EdgeInsets.only(bottom: 8),
@@ -73,7 +73,7 @@ class IntentView extends ConsumerWidget {
                                 ),
                               ),
                             ],
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 30),
                             AppTextButton(
                               label: l10n.intentBrowse,
                               variant: AppTextVariant.link,
