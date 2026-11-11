@@ -16,32 +16,35 @@ class LibraryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.surface,
       body: AppBackground(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-                children: [
-                  AppText(
-                    l10n.libraryTitle,
-                    variant: AppTextVariant.display,
-                    color: AppColors.ink,
-                    style: TextStyle(fontSize: 40, height: 1.1),
-                  ),
-                  const SizedBox(height: 20),
-                  const _CategoryGrid(),
-                  const SizedBox(height: 25),
-                  const _PopularHeader(),
-                  const SizedBox(height: 12),
-                  const _PracticeRow(title: "When you can't settle", minutes: 7),
-                  const _PracticeRow(title: 'Finding peace in chaos', minutes: 5),
-                  const _PracticeRow(title: 'The art of letting go', minutes: 8),
-                  const _PracticeRow(title: 'Embracing uncertainty', minutes: 6),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  children: [
+                    AppText(
+                      l10n.libraryTitle,
+                      variant: AppTextVariant.display,
+                      color: AppColors.ink,
+                      style: TextStyle(fontSize: 40, height: 1.1),
+                    ),
+                    const SizedBox(height: 20),
+                    const _CategoryGrid(),
+                    const SizedBox(height: 25),
+                    const _PopularHeader(),
+                    const SizedBox(height: 12),
+                    const _PracticeRow(title: "When you can't settle", minutes: 7),
+                    const _PracticeRow(title: 'Finding peace in chaos', minutes: 5),
+                    const _PracticeRow(title: 'The art of letting go', minutes: 8),
+                    const _PracticeRow(title: 'Embracing uncertainty', minutes: 6),
+                  ],
+                ),
               ),
-            ),
-            const AppNavBar(current: '/library'),
-          ],
+              const AppNavBar(current: '/library'),
+            ],
+          ),
         ),
       ),
     );

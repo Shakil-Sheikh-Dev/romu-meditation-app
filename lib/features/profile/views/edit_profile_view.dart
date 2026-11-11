@@ -55,14 +55,20 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                 ListTile(
                   title: Text(
                     AppLocalizations.of(context).editTake,
-                    style: TextStyle(fontFamily: 'OpenSauceTwo', fontSize: 16, color: AppColors.ink),
+                    style: TextStyle(
+                        fontFamily: 'OpenSauceTwo',
+                        fontSize: 16,
+                        color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.camera),
                 ),
                 ListTile(
                   title: Text(
                     AppLocalizations.of(context).editGallery,
-                    style: TextStyle(fontFamily: 'OpenSauceTwo', fontSize: 16, color: AppColors.ink),
+                    style: TextStyle(
+                        fontFamily: 'OpenSauceTwo',
+                        fontSize: 16,
+                        color: AppColors.ink),
                   ),
                   onTap: () => Navigator.pop(context, ImageSource.gallery),
                 ),
@@ -105,7 +111,8 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final photoPath = ref.watch(accountProvider.select((account) => account.photoPath));
+    final photoPath =
+        ref.watch(accountProvider.select((account) => account.photoPath));
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: SafeArea(
@@ -123,7 +130,8 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                   child: SizedBox(
                     width: 44,
                     height: 44,
-                    child: Icon(Icons.chevron_left, color: Color(0xFFFAF8F5), size: 26),
+                    child: Icon(Icons.chevron_left,
+                        color: Color(0xFFFAF8F5), size: 26),
                   ),
                 ),
               ),
@@ -132,8 +140,8 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                 l10n.editTitle,
                 style: TextStyle(
                   fontFamily: 'OpenSauceOne',
-                  fontSize: 44,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
                   height: 1.05,
                   color: AppColors.ink,
                 ),
@@ -200,7 +208,8 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                               onTap: _changePhoto,
                               borderRadius: BorderRadius.circular(16),
                               child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 14, vertical: 8),
                                 child: Text(
                                   l10n.editChange,
                                   style: TextStyle(
@@ -301,9 +310,13 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
                 borderColor: Colors.transparent,
                 onPressed: () {
                   ref.read(accountProvider.notifier).update(
-                    name: _name.text.trim().isEmpty ? 'Natasha KazlauskaitÄ—' : _name.text.trim(),
-                    email: _email.text.trim().isEmpty ? 'natasha.k@email.com' : _email.text.trim(),
-                  );
+                        name: _name.text.trim().isEmpty
+                            ? 'Natasha KazlauskaitÄ—'
+                            : _name.text.trim(),
+                        email: _email.text.trim().isEmpty
+                            ? 'natasha.k@email.com'
+                            : _email.text.trim(),
+                      );
                   context.pop();
                 },
               ),
@@ -377,7 +390,8 @@ class _Input extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16, right: 14),
             child: SvgPicture.asset(icon, width: 24, height: 24),
           ),
-          prefixIconConstraints: const BoxConstraints(minWidth: 54, maxWidth: 54, minHeight: 24),
+          prefixIconConstraints:
+              const BoxConstraints(minWidth: 54, maxWidth: 54, minHeight: 24),
           contentPadding: const EdgeInsets.symmetric(vertical: 16),
           border: _border,
           enabledBorder: _border,

@@ -38,8 +38,8 @@ class ManageSubscriptionView extends StatelessWidget {
               l10n.subTitle,
               style: TextStyle(
                 fontFamily: 'OpenSauceOne',
-                fontSize: 44,
-                fontWeight: FontWeight.w400,
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
                 height: 1.05,
                 color: AppColors.ink,
               ),

@@ -41,6 +41,8 @@ class _PlayerViewState extends ConsumerState<PlayerView>
   final AudioPlayer _audio = AudioPlayer(handleInterruptions: false);
   StreamSubscription<Duration>? _positionSub;
   StreamSubscription<PlayerState>? _stateSub;
+  Timer? _hideTitleTimer;
+  var _showTitle = true;
   Duration _position = Duration.zero;
   Duration? _duration;
   var _playing = false;
@@ -51,7 +53,22 @@ class _PlayerViewState extends ConsumerState<PlayerView>
   @override
   void initState() {
     super.initState();
+    _startHideTitleTimer();
     _prepare();
+  }
+
+  void _startHideTitleTimer() {
+    _hideTitleTimer?.cancel();
+    _hideTitleTimer = Timer(const Duration(seconds: 10), () {
+      if (mounted) {
+        setState(() => _showTitle = false);
+      }
+    });
+  }
+
+  void _onScreenTapped() {
+    setState(() => _showTitle = true);
+    _startHideTitleTimer();
   }
 
   Future<void> _prepare() async {
@@ -101,6 +118,7 @@ class _PlayerViewState extends ConsumerState<PlayerView>
 
   @override
   void dispose() {
+    _hideTitleTimer?.cancel();
     _positionSub?.cancel();
     _stateSub?.cancel();
     _audio.dispose();
@@ -169,9 +187,12 @@ class _PlayerViewState extends ConsumerState<PlayerView>
 
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
-      body: AppBackground(
-        wash: AppWash.player,
-        child: SafeArea(
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: _onScreenTapped,
+        child: AppBackground(
+          wash: AppWash.player,
+          child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 28),
               child: Column(
@@ -202,19 +223,61 @@ class _PlayerViewState extends ConsumerState<PlayerView>
                     ],
                   ),
                   const SizedBox(height: 24),
-                  AppText(
-                    widget.title,
-                    variant: AppTextVariant.display,
-                    color: AppColors.ink,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 40, height: 36 / 40),
-                  ),
-                  const SizedBox(height: 12),
-                  AppText(
-                    '${widget.subtitle}·${widget.minutes} min',
-                    variant: AppTextVariant.caption,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14),
+                  AnimatedOpacity(
+                    opacity: _showTitle ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 1500),
+                    curve: Curves.easeInOut,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AppText(
+                          widget.title,
+                          variant: AppTextVariant.title,
+                          color: Colors.white,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            height: 1.25,
+                            fontWeight: FontWeight.w700,
+                            shadows: [
+                              Shadow(
+                                color: Color(0x8C000000),
+                                offset: Offset(0, 1.5),
+                                blurRadius: 6,
+                              ),
+                              Shadow(
+                                color: Color(0x40000000),
+                                offset: Offset(0, 3),
+                                blurRadius: 12,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        AppText(
+                          '${widget.subtitle} · ${widget.minutes} min',
+                          variant: AppTextVariant.caption,
+                          color: Colors.white,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            shadows: [
+                              Shadow(
+                                color: Color(0x8C000000),
+                                offset: Offset(0, 1),
+                                blurRadius: 4,
+                              ),
+                              Shadow(
+                                color: Color(0x33000000),
+                                offset: Offset(0, 2),
+                                blurRadius: 8,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const Spacer(),
                   _PlayingGlow(animation: _glow, playing: _playing),
@@ -276,6 +339,7 @@ class _PlayerViewState extends ConsumerState<PlayerView>
               ),
             ),
           ),
+        ),
       ),
     );
   }

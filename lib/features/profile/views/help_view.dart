@@ -64,8 +64,8 @@ class _HelpViewState extends State<HelpView> {
               l10n.helpTitle,
               style: TextStyle(
                 fontFamily: 'OpenSauceOne',
-                fontSize: 44,
-                fontWeight: FontWeight.w400,
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
                 height: 1.05,
                 color: AppColors.ink,
               ),

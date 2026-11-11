@@ -73,11 +73,14 @@ class OnboardingStoryView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    AppButton(
-                      label: story.actionLabel,
-                      backgroundColor: AppColors.ink,
-                      foregroundColor: AppColors.onImage,
-                      onPressed: onContinue ?? () {},
+                    SizedBox(
+                      width: 160,
+                      child: AppButton(
+                        label: story.actionLabel,
+                        backgroundColor: AppColors.ink,
+                        foregroundColor: AppColors.onImage,
+                        onPressed: onContinue ?? () {},
+                      ),
                     ),
                   ],
                 ),

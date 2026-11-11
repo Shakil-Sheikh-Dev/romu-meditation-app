@@ -33,61 +33,64 @@ class _FavoritesViewState extends ConsumerState<FavoritesView> {
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: AppBackground(
-        child: Column(
-          children: [
-            Expanded(
-              child: SafeArea(
-                bottom: false,
-                child: saved.isEmpty
-                    ? _EmptyFavorites(onBrowse: () => context.go('/library'))
-                    : ListView(
-                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                        children: [
-                          const _Title(),
-                          const SizedBox(height: 16),
-                          _Filters(
-                            selected: _filter,
-                            onSelected: (label) => setState(() => _filter = label),
-                          ),
-                          if (meditations.isNotEmpty) ...[
-                            const SizedBox(height: 22),
-                            _Group(
-                              title: l10n.favoritesMeditations,
-                              count: meditations.length,
-                              items: meditations,
-                              onOpen: _open,
-                              onRemove: _remove,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            children: [
+              Expanded(
+                child: SafeArea(
+                  bottom: false,
+                  child: saved.isEmpty
+                      ? _EmptyFavorites(onBrowse: () => context.go('/library'))
+                      : ListView(
+                          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                          children: [
+                            const _Title(),
+                            const SizedBox(height: 16),
+                            _Filters(
+                              selected: _filter,
+                              onSelected: (label) => setState(() => _filter = label),
                             ),
-                          ],
-                          if (breathing.isNotEmpty) ...[
-                            const SizedBox(height: 22),
-                            _Group(
-                              title: l10n.favoritesBreathing,
-                              count: breathing.length,
-                              items: breathing,
-                              onOpen: _open,
-                              onRemove: _remove,
-                            ),
-                          ],
-                          if (items.isEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 48),
-                              child: Text(
-                                l10n.favoritesEmptyFilter,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: 'OpenSauceTwo',
-                                  fontSize: 15,
-                                  color: Color(0xFF6E675F),
+                            if (meditations.isNotEmpty) ...[
+                              const SizedBox(height: 22),
+                              _Group(
+                                title: l10n.favoritesMeditations,
+                                count: meditations.length,
+                                items: meditations,
+                                onOpen: _open,
+                                onRemove: _remove,
+                              ),
+                            ],
+                            if (breathing.isNotEmpty) ...[
+                              const SizedBox(height: 22),
+                              _Group(
+                                title: l10n.favoritesBreathing,
+                                count: breathing.length,
+                                items: breathing,
+                                onOpen: _open,
+                                onRemove: _remove,
+                              ),
+                            ],
+                            if (items.isEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 48),
+                                child: Text(
+                                  l10n.favoritesEmptyFilter,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'OpenSauceTwo',
+                                    fontSize: 15,
+                                    color: Color(0xFF6E675F),
+                                  ),
                                 ),
                               ),
-                            ),
-                        ],
-                      ),
+                          ],
+                        ),
+                ),
               ),
-            ),
-            const AppNavBar(current: '/favorites'),
-          ],
+              const AppNavBar(current: '/favorites'),
+            ],
+          ),
         ),
       ),
     );
@@ -121,7 +124,7 @@ class _Title extends StatelessWidget {
       style: TextStyle(
         fontFamily: 'OpenSauceOne',
         fontSize: 40,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         height: 1.15,
         color: AppColors.ink,
       ),

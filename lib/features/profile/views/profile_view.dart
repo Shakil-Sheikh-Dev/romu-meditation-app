@@ -25,223 +25,226 @@ class ProfileView extends ConsumerWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDE7),
       body: AppBackground(
-        child: Column(
-          children: [
-            Expanded(
-              child: SafeArea(
-                bottom: false,
-                child: ListView(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                  children: [
-                    Text(
-                      l10n.profileTitle,
-                      style: TextStyle(
-                        fontFamily: 'OpenSauceOne',
-                        fontSize: 40,
-                        fontWeight: FontWeight.w400,
-                        height: 1.15,
-                        color: AppColors.ink,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            children: [
+              Expanded(
+                child: SafeArea(
+                  bottom: false,
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                    children: [
+                      Text(
+                        l10n.profileTitle,
+                        style: TextStyle(
+                          fontFamily: 'OpenSauceOne',
+                          fontSize: 40,
+                          fontWeight: FontWeight.w600,
+                          height: 1.15,
+                          color: AppColors.ink,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: _card,
-                      child: Row(
-                        children: [
-                          ProfileAvatar(path: account.photoPath),
-                          const SizedBox(width: 14),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  account.name,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    fontFamily: 'OpenSauceTwo',
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.w600,
-                                    height: 26 / 19,
-                                    color: AppColors.ink,
+                      const SizedBox(height: 12),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: _card,
+                        child: Row(
+                          children: [
+                            ProfileAvatar(path: account.photoPath),
+                            const SizedBox(width: 14),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    account.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontFamily: 'OpenSauceTwo',
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                      height: 26 / 19,
+                                      color: AppColors.ink,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  account.email,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    fontFamily: 'OpenSauceTwo',
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    height: 19 / 13,
-                                    color: Color(0xFF7A7671),
+                                  const SizedBox(height: 3),
+                                  Text(
+                                    account.email,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontFamily: 'OpenSauceTwo',
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w400,
+                                      height: 19 / 13,
+                                      color: Color(0xFF7A7671),
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  l10n.profileMemberSince,
-                                  style: TextStyle(
-                                    fontFamily: 'OpenSauceTwo',
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    height: 18 / 12,
-                                    color: Color(0xFF9A938A),
+                                  Text(
+                                    l10n.profileMemberSince,
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSauceTwo',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      height: 18 / 12,
+                                      color: Color(0xFF9A938A),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          _Pill(
-                            label: l10n.profileEdit,
-                            background: const Color(0xFFF1EDE7),
-                            foreground: const Color(0xFF6E675F),
-                            onTap: () => context.push('/edit-profile'),
-                          ),
+                            const SizedBox(width: 8),
+                            _Pill(
+                              label: l10n.profileEdit,
+                              background: const Color(0xFFF1EDE7),
+                              foreground: const Color(0xFF6E675F),
+                              onTap: () => context.push('/edit-profile'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          _Stat(value: '7', label: l10n.profileDayStreak),
+                          const SizedBox(width: 10),
+                          _Stat(value: '428', label: l10n.profileMinutes),
+                          const SizedBox(width: 10),
+                          _Stat(value: '36', label: l10n.profileSessions),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      children: [
-                        _Stat(value: '7', label: l10n.profileDayStreak),
-                        const SizedBox(width: 10),
-                        _Stat(value: '428', label: l10n.profileMinutes),
-                        const SizedBox(width: 10),
-                        _Stat(value: '36', label: l10n.profileSessions),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF6E9DF),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: const Color(0xFFECD9C8)),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Text(
-                                      'Romù Premium',
-                                      style: TextStyle(
-                                        fontFamily: 'OpenSauceTwo',
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w600,
-                                        height: 24 / 17,
-                                        color: AppColors.ink,
+                      const SizedBox(height: 12),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF6E9DF),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: const Color(0xFFECD9C8)),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        'Romù Premium',
+                                        style: TextStyle(
+                                          fontFamily: 'OpenSauceTwo',
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w600,
+                                          height: 24 / 17,
+                                          color: AppColors.ink,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFD89A72),
-                                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                        child: Text(
-                                          l10n.profileActive,
-                                          style: TextStyle(
-                                            fontFamily: 'OpenSauceTwo',
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w500,
-                                            height: 1,
-                                            color: Color(0xFFFAF8F5),
+                                      const SizedBox(width: 8),
+                                      DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFD89A72),
+                                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                          child: Text(
+                                            l10n.profileActive,
+                                            style: TextStyle(
+                                              fontFamily: 'OpenSauceTwo',
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w500,
+                                              height: 1,
+                                              color: Color(0xFFFAF8F5),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  l10n.profileRenews,
-                                  style: TextStyle(
-                                    fontFamily: 'OpenSauceTwo',
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    height: 19 / 13,
-                                    color: Color(0xFF8A6A52),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(height: 3),
+                                  Text(
+                                    l10n.profileRenews,
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSauceTwo',
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w400,
+                                      height: 19 / 13,
+                                      color: Color(0xFF8A6A52),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                            const SizedBox(width: 8),
+                            _Pill(
+                              label: l10n.profileManage,
+                              background: AppColors.ink,
+                              foreground: Color(0xFFFAF8F5),
+                              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                              onTap: () => context.push('/manage-subscription'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      _Menu(
+                        rows: [
+                          _MenuRow(
+                            icon: 'assets/images/profile/edit.svg',
+                            label: l10n.profileEditProfile,
+                            onTap: () => context.push('/edit-profile'),
                           ),
-                          const SizedBox(width: 8),
-                          _Pill(
-                            label: l10n.profileManage,
-                            background: AppColors.ink,
-                            foreground: Color(0xFFFAF8F5),
-                            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                            onTap: () => context.push('/manage-subscription'),
+                          _MenuRow(
+                            icon: 'assets/images/profile/notifications.svg',
+                            label: l10n.profileNotifications,
+                            trailing: l10n.profileOn,
+                            onTap: () => context.push('/notifications'),
+                          ),
+                          _MenuRow(
+                            icon: 'assets/images/profile/language.svg',
+                            label: l10n.profileLanguage,
+                            trailing: language,
+                            onTap: () => context.push('/language'),
+                          ),
+                          _MenuRow(
+                            icon: 'assets/images/profile/help.svg',
+                            label: l10n.profileHelp,
+                            onTap: () => context.push('/help'),
+                          ),
+                          _MenuRow(
+                            icon: 'assets/images/profile/privacy.svg',
+                            label: l10n.profilePrivacy,
+                            onTap: () => context.push('/privacy'),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    _Menu(
-                      rows: [
-                        _MenuRow(
-                          icon: 'assets/images/profile/edit.svg',
-                          label: l10n.profileEditProfile,
-                          onTap: () => context.push('/edit-profile'),
-                        ),
-                        _MenuRow(
-                          icon: 'assets/images/profile/notifications.svg',
-                          label: l10n.profileNotifications,
-                          trailing: l10n.profileOn,
-                          onTap: () => context.push('/notifications'),
-                        ),
-                        _MenuRow(
-                          icon: 'assets/images/profile/language.svg',
-                          label: l10n.profileLanguage,
-                          trailing: language,
-                          onTap: () => context.push('/language'),
-                        ),
-                        _MenuRow(
-                          icon: 'assets/images/profile/help.svg',
-                          label: l10n.profileHelp,
-                          onTap: () => context.push('/help'),
-                        ),
-                        _MenuRow(
-                          icon: 'assets/images/profile/privacy.svg',
-                          label: l10n.profilePrivacy,
-                          onTap: () => context.push('/privacy'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    _Menu(
-                      rows: [
-                        _MenuRow(
-                          icon: 'assets/images/profile/logout.svg',
-                          label: l10n.profileLogOut,
-                          showChevron: false,
-                          onTap: () => context.go('/'),
-                        ),
-                        _MenuRow(
-                          icon: 'assets/images/profile/delete.svg',
-                          label: l10n.profileDelete,
-                          danger: true,
-                          showChevron: false,
-                          onTap: () => showDeleteAccountSheet(context),
-                        ),
-                      ],
-                    ),
-                  ],
+                      const SizedBox(height: 12),
+                      _Menu(
+                        rows: [
+                          _MenuRow(
+                            icon: 'assets/images/profile/logout.svg',
+                            label: l10n.profileLogOut,
+                            showChevron: false,
+                            onTap: () => context.go('/'),
+                          ),
+                          _MenuRow(
+                            icon: 'assets/images/profile/delete.svg',
+                            label: l10n.profileDelete,
+                            danger: true,
+                            showChevron: false,
+                            onTap: () => showDeleteAccountSheet(context),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const AppNavBar(current: '/profile'),
-          ],
+              const AppNavBar(current: '/profile'),
+            ],
+          ),
         ),
       ),
     );

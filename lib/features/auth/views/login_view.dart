@@ -163,7 +163,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                   backgroundColor: AppColors.ink,
                   foregroundColor: AppColors.onImage,
                   borderColor: Colors.transparent,
-                  onPressed: () => _submit(context),
+                  onPressed: () => context.go('/home'),
                 ),
                 const SizedBox(height: 20),
                 OrDivider(label: l10n.orContinueWith),

@@ -15,39 +15,42 @@ class BreathworkListView extends StatelessWidget {
       backgroundColor: AppColors.surface,
       body: AppBackground(
         wash: AppWash.sage,
-        child: Column(
-          children: [
-            Expanded(
-              child: SafeArea(
-                bottom: false,
-                child: ListView(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-                  children: [
-                    AppText(
-                      AppLocalizations.of(context).breathworkTitle,
-                      variant: AppTextVariant.display,
-                      color: AppColors.ink,
-                      style: TextStyle(fontSize: 40, height: 1.1),
-                    ),
-                    const SizedBox(height: 16),
-                    AppText(
-                      AppLocalizations.of(context).breathPractice,
-                      variant: AppTextVariant.link,
-                      color: AppColors.ink,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(height: 12),
-                    for (final practice in BreathPractice.all)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: _PracticeRow(practice: practice),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            children: [
+              Expanded(
+                child: SafeArea(
+                  bottom: false,
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                    children: [
+                      AppText(
+                        AppLocalizations.of(context).breathworkTitle,
+                        variant: AppTextVariant.display,
+                        color: AppColors.ink,
+                        style: TextStyle(fontSize: 40, height: 1.1),
                       ),
-                  ],
+                      const SizedBox(height: 16),
+                      AppText(
+                        AppLocalizations.of(context).breathPractice,
+                        variant: AppTextVariant.link,
+                        color: AppColors.ink,
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(height: 12),
+                      for (final practice in BreathPractice.all)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: _PracticeRow(practice: practice),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const AppNavBar(current: '/breathwork'),
-          ],
+              const AppNavBar(current: '/breathwork'),
+            ],
+          ),
         ),
       ),
     );
